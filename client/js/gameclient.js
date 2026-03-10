@@ -47,10 +47,12 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
         connect: function(dispatcherMode) {
             var isSecure = (window.location.protocol === 'https:'),
                 wsProtocol = isSecure ? "wss://" : "ws://",
-                host = this.host || window.location.host,
-                url = (this.port === 443 || this.port === 80)
+                host = this.host || window.location.hostname,
+                port = this.port || (isSecure ? 443 : 80),
+                defaultPort = isSecure ? 443 : 80,
+                url = (parseInt(port, 10) === defaultPort)
                     ? wsProtocol + host + "/"
-                    : wsProtocol + host + ":" + this.port + "/",
+                    : wsProtocol + host + ":" + port + "/",
                 self = this;
             
             log.info("Trying to connect to server : "+url);

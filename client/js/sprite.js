@@ -117,7 +117,14 @@ define(['jquery', 'animation', 'sprites'], function($, Animation, sprites) {
             	    height: this.height
             	};
     	    } catch(e) {
-    	        log.error("Error getting image data for sprite : "+this.name);
+    	        this.whiteSprite = {
+                    image: this.image,
+                    isLoaded: true,
+                    offsetX: this.offsetX,
+                    offsetY: this.offsetY,
+                    width: this.width,
+                    height: this.height
+                };
     	    }
         },
 	
