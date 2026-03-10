@@ -1,0 +1,303 @@
+צריך להמשיך לסדר את כל המשחק הטקסט וכל מה שצריך יש קצת באגים כמו שאני הורג דמויות והם לא נעלמות מהמפה כמו שצריך ולהוריד לוט ולחזור אחרי כמה זמן וחסר דברים מהאפיון שביקשתי כדי שכל המשחק הסיפור וכל מה שצריך ייה מותאם לאפיון שלנו עם השם של המערכת
+PumpQuest
+וזה האפיון
+בנוסף גם שכל חלון המשחק יהיה יותר גדול הלוגו של TG אמיתי שיהיה גם למטה את ה CA שלנו וכל מה שצריך .
+
+
+
+מטרת המשימה
+
+Transform the BrowserQuest project into a crypto-themed memecoin adventure game while keeping the core engine intact.
+
+Important rules:
+
+Do NOT change the core game engine.
+
+Do NOT break multiplayer or networking logic.
+
+Only modify text, UI, configuration, and light gameplay elements.
+
+The game must still run exactly like the original BrowserQuest.
+
+The goal is to create a memecoin themed version integrated with our crypto project.
+
+1. יצירת קובץ קונפיגורציה לפרויקט
+
+Create a configuration file:
+
+client/config/project.json
+
+Example structure:
+
+{
+  "projectName": "MEMECOIN QUEST",
+  "tokenName": "YourToken",
+  "tokenSymbol": "YTKN",
+  "contractAddress": "COMING_SOON",
+  "website": "https://yourproject.com",
+  "twitter": "https://x.com/yourproject",
+  "telegram": "https://t.me/yourproject",
+  "logo": "/img/project/logo.png",
+  "description": "Explore the memecoin universe and discover the next legendary token."
+}
+
+All UI text should pull information from this config file where possible.
+
+This allows easy editing later.
+
+2. שינוי סיפור המשחק
+
+Replace the original medieval fantasy story with a memecoin themed story.
+
+New story concept:
+
+The world is called PumpVerse, inspired by platforms like Pump.fun.
+
+Thousands of memecoins are created every day.
+
+Some become legends.
+Most disappear.
+
+Players are Crypto Hunters exploring the network to:
+
+find legendary memecoins
+
+defeat scam projects
+
+collect fragments of valuable tokens
+
+build the ultimate coin.
+
+Update all NPC dialogue to match this theme.
+
+3. שינוי שמות במשחק (בלי לשנות sprites)
+
+Only change labels and descriptions.
+
+Examples:
+
+Player
+
+Knight → Crypto Hunter
+
+Enemies
+
+Rat → Spam Bot
+Skeleton → Dead Coin
+Goblin → Rug Dev
+Boss → Market Manipulator
+
+Items
+
+Gold → Meme Tokens
+Sword → Hash Blade
+Armor → Blockchain Shield
+Potion → Gas Boost
+
+4. שינוי שמות אזורים
+
+Do not change the map layout.
+
+Only rename areas.
+
+Example:
+
+Village → Genesis Launch
+Forest → Meme Jungle
+Dungeon → Rug Pull Cave
+Castle → Market Citadel
+
+5. מערכת "איסוף מטבעות"
+
+When enemies die they should drop:
+
+Token Fragment
+
+Example fragments:
+
+DOGE Fragment
+
+PEPE Fragment
+
+WOJAK Fragment
+
+CHAD Fragment
+
+These represent memecoins.
+
+Players collect fragments to increase their Market Score.
+
+6. מערכת ניקוד
+
+Add a score system called:
+
+Market Score
+
+Players gain score for:
+
+defeating enemies
+
+collecting fragments
+
+exploring areas
+
+Example:
+
+Enemy defeat → +10
+Fragment → +20
+Area cleared → +50
+
+7. Leaderboard
+
+Add a leaderboard UI panel showing:
+
+Top Crypto Hunters
+
+Display:
+
+player name
+
+market score
+
+8. הוספת קישורים לרשתות חברתיות
+
+Add a social panel to the main menu and game UI.
+
+Include buttons for:
+
+Telegram → from config
+Twitter/X → from config
+Website → from config
+
+Example UI:
+
+Follow the Project
+
+[Join Telegram]
+[Follow on X]
+[Visit Website]
+9. כפתור שיתוף
+
+Add simple share buttons:
+
+Share your score on X
+
+Example text:
+
+I just scored 1200 points hunting memecoins in MEMECOIN QUEST
+10. הוספת מסך מידע לפרויקט
+
+Create a new menu screen:
+
+About the Project
+
+Content loaded from config:
+
+project name
+
+token name
+
+description
+
+social links
+
+logo
+
+11. הוספת שלבים קטנים (בלי לשנות מפה)
+
+Without changing the map engine:
+
+Add zones progression.
+
+Example:
+
+Zone 1 → Beginner
+Zone 2 → Intermediate
+Zone 3 → Advanced
+
+Display message when entering zone:
+
+Entering Meme Jungle
+Danger Level: Medium
+12. הוספת לוגו לפרויקט
+
+Load project logo from:
+
+/img/project/logo.png
+
+Display in:
+
+main menu
+
+loading screen
+
+about page
+
+13. שמירה על יציבות המשחק
+
+Important constraints:
+
+Do NOT modify:
+
+rendering engine
+
+networking system
+
+movement system
+
+combat logic
+
+Only update:
+
+UI
+
+text
+
+config
+
+item labels
+
+NPC dialogue
+
+14. שיפור מסך פתיחה
+
+Update the start screen to include:
+
+MEMECOIN QUEST
+
+Explore the PumpVerse
+Discover legendary tokens
+Become the ultimate Crypto Hunter
+
+Buttons:
+
+Play
+Leaderboard
+About Project
+Social Links
+
+15. בדיקות
+
+Ensure the game still runs exactly like BrowserQuest:
+
+server starts correctly
+
+player movement works
+
+enemies spawn
+
+items drop
+
+multiplayer still functions
+
+התוצאה הרצויה
+
+A memecoin themed browser MMO demo that:
+
+promotes our crypto project
+
+keeps BrowserQuest stable
+
+allows easy configuration via project.json
+
+links to our Telegram and X communities.
