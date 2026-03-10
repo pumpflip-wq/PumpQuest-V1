@@ -1,11 +1,150 @@
 {
-  "projectName": "MEMECOIN QUEST",
-  "tokenName": "MemeCoin",
-  "tokenSymbol": "MEME",
+  "projectName": "PumpQuest",
+  "worldName": "PumpVerse",
+  "tokenName": "PumpToken",
+  "tokenSymbol": "PUMP",
   "contractAddress": "COMING_SOON",
   "website": "https://yourproject.com",
   "twitter": "https://x.com/yourproject",
   "telegram": "https://t.me/yourproject",
   "logo": "img/common/favicon.png",
-  "description": "Explore the PumpVerse, hunt legendary tokens, and become the ultimate Crypto Hunter."
+  "description": "Explore the PumpVerse, hunt legendary tokens, and become the ultimate Crypto Hunter.",
+  "tagline": "Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter",
+
+  "gameSettings": {
+    "playerTitle": "Crypto Hunter",
+    "gameTitle": "PumpQuest",
+    "worldDescription": "A vast digital universe where thousands of memecoins are born and forgotten every day. Some become legendary.",
+    "storyIntro": "Welcome to the PumpVerse. Hunt for legendary memecoins, defeat scam projects, and build your market score."
+  },
+
+  "entities": {
+    "enemies": {
+      "doge": { "name": "Doge", "type": "memecoin", "value": 1 },
+      "pepe": { "name": "Pepe", "type": "memecoin", "value": 1 },
+      "wojak": { "name": "Wojak", "type": "memecoin", "value": 1 },
+      "chad": { "name": "Chad", "type": "memecoin", "value": 1 },
+      "memecoin": { "name": "Rug Dev", "type": "enemy", "value": 2 },
+      "normie": { "name": "Paper Hands", "type": "enemy", "value": 2 },
+      "paperhands": { "name": "Paperhands", "type": "enemy", "value": 2 },
+      "fudster": { "name": "FUD Bot", "type": "enemy", "value": 2 },
+      "shill": { "name": "Shill", "type": "enemy", "value": 2 },
+      "ngmi": { "name": "NGMI", "type": "enemy", "value": 2 },
+      "bagholder": { "name": "Bagholder", "type": "enemy", "value": 3 },
+      "finalmonk": { "name": "Market Manipulator", "type": "boss", "value": 5 },
+      "troll": { "name": "Troll Bot", "type": "enemy", "value": 2 }
+    },
+    "npcs": {
+      "guard": { "name": "Security Guard", "description": "Protects the Genesis Launch" },
+      "villagegirl": { "name": "Luna", "description": "A crypto trader" },
+      "villager": { "name": "Hodler", "description": "A long-term investor" },
+      "scientist": { "name": "Dev", "description": "A blockchain developer" },
+      "priest": { "name": "Oracle", "description": "Reads the charts" },
+      "king": { "name": "Whale", "description": "The legendary whale" },
+      "beachnpc": { "name": "Surfer", "description": "Rides the market waves" },
+      "forestnpc": { "name": "Hermit", "description": "Lives in the jungle" },
+      "agent": { "name": "Agent", "description": "A secret operative" }
+    }
+  },
+
+  "items": {
+    "weapons": {
+      "gmhandle": { "name": "GM Blade", "description": "A sword wielded by founders" },
+      "dioptionhandle": { "name": "Dip Blade", "description": "Buys the dips" },
+      "lambohandle": { "name": "Lambo Blade", "description": "Dreams of Lambos" },
+      "moonshothandle": { "name": "Moon Blade", "description": "To the moon!" },
+      "diamondhandle": { "name": "Diamond Blade", "description": "Diamond hands weapon" },
+      "bluehandle": { "name": "Blue Blade", "description": "A reliable weapon" },
+      "bluehandle2": { "name": "Blue Saber", "description": "Enhanced blue blade" }
+    },
+    "armor": {
+      "clotharmor": { "name": "Paper Hands Vest", "description": "Light protection" },
+      "leatherarmor": { "name": "Hodler's Coat", "description": "Medium protection" },
+      "mailarmor": { "name": "Blockchain Shield", "description": "Strong protection" },
+      "platearmor": { "name": "Diamond Armor", "description": "Heavy protection" },
+      "goldenarmor": { "name": "Golden Armor", "description": "Legendary protection" },
+      "redarmor": { "name": "Red Armor", "description": "Aggressive protection" }
+    },
+    "consumables": {
+      "energydrink": { "name": "Gas Boost", "description": "Restores health quickly" },
+      "pizza": { "name": "Pizza", "description": "Programmer's fuel" },
+      "tendies": { "name": "Tendies", "description": "Victory snacks" },
+      "chest": { "name": "Token Chest", "description": "Contains fragments" }
+    }
+  },
+
+  "zones": {
+    "zone1": { "name": "Genesis Launch", "description": "Where it all begins", "difficulty": "Beginner" },
+    "zone2": { "name": "Meme Jungle", "description": "Wild and unpredictable", "difficulty": "Intermediate" },
+    "zone3": { "name": "Rug Pull Cave", "description": "Dangerous and dark", "difficulty": "Advanced" },
+    "zone4": { "name": "Market Citadel", "description": "The final frontier", "difficulty": "Expert" }
+  },
+
+  "scoring": {
+    "enemyDefeat": 10,
+    "fragmentCollection": 20,
+    "areaCleared": 50,
+    "bossDefeat": 100,
+    "leaderboardSize": 10
+  },
+
+  "fragments": {
+    "doge": { "name": "DOGE Fragment", "icon": "doge" },
+    "pepe": { "name": "PEPE Fragment", "icon": "pepe" },
+    "wojak": { "name": "WOJAK Fragment", "icon": "wojak" },
+    "chad": { "name": "CHAD Fragment", "icon": "chad" },
+    "memecoin": { "name": "Meme Fragment", "icon": "memecoin" },
+    "legendary": { "name": "Legendary Fragment", "icon": "legendary" }
+  },
+
+  "achievements": {
+    "tutorial": {
+      "id": 1,
+      "name": "First Steps",
+      "desc": "Enter the PumpVerse"
+    },
+    "exploration": {
+      "id": 2,
+      "name": "Into the Timeline",
+      "desc": "Leave Genesis Launch and enter Meme Jungle"
+    },
+    "doge_rush": {
+      "id": 3,
+      "name": "Doge Rush",
+      "desc": "Defeat 10 Doges"
+    },
+    "communication": {
+      "id": 4,
+      "name": "Small Talk",
+      "desc": "Talk to a meme citizen"
+    },
+    "wealth": {
+      "id": 5,
+      "name": "Fat Loot",
+      "desc": "Collect 100 fragments"
+    }
+  },
+
+  "ui": {
+    "playerCountLabel": "players online",
+    "marketScoreLabel": "Market Score",
+    "leaderboardTitle": "Top Crypto Hunters",
+    "playButton": "Hunt",
+    "helpText": "Left click or tap to move, attack and pick up items.",
+    "chatHelp": "Press ENTER to chat with other hunters.",
+    "saveText": "Your progress is automatically saved."
+  },
+
+  "sharing": {
+    "scoreMessage": "I just scored {score} points hunting memecoins in PumpQuest! 🚀",
+    "twitterShareText": "Hunting legendary tokens in PumpQuest! 🚀 Join the PumpVerse",
+    "telegramShareText": "Hunting legendary tokens in PumpQuest! 🚀"
+  },
+
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-03-10",
+    "description": "PumpQuest - A memecoin hunter adventure in the PumpVerse",
+    "keywords": "memecoin, crypto, game, blockchain, pump"
+  }
 }
