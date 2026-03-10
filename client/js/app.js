@@ -32,10 +32,8 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#project-logo').attr('src', this.project.logo);
             $('#social-telegram').attr('href', this.project.telegram);
             $('#social-twitter').attr('href', this.project.twitter);
-            $('#social-website').attr('href', this.project.website);
             $('#footer-telegram').attr('href', this.project.telegram);
             $('#footer-twitter').attr('href', this.project.twitter);
-            $('#footer-website').attr('href', this.project.website);
 
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
@@ -382,11 +380,7 @@ define(['jquery', 'storage'], function($, Storage) {
         toggleCredits: function() {
             var currentState = $('#parchment').attr('class');
 
-            if(!this.game) {
-                return;
-            }
-
-            if(this.game.started) {
+            if(this.game && this.game.started) {
                 $('#parchment').removeClass().addClass('credits');
                 
                 $('body').toggleClass('credits');
@@ -413,11 +407,7 @@ define(['jquery', 'storage'], function($, Storage) {
         toggleAbout: function() {
             var currentState = $('#parchment').attr('class');
 
-            if(!this.game) {
-                return;
-            }
-
-            if(this.game.started) {
+            if(this.game && this.game.started) {
                 $('#parchment').removeClass().addClass('about');
                 $('body').toggleClass('about');
                 if(!this.game.player) {
@@ -488,9 +478,17 @@ define(['jquery', 'storage'], function($, Storage) {
             list = _.sortBy(list, function(row) { return -row.score; }).slice(0, 10);
             this.storage.setLeaderboard(list);
 
-            var html = '';
+            var html = '',
+                escapeHtml = function(str) {
+                    return String(str)
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#39;');
+                };
             _.each(list, function(row, idx) {
-                html += '<li><span class="rank">' + (idx + 1) + '.</span> ' + _.escape(row.name) + ' <strong>' + row.score + '</strong></li>';
+                html += '<li><span class="rank">' + (idx + 1) + '.</span> ' + escapeHtml(row.name) + ' <strong>' + row.score + '</strong></li>';
             });
             $('#leaderboard-list').html(html);
         },

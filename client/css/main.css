@@ -1241,3 +1241,5 @@ footer, header, hgroup, menu, nav, section {
 #project-about-panel { margin: 10px 0; }
 #project-logo { width: 40px; height: 40px; image-rendering: pixelated; }
 #project-social-footer { margin-bottom: 6px; }
+
+#project-social-footer a { margin:0 6px; font-size:20px; text-decoration:none; }
