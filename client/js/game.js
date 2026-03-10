@@ -72,9 +72,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         },
     
         setup: function($bubbleContainer, canvas, background, foreground, input) {
-    		this.setBubbleManager(new BubbleManager($bubbleContainer));
-    		this.setRenderer(new Renderer(this, canvas, background, foreground));
-    		this.setChatInput(input);
+                this.setBubbleManager(new BubbleManager($bubbleContainer));
+                this.setRenderer(new Renderer(this, canvas, background, foreground));
+                this.setChatInput(input);
         },
         
         setStorage: function(storage) {
@@ -106,11 +106,11 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
     
             this.map = new Map(!this.renderer.upscaledRendering, this);
     
-        	this.map.ready(function() {
+                this.map.ready(function() {
                 log.info("Map loaded.");
                 var tilesetIndex = self.renderer.upscaledRendering ? 0 : self.renderer.scale - 1;
                 self.renderer.setTileset(self.map.tilesets[tilesetIndex]);
-        	});
+                });
         },
     
         initPlayer: function() {
@@ -119,10 +119,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 this.player.setWeaponName(this.storage.data.player.weapon);
             }
         
-        	this.player.setSprite(this.sprites[this.player.getSpriteName()]);
-        	this.player.idle();
+                this.player.setSprite(this.sprites[this.player.getSpriteName()]);
+                this.player.idle();
         
-    	    log.debug("Finished initPlayer");
+            log.debug("Finished initPlayer");
         },
 
         initShadows: function() {
@@ -452,7 +452,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 this.removeFromRenderingGrid(item, item.gridX, item.gridY);
                 delete this.entities[item.id];
             } else {
-                log.error("Cannot remove item. Unknown ID : " + item.id);
+                log.error("Cannot remove item. Item is null or undefined");
             }
         },
     
@@ -635,7 +635,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         
             this.setSpriteScale(this.renderer.scale);
         
-        	var wait = setInterval(function() {
+                var wait = setInterval(function() {
                 if(self.map.isLoaded && self.spritesLoaded()) {
                     self.ready = true;
                     log.debug('All sprites loaded.');
@@ -669,7 +669,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 
                     clearInterval(wait);
                 }
-        	}, 100);
+                }, 100);
         },
     
         tick: function() {
@@ -816,11 +816,11 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.selectedCellVisible = true;
 
                     if(self.renderer.mobile || self.renderer.tablet) {
-        	            self.drawTarget = true;
-        	            self.clearTarget = true;
-        	            self.renderer.targetRect = self.renderer.getTargetBoundingRect();
-        	            self.checkOtherDirtyRects(self.renderer.targetRect, null, self.selectedX, self.selectedY);
-        	        }
+                            self.drawTarget = true;
+                            self.clearTarget = true;
+                            self.renderer.targetRect = self.renderer.getTargetBoundingRect();
+                            self.checkOtherDirtyRects(self.renderer.targetRect, null, self.selectedX, self.selectedY);
+                        }
                 });
                 
                 self.player.onCheckAggro(function() {
@@ -1250,7 +1250,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                             entity.forEachAttacker(function(attacker) {
                                 if(attacker.canReachTarget()) {
                                     attacker.hit();
-                    	        }
+                                }
                             });
                             entity.die();
                         } else if(entity instanceof Chest) {
@@ -1912,36 +1912,36 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             } else {
                 this.previousClickPosition = pos;
             }
-	        
-    	    if(this.started
-    	    && this.player
-    	    && !this.isZoning()
-    	    && !this.isZoningTile(this.player.nextGridX, this.player.nextGridY)
-    	    && !this.player.isDead
-    	    && !this.hoveringCollidingTile
-    	    && !this.hoveringPlateauTile) {
-        	    entity = this.getEntityAt(pos.x, pos.y);
-    	    
-        	    if(entity instanceof Mob) {
-        	        this.makePlayerAttack(entity);
-        	    }
-        	    else if(entity instanceof Item) {
-        	        this.makePlayerGoToItem(entity);
-        	    }
-        	    else if(entity instanceof Npc) {
-        	        if(this.player.isAdjacentNonDiagonal(entity) === false) {
+                
+            if(this.started
+            && this.player
+            && !this.isZoning()
+            && !this.isZoningTile(this.player.nextGridX, this.player.nextGridY)
+            && !this.player.isDead
+            && !this.hoveringCollidingTile
+            && !this.hoveringPlateauTile) {
+                    entity = this.getEntityAt(pos.x, pos.y);
+            
+                    if(entity instanceof Mob) {
+                        this.makePlayerAttack(entity);
+                    }
+                    else if(entity instanceof Item) {
+                        this.makePlayerGoToItem(entity);
+                    }
+                    else if(entity instanceof Npc) {
+                        if(this.player.isAdjacentNonDiagonal(entity) === false) {
                         this.makePlayerTalkTo(entity);
-        	        } else {
+                        } else {
                         this.makeNpcTalk(entity);
-        	        }
-        	    }
-        	    else if(entity instanceof Chest) {
-        	        this.makePlayerOpenChest(entity);
-        	    }
-        	    else {
-        	        this.makePlayerGoTo(pos.x, pos.y);
-        	    }
-        	}
+                        }
+                    }
+                    else if(entity instanceof Chest) {
+                        this.makePlayerOpenChest(entity);
+                    }
+                    else {
+                        this.makePlayerGoTo(pos.x, pos.y);
+                    }
+                }
         },
         
         isMobOnSameTile: function(mob, x, y) {
