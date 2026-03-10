@@ -173,8 +173,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                                </span>
                                <span class="right-ornament"></span>
                         </h1>
-                        <div id="project-about-panel" style="max-width: 90%; margin: 3px auto; text-align: center;">
-                            <img id="project-logo" src="img/common/favicon.png" alt="Project logo" style="width: 32px; height: 32px; margin: 2px 0;" />
+                        <div id="project-about-panel" style="max-width: 90%; margin: 8px auto; text-align: center;">
                             <p id="contract-address-about" style="font-size: 12px; color: #666; margin: 5px 0; font-family: monospace; word-break: break-all;">CA: COMING_SOON</p>
                         </div>
                         <div style="display: flex; margin-top: 12px; max-width: 95%; margin-left: auto; margin-right: auto; justify-content: center; gap: 30px;">
@@ -260,17 +259,21 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                                 <div id="next"></div>
                             </nav>
                         </article>
-                        <article id="leaderboard" class="clickable">
-                            <div class="close"></div>
-                            <h1>
-                               <span class="left-ornament"></span>
-                               Top Crypto Hunters
-                               <span class="right-ornament"></span>
-                            </h1>
-                            <ol id="leaderboard-list" style="text-align:left; max-height:320px; overflow-y:auto; padding:0 20px;"></ol>
-                            <div id="close-leaderboard" style="margin-top: 10px;">
-                                <span style="font-size: 10px;">- click anywhere to close -</span>
+                        <article id="leaderboard" class="clickable parchment-modal">
+                            <div class="parchment-left"></div>
+                            <div class="parchment-middle">
+                                <div class="close" style="position: absolute; top: 10px; right: 10px;"></div>
+                                <h1>
+                                   <span class="left-ornament"></span>
+                                   Top Crypto Hunters
+                                   <span class="right-ornament"></span>
+                                </h1>
+                                <ol id="leaderboard-list" style="text-align:left; max-height:280px; overflow-y:auto; padding:0 20px; margin:10px 0;"></ol>
+                                <div id="close-leaderboard" style="margin-top: 10px; text-align: center;">
+                                    <span style="font-size: 10px;">- click anywhere to close -</span>
+                                </div>
                             </div>
+                            <div class="parchment-right"></div>
                         </article>
                         <div id="canvas">
                                 <canvas id="background"></canvas>
@@ -310,7 +313,6 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                         <div id="achievementsbutton" class="barbutton clickable"></div>
                         <div id="helpbutton" class="barbutton clickable"></div>
                         <div id="mutebutton" class="barbutton clickable active"></div>
-                        <div id="leaderboardbutton" class="barbutton clickable">🏆</div>
                     </div>
                         </div>
                                 <div id="chatbox">
@@ -330,8 +332,11 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                 </div>
                 <footer>
                     <div id="sharing" class="clickable">
-                      Share this on 
-              <a id="xshare" href="#" class="twitter" title="Share on X">𝕏</a>
+                      <div style="display:inline-block;">
+                        <span id="leaderboard-footer-label" style="cursor:pointer; margin-right:15px;">🏆 Leaderboard</span>
+                        <span>Share this on 
+                        <a id="xshare" href="#" class="twitter" title="Share on X">𝕏</a></span>
+                      </div>
                     </div>
                     <div id="contract-footer" style="font-size: 12px; color: #ffffff; margin: 3px 0; font-weight: bold;">
                       CA: <span id="footer-ca" style="font-family: monospace;">COMING_SOON</span>

@@ -53,12 +53,18 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 $(this).removeClass('blink');
                 });
 
-                $('#leaderboardbutton').click(function() {
+                $('#leaderboard-footer-label').click(function() {
                     app.toggleLeaderboard();
                 });
                 
                 $('#leaderboard .close').click(function() {
                     app.toggleLeaderboard();
+                });
+                
+                $('#leaderboard').click(function(e) {
+                    if(e.target.id === 'leaderboard' || $(e.target).closest('.parchment-middle').length === 0) {
+                        app.toggleLeaderboard();
+                    }
                 });
                 
                 $('#close-leaderboard').click(function() {
