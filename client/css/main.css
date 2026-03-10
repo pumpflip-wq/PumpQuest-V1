@@ -230,6 +230,8 @@ footer, header, hgroup, menu, nav, section {
     .intro footer {opacity:1;}
     footer:hover {opacity:1;}
     footer div  {display:inline-block; margin:0 15px;}
+    footer #footer-wrapper {display: flex !important; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px; margin-bottom: 12px;}
+    footer #footer-wrapper > div {display: inline-block !important; margin: 0 !important;}
     .game footer div {display:inline-block; margin:0 20px;}
     .game #contract-footer {color:#ffffff; font-weight:bold; font-size:12px; letter-spacing:1px;}
     .game #footer-left {display:inline-block; margin-right:40px; font-size:16px;}
@@ -1280,5 +1282,5 @@ footer, header, hgroup, menu, nav, section {
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
 #game-logo { display: none; }
-.game #game-logo { display: block; text-align: center; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 10; }
-#game-logo img { width: 250px; height: auto; image-rendering: pixelated; }
+.game #game-logo { display: block; text-align: center; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); z-index: 10; }
+#game-logo img { width: 80vw; height: auto; image-rendering: pixelated; max-width: 90vw; }
