@@ -1,7 +1,7 @@
-BrowserQuest
+Memecoin Universe
 ============
 
-BrowserQuest is a HTML5/JavaScript multiplayer game experiment.
+Memecoin Universe is a HTML5/JavaScript multiplayer game experiment.
 
 
 Documentation
