@@ -6,8 +6,8 @@ var path = require('path');
 var app = express();
 var proxy = httpProxy.createProxyServer({ ws: true });
 
-var GAME_SERVER_PORT = 8000;
-var STATIC_SERVER_PORT = 5000;
+var GAME_SERVER_PORT = process.env.GAME_PORT || 8000;
+var STATIC_SERVER_PORT = process.env.PORT || 5000;
 
 // Disable caching in development
 app.use(function(req, res, next) {
@@ -39,4 +39,5 @@ proxy.on('error', function(err, req, res) {
 server.listen(STATIC_SERVER_PORT, '0.0.0.0', function() {
     console.log('BrowserQuest client server running on port ' + STATIC_SERVER_PORT);
     console.log('WebSocket connections proxied to game server on port ' + GAME_SERVER_PORT);
+    console.log('NODE_ENV: ' + (process.env.NODE_ENV || 'development'));
 });

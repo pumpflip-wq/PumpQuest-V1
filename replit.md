@@ -59,10 +59,14 @@ server-static.js - Express static file server with WebSocket proxy
 
 ## Key Fixes Applied
 
-1. **package.json**: Fixed version constraints for `sanitizer` (pinned to 0.0.8), `websocket-server` (installed from GitHub), `log` (pinned to 1.4.0 for compatible API)
+1. **package.json**: 
+   - Fixed version constraints for `sanitizer` (0.0.8), `websocket-server` (GitHub), `log` (1.4.0)
+   - Added "start" script for production deployment (starts both game server and static server)
+   - Added "main" field pointing to server-static.js
 2. **server/js/map.js**: Replaced deprecated `path.exists()` with `fs.access()`
 3. **client/js/gameclient.js**: Added WSS support for HTTPS environments (Replit proxy)
 4. **server-static.js**: Express server serving client files + WebSocket proxy to game server
+5. **server/js/player.js**: Fixed damage handler when player is hurt by mob - now correctly passes attacker and damage to `handleHurtEntity()`
 
 ## Dependencies
 

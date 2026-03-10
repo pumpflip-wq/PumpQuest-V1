@@ -2,6 +2,11 @@
     "name": "BrowserQuest",
     "version": "0.0.1",
     "private": false,
+    "main": "server-static.js",
+    "scripts": {
+        "start-game": "node server/js/main.js",
+        "start": "node server/js/main.js & sleep 2 && node server-static.js"
+    },
     "dependencies": {
         "bison": "^1.1.1",
         "express": "^5.2.1",
