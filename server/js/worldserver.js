@@ -543,12 +543,17 @@ module.exports = World = cls.Class.extend({
                     item = this.getDroppedItem(mob);
 
                 this.pushToPlayer(attacker, new Messages.Kill(mob));
-                this.pushToAdjacentGroups(mob.group, mob.despawn()); // Despawn must be enqueued before the item drop
-                this.pushToPlayer(attacker, mob.despawn()); // Also send despawn directly to attacker
+                
+                // Send drop BEFORE despawn so client sees the item
                 if(item) {
                     this.pushToAdjacentGroups(mob.group, mob.drop(item));
+                    this.pushToPlayer(attacker, mob.drop(item));
                     this.handleItemDespawn(item);
                 }
+                
+                // Send despawn AFTER drop
+                this.pushToAdjacentGroups(mob.group, mob.despawn());
+                this.pushToPlayer(attacker, mob.despawn());
             }
     
             if(entity.type === "player") {

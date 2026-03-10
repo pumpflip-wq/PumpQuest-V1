@@ -454,10 +454,10 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-687px -153px;}
         .button.delete:active {background-position:0 -2178px;}
         
-                #container {width:1600px;margin:0 auto;position:absolute;top:50%;margin-top:-420px;left:50%;margin-left:-800px;}
-                #canvasborder {padding:20px;background:url('../img/3/border.png') no-repeat;}
-                #canvas {width:100%;height:750px;}
-                #fade {width:1560px;height:750px;top:20px;left:20px;}
+                #container {width:1800px;margin:0 auto;position:absolute;top:50%;margin-top:-480px;left:50%;margin-left:-900px;}
+                #canvasborder {padding:25px;background:url('../img/3/border.png') no-repeat;}
+                #canvas {width:100%;height:880px;}
+                #fade {width:1750px;height:880px;top:25px;left:25px;}
                 
                 #instructions {height:516px;width:1251px;background-position:0 -1581px;margin-left:-624px;margin-top:-279px;color:#373737;}
                 #instructions h1 {font-size:40px;text-align:center;margin:50px 0;}
@@ -933,10 +933,10 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-229px -51px;}
         .button.delete:active {background-position:0 -726px;}
         
-                #container {width:550px;margin:0 auto;position:absolute;top:50%;margin-top:-145px;left:50%;margin-left:-275px;}
-                #canvasborder {padding:8px;background:url('../img/1/border.png') no-repeat;}
-                #canvas {width:100%;height:260px;}
-                #fade {width:534px;height:260px;top:8px;left:8px;}
+                #container {width:600px;margin:0 auto;position:absolute;top:50%;margin-top:-160px;left:50%;margin-left:-300px;}
+                #canvasborder {padding:10px;background:url('../img/1/border.png') no-repeat;}
+                #canvas {width:100%;height:300px;}
+                #fade {width:580px;height:300px;top:10px;left:10px;}
                 
                 #instructions {height:172px;width:417px;background-position:0 -527px;margin-left:-208px;margin-top:-93px;color:#373737;}
                 #instructions h1 {font-size:20px;text-align:center;margin-bottom:0;}

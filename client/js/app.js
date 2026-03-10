@@ -40,14 +40,12 @@ define(['jquery', 'storage'], function($, Storage) {
             // About page links
             $('#about-telegram').attr('href', this.project.telegram);
             $('#about-twitter').attr('href', this.project.twitter);
-            $('#about-website').attr('href', this.project.website);
             
             // Token page (Credits)
             $('#token-name-credits').text(this.project.tokenName);
             $('#token-symbol-credits').text(this.project.tokenSymbol);
             $('#token-telegram').attr('href', this.project.telegram);
             $('#token-twitter').attr('href', this.project.twitter);
-            $('#token-website').attr('href', this.project.website);
             
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
