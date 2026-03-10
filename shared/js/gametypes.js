@@ -49,13 +49,12 @@ Types = {
         TROLL: 14,
         
         // Armors
-        MEMECAP: 20,
-        CLOTHARMOR: 21,
-        LEATHERARMOR: 22,
-        MAILARMOR: 23,
-        PLATEARMOR: 24,
-        GOLDENARMOR: 25,
-        REDARMOR: 26,
+        CLOTHARMOR: 20,
+        LEATHERARMOR: 21,
+        MAILARMOR: 22,
+        PLATEARMOR: 23,
+        GOLDENARMOR: 24,
+        REDARMOR: 25,
         
         // Objects
         ENERGYDRINK: 35,
@@ -125,7 +124,6 @@ var kinds = {
     diamondhandle: [Types.Entities.DIAMONDHANDLE, "weapon"],
     bluehandle2: [Types.Entities.BLUEHANDLE2, "weapon"],
     
-    memecap: [Types.Entities.MEMECAP, "armor"],
     clotharmor: [Types.Entities.CLOTHARMOR, "armor"],
     leatherarmor: [Types.Entities.LEATHERARMOR, "armor"],
     mailarmor: [Types.Entities.MAILARMOR, "armor"],

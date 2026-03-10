@@ -2,7 +2,7 @@
 define(['text!../config/config_build.json'],
 function(build) {
     var config = {
-        dev: { host: window.location.hostname, port: window.location.port === "5000" ? 8000 : 8000, dispatcher: false },
+        dev: { host: window.location.hostname, port: window.location.port || 5000, dispatcher: false },
         build: JSON.parse(build)
     };
     
