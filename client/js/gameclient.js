@@ -47,10 +47,12 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
         connect: function(dispatcherMode) {
             var isSecure = (window.location.protocol === 'https:'),
                 wsProtocol = isSecure ? "wss://" : "ws://",
-                host = this.host || window.location.host,
-                url = (this.port === 443 || this.port === 80)
+                host = this.host || window.location.hostname,
+                port = this.port || (isSecure ? 443 : 80),
+                defaultPort = isSecure ? 443 : 80,
+                url = (parseInt(port, 10) === defaultPort)
                     ? wsProtocol + host + "/"
-                    : wsProtocol + host + ":" + this.port + "/",
+                    : wsProtocol + host + ":" + port + "/",
                 self = this;
             
             log.info("Trying to connect to server : "+url);
@@ -68,9 +70,9 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
                     if(reply.status === 'OK') {
                         self.dispatched_callback(reply.host, reply.port);
                     } else if(reply.status === 'FULL') {
-                        alert("BrowserQuest is currently at maximum player population. Please retry later.");
+                        alert("Memecoin Universe is currently at maximum player population. Please retry later.");
                     } else {
-                        alert("Unknown error while connecting to BrowserQuest.");
+                        alert("Unknown error while connecting to Memecoin Universe.");
                     }
                 };
             } else {
@@ -105,7 +107,7 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
                         if(self.isTimeout) {
                             self.disconnected_callback("You have been disconnected for being inactive for too long");
                         } else {
-                            self.disconnected_callback("The connection to BrowserQuest has been lost");
+                            self.disconnected_callback("The connection to Memecoin Universe has been lost");
                         }
                     }
                 };

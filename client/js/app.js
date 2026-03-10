@@ -355,6 +355,10 @@ define(['jquery', 'storage'], function($, Storage) {
         toggleCredits: function() {
             var currentState = $('#parchment').attr('class');
 
+            if(!this.game) {
+                return;
+            }
+
             if(this.game.started) {
                 $('#parchment').removeClass().addClass('credits');
                 
@@ -381,6 +385,10 @@ define(['jquery', 'storage'], function($, Storage) {
         
         toggleAbout: function() {
             var currentState = $('#parchment').attr('class');
+
+            if(!this.game) {
+                return;
+            }
 
             if(this.game.started) {
                 $('#parchment').removeClass().addClass('about');
