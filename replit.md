@@ -59,24 +59,21 @@ server-static.js - Express static file server with WebSocket proxy
 
 ## Key Fixes Applied
 
-1. **package.json**: 
-   - Fixed version constraints for `sanitizer` (0.0.8), `websocket-server` (GitHub), `log` (1.4.0)
-   - Added "start" script for production deployment (starts both game server and static server)
-   - Added "main" field pointing to server-static.js
+1. **package.json**: Fixed version constraints and deployment scripts
 2. **server/js/map.js**: Replaced deprecated `path.exists()` with `fs.access()`
 3. **client/js/gameclient.js**: Added WSS support for HTTPS environments (Replit proxy)
-4. **server-static.js**: Express server serving client files + WebSocket proxy to game server
-5. **server/js/player.js**: Fixed damage handler when player is hurt by mob - now correctly passes attacker and damage to `handleHurtEntity()`
-6. **server/js/worldserver.js**: Fixed mob despawn message - now sends despawn directly to attacking player (line 550) to ensure killed mobs disappear immediately
-7. **client/css/main.css**: Enlarged canvas sizes (desktop: 750px height, mobile: 260px height) for better gameplay visibility
-8. **client/index.html**: Added TG logo and CA (Contract Address) display in footer
-9. **client/js/app.js**: Added CA text display in footer and TG logo click handler for Telegram navigation
-10. **client/config/project.json**: Complete PumpQuest configuration with:
-    - Project name, token details, social links
-    - Game settings and entity mappings
-    - Market Score system configuration
-    - Fragment collection system
-    - UI labels and sharing templates
+4. **server-static.js**: Express server with WebSocket proxy to game server
+5. **server/js/worldserver.js**: Fixed mob despawn - sends message to attacking player for immediate removal
+6. **client/css/main.css**: Enlarged canvas (desktop: 750px, mobile: 260px) for better visibility
+7. **client/index.html**: 
+   - Cleaned up duplicate footer elements
+   - "About PumpQuest" page with token info, CA display, and buy/social links
+   - "PumpQuest Token" page (Credits) with DeFi links and community links
+8. **client/js/app.js**: 
+   - Initialize all UI links from project.json
+   - About page: Telegram, Twitter, Website links
+   - Token page: social links and buy links
+9. **client/config/project.json**: Complete PumpQuest config with token info, social links, market scoring system
 
 ## Dependencies
 

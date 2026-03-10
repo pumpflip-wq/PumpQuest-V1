@@ -29,21 +29,26 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#about-token-name').text(this.project.tokenName + ' (' + this.project.tokenSymbol + ')');
             $('#about-project-description').text(this.project.description);
             $('#about-contract').text(this.project.contractAddress);
-            $('#footer-ca-text').text(this.project.contractAddress);
             $('#project-logo').attr('src', this.project.logo);
+            
+            // Set social links
             $('#social-telegram').attr('href', this.project.telegram);
             $('#social-twitter').attr('href', this.project.twitter);
             $('#footer-telegram').attr('href', this.project.telegram);
             $('#footer-twitter').attr('href', this.project.twitter);
             
-            var self = this;
-            var $tgLogo = $('#footer-tg-logo');
-            if($tgLogo.length) {
-                $tgLogo.click(function() {
-                    window.open($('#footer-telegram').attr('href'), '_blank');
-                });
-            }
-
+            // About page links
+            $('#about-telegram').attr('href', this.project.telegram);
+            $('#about-twitter').attr('href', this.project.twitter);
+            $('#about-website').attr('href', this.project.website);
+            
+            // Token page (Credits)
+            $('#token-name-credits').text(this.project.tokenName);
+            $('#token-symbol-credits').text(this.project.tokenSymbol);
+            $('#token-telegram').attr('href', this.project.telegram);
+            $('#token-twitter').attr('href', this.project.twitter);
+            $('#token-website').attr('href', this.project.website);
+            
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
         },
