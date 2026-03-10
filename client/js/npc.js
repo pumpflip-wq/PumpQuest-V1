@@ -3,43 +3,43 @@ define(['character'], function(Character) {
 
     var NpcTalk = {
         "guard": [
-            "Hello there",
-            "We don't need to see your identification",
-            "You are not the player we're looking for",
-            "Move along, move along..."
+            "Yo, what's good?",
+            "Just HODL your keys, don't lose them",
+            "You don't look like a paper hand to me",
+            "Keep grinding, keep stacking..."
         ],
     
         "king": [
-            "Hi, I'm the King",
-            "I run this place",
-            "Like a boss",
-            "I talk to people",
-            "Like a boss",
-            "I wear a crown",
-            "Like a boss",
-            "I do nothing all day",
-            "Like a boss",
+            "I'm the Doge King",
+            "I run the Memecoin Universe",
+            "Much power",
+            "I influence the masses",
+            "Much control",
+            "I wear a golden memecap",
+            "Such prestige",
+            "I pump bags all day",
+            "Much profit",
             "Now leave me alone",
-            "Like a boss"
+            "Much busy"
         ],
     
         "villagegirl": [
-            "Hi there, adventurer!",
-            "How do you like this game?",
-            "It's all happening in a single web page! Isn't it crazy?",
-            "It's all made possible thanks to WebSockets.",
-            "I don't know much about it, after all I'm just a program.",
-            'Why don&#x27;t you read this <a target="_blank" href="http://hacks.mozilla.org/2012/03/browserquest/">blog post</a> and learn all about it?'
+            "WAGMI, crypto explorer!",
+            "How are you liking the Memecoin Universe?",
+            "It's all running on a decentralized web page! Isn't it wild?",
+            "It's made possible thanks to peer-to-peer connections.",
+            "I'm just a digital entity trading memes and dreams.",
+            'Check out <a target="_blank" href="https://memecoin.universe/">the Memecoin docs</a> to learn about the metaverse!'
         ],
     
         "villager": [
-            "Howdy stranger. Do you like poetry?",
-            "Roses are red, violets are blue...",
-            "I like hunting rats, and so do you...",
-            "The rats are dead, now what to do?",
-            "To be honest, I have no clue.",
-            "Maybe the forest, could interest you...",
-            "or instead, cook a rat stew."
+            "Yo, anon. You like shitposting?",
+            "Doge is love, Pepe is memes...",
+            "I like grinding normies, and so should you...",
+            "The normies are rekt, now what to do?",
+            "To be honest, just HODL and chill.",
+            "Maybe the Lava Zone could interest you...",
+            "or instead, stake your tendies."
         ],
     
         "agent": [
@@ -65,13 +65,13 @@ define(['character'], function(Character) {
         ],
         
         "scientist": [
-            "Greetings.",
-            "I am the inventor of these two potions.",
-            "The red one will replenish your health points...",
-            "The orange one will turn you into a firefox and make you invincible...",
-            "But it only lasts for a short while.",
-            "So make good use of it!",
-            "Now if you'll excuse me, I need to get back to my experiments..."
+            "Yo, degenerates.",
+            "I've concocted these two legendary draughts.",
+            "The red energy drink will restore your health...",
+            "The orange moon juice will turn you into a shitposting god and make you unstoppable...",
+            "But the effect only lasts for a brief moment.",
+            "So use it wisely on your enemies!",
+            "Now if you'll excuse me, I gotta get back to testing my moon rockets..."
         ],
     
         "nyan": [
@@ -102,57 +102,57 @@ define(['character'], function(Character) {
         ],
     
         "priest": [
-            "Oh, hello, young man.",
-            "Wisdom is everything, so I'll share a few guidelines with you.",
-            "You are free to go wherever you like in this world",
-            "but beware of the many foes that await you.",
-            "You can find many weapons and armors by killing enemies.",
-            "The tougher the enemy, the higher the potential rewards.",
-            "You can also unlock achievements by exploring and hunting.",
-            "Click on the small cup icon to see a list of all the achievements.",
-            "Please stay a while and enjoy the many surprises of BrowserQuest",
-            "Farewell, young friend."
+            "HODL, young traveler.",
+            "Memecoin wisdom is everything, so I'll share a few HODLing tips with you.",
+            "You are free to farm and explore the Memecoin Universe",
+            "but beware of the many FUDsters and rug pullers that await you.",
+            "You can find many dope weapons and hoddies by defeating the normies.",
+            "The stronger the enemy, the better the loot you'll receive.",
+            "You can also unlock achievements by exploring and grinding.",
+            "Click on the moon icon to see a list of all the achievements.",
+            "Please stay a while and enjoy the many memes of Memecoin Universe",
+            "To the moon, friend."
         ],
         
         "sorcerer": [
-            "Ah... I had foreseen you would come to see me.",
-            "Well? How do you like my new staff?",
-            "Pretty cool, eh?",
-            "Where did I get it, you ask?",
-            "I understand. It's easy to get envious.",
-            "I actually crafted it myself, using my mad wizard skills.",
-            "But let me tell you one thing...",
-            "There are lots of items in this game.",
-            "Some more powerful than others.",
-            "In order to find them, exploration is key.",
-            "Good luck."
+            "Ah... I predicted you would come seek me out.",
+            "Well? How do you like my new lambo handle?",
+            "Pretty sick, yeah?",
+            "Where did I score it, you wonder?",
+            "I feel you. It's easy to get FOMO.",
+            "I actually farmed it myself, using my elite shitposting skills.",
+            "But let me tell you something real...",
+            "There are tons of loot in the Memecoin Universe.",
+            "Some way more valuable than others.",
+            "To find them, you gotta grind and explore.",
+            "Get those bags."
         ],
         
         "octocat": [
-            "Welcome to BrowserQuest!",
+            "Welcome to Memecoin Universe!",
             "Want to see the source code?",
-            'Check out <a target="_blank" href="http://github.com/mozilla/BrowserQuest">the repository on GitHub</a>'
+            'Check out <a target="_blank" href="http://github.com/mozilla/BrowserQuest">the Memecoin GitHub</a>'
         ],
         
         "coder": [
-            "Hi! Do you know that you can also play BrowserQuest on your tablet or mobile?",
-            "That's the beauty of HTML5!",
-            "Give it a try..."
+            "Yo! You can play Memecoin Universe on any device with a browser!",
+            "That's the power of blockchain and web3!",
+            "Get trading, anon..."
         ],
     
         "beachnpc": [
-            "Don't mind me, I'm just here on vacation.",
-            "I have to say...",
-            "These giant crabs are somewhat annoying.",
-            "Could you please get rid of them for me?"
+            "Yo, I'm just vibing here on my moon vacation.",
+            "Ngl...",
+            "These Chad mobs are kinda cringe.",
+            "Can you please send them to the shadow realm?"
         ],
         
         "desertnpc": [
-            "One does not simply walk into these mountains...",
-            "An ancient undead lord is said to dwell here.",
-            "Nobody knows exactly what he looks like...",
-            "...for none has lived to tell the tale.",
-            "It's not too late to turn around and go home, kid."
+            "Welcome to the Wasteland of Forgotten Memes...",
+            "A legendary FUD Lord dwells somewhere out here.",
+            "They say he controls the price with a single tweet...",
+            "...but traders who met him never profited again.",
+            "Maybe grab some tendies and pump some bags instead?"
         ],
     
         "othernpc": [

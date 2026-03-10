@@ -1351,7 +1351,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     }
                     
                     if(mobName === 'boss') {
-                        self.showNotification("You killed the skeleton king");
+                        self.showNotification("You defeated the FUD Lord!");
                     } else {
                         if(_.include(['a', 'e', 'i', 'o', 'u'], mobName[0])) {
                             self.showNotification("You killed an " + mobName);
