@@ -131,7 +131,7 @@ define(['character'], function(Character) {
         "octocat": [
             "Welcome to Memecoin Universe!",
             "Want to see the source code?",
-            'Check out <a target="_blank" href="http://github.com/mozilla/BrowserQuest">the Memecoin GitHub</a>'
+            'Check out <a target="_blank" href="https://github.com/your-org/memecoin-universe">the Memecoin GitHub</a>'
         ],
         
         "coder": [

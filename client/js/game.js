@@ -35,6 +35,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.mouse = { x: 0, y: 0 };
             this.zoningQueue = [];
             this.previousClickPosition = {};
+            this.lastMusicAreaName = null;
+            this.clearedAreas = {};
     
             this.selectedX = 0;
             this.selectedY = 0;
@@ -63,12 +65,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.debugPathing = false;
         
             // sprites
-            this.spriteNames = ["hand", "sword", "loot", "target", "talk", "sparks", "shadow16", "rat", "skeleton", "skeleton2", "spectre", "boss", "deathknight", 
-                                "ogre", "crab", "snake", "eye", "bat", "goblin", "wizard", "guard", "king", "villagegirl", "villager", "coder", "agent", "rick", "scientist", "nyan", "priest", 
+            this.spriteNames = ["hand", "sword", "loot", "target", "talk", "sparks", "shadow16", "doge", "pepe", "wojak", "troll", "finalmonk", "memecoin", 
+                                "chad", "paperhands", "fudster", "shill", "ngmi", "normie", "bagholder", "guard", "king", "villagegirl", "villager", "coder", "agent", "rick", "scientist", "nyan", "priest", 
                                 "sorcerer", "octocat", "beachnpc", "forestnpc", "desertnpc", "lavanpc", "clotharmor", "leatherarmor", "mailarmor", 
-                                "platearmor", "redarmor", "goldenarmor", "firefox", "death", "sword1", "axe", "chest",
-                                "sword2", "redsword", "bluesword", "goldensword", "item-sword2", "item-axe", "item-redsword", "item-bluesword", "item-goldensword", "item-leatherarmor", "item-mailarmor", 
-                                "item-platearmor", "item-redarmor", "item-goldenarmor", "item-flask", "item-cake", "item-burger", "morningstar", "item-morningstar", "item-firepotion"];
+                                "platearmor", "redarmor", "goldenarmor", "firefox", "death", "gmhandle", "dioptionhandle", "chest",
+                                "bluehandle2", "diamondhandle", "bluehandle", "lambohandle", "item-gmhandle", "item-dioptionhandle", "item-diamondhandle", "item-bluehandle", "item-lambohandle", "item-leatherarmor", "item-mailarmor", 
+                                "item-platearmor", "item-redarmor", "item-goldenarmor", "item-energydrink", "item-pizza", "item-redherring", "moonshothandle", "item-moonshothandle", "item-tendies"];
         },
     
         setup: function($bubbleContainer, canvas, background, foreground, input) {
@@ -171,18 +173,18 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.achievements = {
                 A_TRUE_WARRIOR: {
                     id: 1,
-                    name: "A True Warrior",
+                    name: "Meme Initiate",
                     desc: "Find a new weapon"
                 },
                 INTO_THE_WILD: {
                     id: 2,
-                    name: "Into the Wild",
-                    desc: "Venture outside the village"
+                    name: "Into the Timeline",
+                    desc: "Leave Spawn Plaza and enter the meme grid"
                 },
                 ANGRY_RATS: {
                     id: 3,
-                    name: "Angry Rats",
-                    desc: "Kill 10 rats",
+                    name: "Doge Rush",
+                    desc: "Defeat 10 Doges",
                     isCompleted: function() {
                         return self.storage.getRatCount() >= 10;
                     }
@@ -190,22 +192,22 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 SMALL_TALK: {
                     id: 4,
                     name: "Small Talk",
-                    desc: "Talk to a non-player character"
+                    desc: "Talk to a meme citizen"
                 },
                 FAT_LOOT: {
                     id: 5,
                     name: "Fat Loot",
-                    desc: "Get a new armor set"
+                    desc: "Equip a fresh drip set"
                 },
                 UNDERGROUND: {
                     id: 6,
-                    name: "Underground",
-                    desc: "Explore at least one cave"
+                    name: "Thread Diver",
+                    desc: "Explore at least one underground meme hub"
                 },
                 AT_WORLDS_END: {
                     id: 7,
-                    name: "At World's End",
-                    desc: "Reach the south shore"
+                    name: "Edge of the Feed",
+                    desc: "Reach the bottom edge of Memecoin Universe"
                 },
                 COWARD: {
                     id: 8,
@@ -214,13 +216,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 },
                 TOMB_RAIDER: {
                     id: 9,
-                    name: "Tomb Raider",
-                    desc: "Find the graveyard"
+                    name: "Archive Raider",
+                    desc: "Find the forgotten meme archive"
                 },
                 SKULL_COLLECTOR: {
                     id: 10,
-                    name: "Skull Collector",
-                    desc: "Kill 10 skeletons",
+                    name: "Wojak Collector",
+                    desc: "Defeat 10 Wojaks or Pepes",
                     isCompleted: function() {
                         return self.storage.getSkeletonCount() >= 10;
                     }
@@ -232,8 +234,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 },
                 NO_MANS_LAND: {
                     id: 12,
-                    name: "No Man's Land",
-                    desc: "Travel through the desert"
+                    name: "No-Coin's Land",
+                    desc: "Travel through the FUD Wasteland"
                 },
                 HUNTER: {
                     id: 13,
@@ -262,7 +264,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 HOT_SPOT: {
                     id: 16,
                     name: "Hot Spot",
-                    desc: "Enter the volcanic mountains"
+                    desc: "Enter the Pump Volcano"
                 },
                 HERO: {
                     id: 17,
@@ -272,19 +274,19 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 FOXY: {
                     id: 18,
                     name: "Foxy",
-                    desc: "Find the Firefox costume",
+                    desc: "Find the Memecoin Hero skin",
                     hidden: true
                 },
                 FOR_SCIENCE: {
                     id: 19,
-                    name: "For Science",
-                    desc: "Enter into a portal",
+                    name: "For Memes",
+                    desc: "Enter a portal node",
                     hidden: true
                 },
                 RICKROLLD: {
                     id: 20,
                     name: "Rickroll'd",
-                    desc: "Take some singing lessons",
+                    desc: "Survive a meme anthem performance",
                     hidden: true
                 }
             };
@@ -792,9 +794,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.storage.savePlayer(self.renderer.getPlayerImage(),
                                             self.player.getSpriteName(),
                                             self.player.getWeaponName());
-                    self.showNotification("Welcome to BrowserQuest!");
+                    self.showNotification("Welcome to Memecoin Universe!");
                 } else {
-                    self.showNotification("Welcome back to BrowserQuest!");
+                    self.showNotification("Welcome back to Memecoin Universe!");
                     self.storage.setPlayerName(name);
                 }
         
@@ -906,6 +908,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                             self.client.sendLoot(item); // Notify the server that this item has been looted
                             self.removeItem(item);
                             self.showNotification(item.getLootMessage());
+                            self.updateMarketScore(20);
                         
                             if(item.type === "armor") {
                                 self.tryUnlockingAchievement("FAT_LOOT");
@@ -1338,20 +1341,20 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 self.client.onPlayerKillMob(function(kind) {
                     var mobName = Types.getKindAsString(kind);
                     
-                    if(mobName === 'skeleton2') {
-                        mobName = 'greater skeleton';
+                    if(mobName === 'wojak') {
+                        mobName = 'Wojak';
                     }
                     
-                    if(mobName === 'eye') {
-                        mobName = 'evil eye';
+                    if(mobName === 'pepe') {
+                        mobName = 'Pepe';
                     }
                     
-                    if(mobName === 'deathknight') {
-                        mobName = 'death knight';
+                    if(mobName === 'chad') {
+                        mobName = 'Chad';
                     }
                     
-                    if(mobName === 'boss') {
-                        self.showNotification("You defeated the FUD Lord!");
+                    if(mobName === 'memecoin') {
+                        self.showNotification("You defeated the final whale boss!");
                     } else {
                         if(_.include(['a', 'e', 'i', 'o', 'u'], mobName[0])) {
                             self.showNotification("You killed an " + mobName);
@@ -1362,18 +1365,19 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     
                     self.storage.incrementTotalKills();
                     self.tryUnlockingAchievement("HUNTER");
+                    self.updateMarketScore(10);
 
-                    if(kind === Types.Entities.RAT) {
+                    if(kind === Types.Entities.DOGE) {
                         self.storage.incrementRatCount();
                         self.tryUnlockingAchievement("ANGRY_RATS");
                     }
                     
-                    if(kind === Types.Entities.SKELETON || kind === Types.Entities.SKELETON2) {
+                    if(kind === Types.Entities.WOJAK || kind === Types.Entities.PEPE) {
                         self.storage.incrementSkeletonCount();
                         self.tryUnlockingAchievement("SKULL_COLLECTOR");
                     }
 
-                    if(kind === Types.Entities.BOSS) {
+                    if(kind === Types.Entities.MEMECOIN) {
                         self.tryUnlockingAchievement("HERO");
                     }
                 });
@@ -2284,6 +2288,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         onNotification: function(callback) {
             this.notification_callback = callback;
         },
+
+        onMarketScoreChange: function(callback) {
+            this.marketscore_callback = callback;
+        },
     
         onPlayerInvincible: function(callback) {
             this.invincible_callback = callback
@@ -2392,6 +2400,51 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
         
+        getAreaDisplayName: function(areaName) {
+            var names = {
+                village: "Genesis Launch",
+                forest: "Meme Jungle",
+                cave: "Rug Pull Cave",
+                desert: "Token Wasteland",
+                lavaland: "Pump Volcano",
+                beach: "Liquidity Coast",
+                boss: "Market Citadel"
+            };
+            return names[areaName] || areaName;
+        },
+
+        updateMarketProgress: function() {
+            var music = this.audioManager.getSurroundingMusic(this.player),
+                dangerMap = {
+                    village: "Low",
+                    beach: "Low",
+                    forest: "Medium",
+                    cave: "Medium",
+                    desert: "High",
+                    lavaland: "High",
+                    boss: "Extreme"
+                },
+                areaName;
+
+            if(music && music.name && music.name !== this.lastMusicAreaName) {
+                this.lastMusicAreaName = music.name;
+                areaName = this.getAreaDisplayName(music.name);
+                this.showNotification("Entering " + areaName + " • Danger Level: " + (dangerMap[music.name] || "Medium"));
+
+                if(!this.clearedAreas[music.name]) {
+                    this.clearedAreas[music.name] = true;
+                    this.updateMarketScore(50);
+                }
+            }
+        },
+
+        updateMarketScore: function(points) {
+            this.storage.addMarketScore(points);
+            if(this.marketscore_callback) {
+                this.marketscore_callback(this.storage.getMarketScore());
+            }
+        },
+
         checkUndergroundAchievement: function() {
             var music = this.audioManager.getSurroundingMusic(this.player);
 
@@ -2400,6 +2453,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     this.tryUnlockingAchievement("UNDERGROUND");
                 }
             }
+            this.updateMarketProgress();
         },
         
         forEachEntityAround: function(x, y, r, callback) {

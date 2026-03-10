@@ -14,6 +14,31 @@ define(['jquery', 'storage'], function($, Storage) {
             this.$playDiv = $('.play div');
         },
         
+        setProject: function(project) {
+            this.project = project;
+        },
+
+        initProjectUI: function() {
+            if(!this.project) {
+                return;
+            }
+
+            $('#project-title').text(this.project.projectName);
+            $('#project-subtitle').text('Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter');
+            $('#about-project-name').text(this.project.projectName);
+            $('#about-token-name').text(this.project.tokenName + ' (' + this.project.tokenSymbol + ')');
+            $('#about-project-description').text(this.project.description);
+            $('#about-contract').text(this.project.contractAddress);
+            $('#project-logo').attr('src', this.project.logo);
+            $('#social-telegram').attr('href', this.project.telegram);
+            $('#social-twitter').attr('href', this.project.twitter);
+            $('#footer-telegram').attr('href', this.project.telegram);
+            $('#footer-twitter').attr('href', this.project.twitter);
+
+            this.updateMarketScore(this.storage.getMarketScore());
+            this.renderLeaderboard();
+        },
+
         setGame: function(game) {
             this.game = game;
             this.isMobile = this.game.renderer.mobile;
@@ -355,7 +380,7 @@ define(['jquery', 'storage'], function($, Storage) {
         toggleCredits: function() {
             var currentState = $('#parchment').attr('class');
 
-            if(this.game.started) {
+            if(this.game && this.game.started) {
                 $('#parchment').removeClass().addClass('credits');
                 
                 $('body').toggleClass('credits');
@@ -382,7 +407,7 @@ define(['jquery', 'storage'], function($, Storage) {
         toggleAbout: function() {
             var currentState = $('#parchment').attr('class');
 
-            if(this.game.started) {
+            if(this.game && this.game.started) {
                 $('#parchment').removeClass().addClass('about');
                 $('body').toggleClass('about');
                 if(!this.game.player) {
@@ -426,6 +451,46 @@ define(['jquery', 'storage'], function($, Storage) {
         
         togglePopulationInfo: function() {
             $('#population').toggleClass('visible');
+        },
+
+        toggleLeaderboard: function() {
+            $('#leaderboard').toggleClass('active');
+            this.renderLeaderboard();
+        },
+
+        updateMarketScore: function(score) {
+            $('#market-score').text(score);
+            this.storage.setMarketScore(score);
+            this.renderLeaderboard();
+        },
+
+        renderLeaderboard: function() {
+            var name = (this.storage.data.player && this.storage.data.player.name) ? this.storage.data.player.name : 'Crypto Hunter',
+                score = this.storage.getMarketScore(),
+                list = this.storage.getLeaderboard(),
+                exists = _.find(list, function(row) { return row.name === name; });
+
+            if(exists) {
+                exists.score = Math.max(exists.score, score);
+            } else {
+                list.push({ name: name, score: score });
+            }
+            list = _.sortBy(list, function(row) { return -row.score; }).slice(0, 10);
+            this.storage.setLeaderboard(list);
+
+            var html = '',
+                escapeHtml = function(str) {
+                    return String(str)
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#39;');
+                };
+            _.each(list, function(row, idx) {
+                html += '<li><span class="rank">' + (idx + 1) + '.</span> ' + escapeHtml(row.name) + ' <strong>' + row.score + '</strong></li>';
+            });
+            $('#leaderboard-list').html(html);
         },
 
         openPopup: function(type, url) {

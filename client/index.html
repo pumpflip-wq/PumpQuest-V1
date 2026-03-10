@@ -19,6 +19,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <link rel="icon" type="image/png" href="img/common/favicon.png">
         <meta property="og:title" content="Memecoin Universe">
@@ -46,7 +47,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
         <body class="intro">
             <noscript>
                <div class="alert">
-                   You need to enable JavaScript to play BrowserQuest.
+                   You need to enable JavaScript to play Memecoin Universe.
                </div>
             </noscript>
             <div id="intro">
@@ -67,9 +68,14 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <article id="createcharacter">
                            <h1>
                                <span class="left-ornament"></span>
-                               Welcome to Memecoin Universe
+                               <span id="project-title">MEMECOIN QUEST</span>
                                <span class="right-ornament"></span>
                          </h1>
+                         <p id="project-subtitle">Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter</p>
+                         <div class="project-links">
+                            <a id="social-telegram" class="clickable" target="_blank" href="#">Join Telegram</a>
+                            <a id="social-twitter" class="clickable" target="_blank" href="#">Follow on X</a>
+                                                     </div>
                          <div id="character" class="disabled">
                              <div></div>
                          </div>
@@ -155,14 +161,20 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                             <h1>
                                <span class="left-ornament"></span>
                                <span class="title">
-                                   What is BrowserQuest?
+                                   What is Memecoin Universe?
                                </span>
                                <span class="right-ornament"></span>
                         </h1>
                         <p id="game-desc">
-                            BrowserQuest is a multiplayer game inviting you to explore a
-                            world of adventure from your Web browser.
+                            Memecoin Universe is a multiplayer game where you explore PumpVerse from your Web browser.
                         </p>
+                        <div id="project-about-panel">
+                            <img id="project-logo" src="img/common/favicon.png" alt="Project logo" />
+                            <p><strong id="about-project-name">MEMECOIN QUEST</strong></p>
+                            <p id="about-token-name">MemeCoin (MEME)</p>
+                            <p id="about-project-description">Explore the PumpVerse and hunt legendary tokens.</p>
+                            <p>Contract: <span id="about-contract">COMING_SOON</span></p>
+                        </div>
                         <div class="left">
                             <div class="img"></div>
                             <p>
@@ -170,17 +182,17 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                             </p>
                             <span class="link">
                                 <span class="ext-link"></span>
-                                <a target="_blank" class="clickable" href="http://hacks.mozilla.org/2012/03/browserquest/">Learn more</a> about the technology
+                                <a target="_blank" class="clickable" href="http://hacks.mozilla.org/2012/03/browserquest/">Learn more</a> about the tech stack
                             </span>
                         </div>
                         <div class="right">
                             <div class="img"></div>
                             <p>
-                                BrowserQuest is available on Firefox, Chrome, Safari as well as iOS devices and Firefox for Android.
+                                Memecoin Universe runs on modern desktop and mobile browsers with WebSocket support.
                             </p>
                             <span class="link">
                                 <span class="ext-link"></span>
-                                <a target="_blank" class="clickable" href="http://github.com/mozilla/BrowserQuest">Grab the source</a> on Github
+                                <a target="_blank" class="clickable" href="https://github.com/your-org/memecoin-universe">Grab the source</a> on Github
                             </span>
                         </div>
                             <div id="close-about">
@@ -194,7 +206,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <article id="error">
                            <h1>
                                <span class="left-ornament"></span>
-                               Your browser cannot run BrowserQuest!
+                               Your browser cannot run Memecoin Universe!
                                <span class="right-ornament"></span>
                          </h1>
                          <p>
@@ -241,6 +253,11 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                                 <div id="next"></div>
                             </nav>
                         </article>
+                        <article id="leaderboard" class="clickable">
+                            <div class="close"></div>
+                            <h1><span class="left-ornament"></span>Top Crypto Hunters<span class="right-ornament"></span></h1>
+                            <ol id="leaderboard-list"></ol>
+                        </article>
                         <div id="canvas">
                                 <canvas id="background"></canvas>
                                 <canvas id="entities"></canvas>
@@ -273,11 +290,13 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <div id="playercount" class="clickable">
                         <span class="count">0</span> <span>players</span>
                     </div>
+                    <div id="market-score-box">Market Score: <span id="market-score">0</span></div>
                     <div id="barbuttons">
                         <div id="chatbutton" class="barbutton clickable"></div>
                         <div id="achievementsbutton" class="barbutton clickable"></div>
                         <div id="helpbutton" class="barbutton clickable"></div>
                         <div id="mutebutton" class="barbutton clickable active"></div>
+                        <div id="leaderboardbutton" class="barbutton clickable">LB</div>
                     </div>
                         </div>
                                 <div id="chatbox">
@@ -300,6 +319,10 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                       Share this on 
               <a id="xshare" href="#" class="twitter" title="Share on X">𝕏</a>
               <a id="tgshare" href="#" class="facebook" title="Share on Telegram">✈</a>
+                    </div>
+                    <div id="project-social-footer" class="clickable">
+                      <a id="footer-telegram" target="_blank" href="#" title="Telegram">✈</a>
+                      <a id="footer-twitter" target="_blank" href="#" title="X">𝕏</a>
                     </div>
                     <div id="credits-link" class="clickable">
                       – <span id="toggle-credits">Credits</span>
@@ -338,7 +361,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
             if(!Modernizr.localstorage) {
                 var alert = document.createElement("div");
                     alert.className = 'alert';
-                    alertMsg = document.createTextNode("You need to enable cookies/localStorage to play BrowserQuest");
+                    alertMsg = document.createTextNode("You need to enable cookies/localStorage to play Memecoin Universe");
                     alert.appendChild(alertMsg);
 
                 target = document.getElementById("intro");

@@ -47,6 +47,21 @@ Types = {
         BAGHOLDER: 12,
         FINALMONK: 13,
         TROLL: 14,
+
+        // Legacy mob aliases (engine compatibility)
+        RAT: 2,
+        SKELETON: 3,
+        SKELETON2: 4,
+        OGRE: 5,
+        DEATHKNIGHT: 6,
+        GOBLIN: 7,
+        CRAB: 8,
+        SNAKE: 9,
+        EYE: 10,
+        BAT: 11,
+        WIZARD: 12,
+        BOSS: 13,
+        SPECTRE: 14,
         
         // Armors
         CLOTHARMOR: 20,
@@ -62,6 +77,12 @@ Types = {
         CHEST: 37,
         REDHERRING: 38,
         TENDIES: 39,
+
+        // Legacy object aliases
+        FLASK: 35,
+        CAKE: 36,
+        BURGER: 38,
+        FIREPOTION: 39,
         
         // NPCs
         GUARD: 40,
@@ -88,7 +109,16 @@ Types = {
         MOONSHOTHANDLE: 63,
         DIAMONDHANDLE: 64,
         BLUEHANDLE: 65,
-        BLUEHANDLE2: 66
+        BLUEHANDLE2: 66,
+
+        // Legacy weapon aliases
+        SWORD2: 60,
+        AXE: 61,
+        BLUESWORD: 62,
+        GOLDENSWORD: 63,
+        REDSWORD: 64,
+        SWORD1: 65,
+        MORNINGSTAR: 66
     },
     
     Orientations: {
@@ -116,6 +146,20 @@ var kinds = {
     bagholder: [Types.Entities.BAGHOLDER, "mob"],
     finalmonk: [Types.Entities.FINALMONK, "mob"],
 
+    rat: [Types.Entities.RAT, "mob"],
+    skeleton: [Types.Entities.SKELETON, "mob"],
+    skeleton2: [Types.Entities.SKELETON2, "mob"],
+    ogre: [Types.Entities.OGRE, "mob"],
+    deathknight: [Types.Entities.DEATHKNIGHT, "mob"],
+    goblin: [Types.Entities.GOBLIN, "mob"],
+    crab: [Types.Entities.CRAB, "mob"],
+    snake: [Types.Entities.SNAKE, "mob"],
+    eye: [Types.Entities.EYE, "mob"],
+    bat: [Types.Entities.BAT, "mob"],
+    wizard: [Types.Entities.WIZARD, "mob"],
+    boss: [Types.Entities.BOSS, "mob"],
+    spectre: [Types.Entities.SPECTRE, "mob"],
+
     gmhandle: [Types.Entities.GMHANDLE, "weapon"],
     dioptionhandle: [Types.Entities.DIOPTIONHANDLE, "weapon"],
     bluehandle: [Types.Entities.BLUEHANDLE, "weapon"],
@@ -123,6 +167,13 @@ var kinds = {
     moonshothandle: [Types.Entities.MOONSHOTHANDLE, "weapon"],
     diamondhandle: [Types.Entities.DIAMONDHANDLE, "weapon"],
     bluehandle2: [Types.Entities.BLUEHANDLE2, "weapon"],
+    sword2: [Types.Entities.SWORD2, "weapon"],
+    axe: [Types.Entities.AXE, "weapon"],
+    bluesword: [Types.Entities.BLUESWORD, "weapon"],
+    goldensword: [Types.Entities.GOLDENSWORD, "weapon"],
+    redsword: [Types.Entities.REDSWORD, "weapon"],
+    sword1: [Types.Entities.SWORD1, "weapon"],
+    morningstar: [Types.Entities.MORNINGSTAR, "weapon"],
     
     clotharmor: [Types.Entities.CLOTHARMOR, "armor"],
     leatherarmor: [Types.Entities.LEATHERARMOR, "armor"],
@@ -136,6 +187,10 @@ var kinds = {
     pizza: [Types.Entities.PIZZA, "object"],
     chest: [Types.Entities.CHEST, "object"],
     redherring: [Types.Entities.REDHERRING, "object"],
+    flask: [Types.Entities.FLASK, "object"],
+    cake: [Types.Entities.CAKE, "object"],
+    burger: [Types.Entities.BURGER, "object"],
+    firepotion: [Types.Entities.FIREPOTION, "object"],
 
     guard: [Types.Entities.GUARD, "npc"],
     villagegirl: [Types.Entities.VILLAGEGIRL, "npc"],

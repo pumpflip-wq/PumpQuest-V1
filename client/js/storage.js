@@ -5,6 +5,12 @@ define(function() {
         init: function() {
             if(this.hasLocalStorage() && localStorage.data) {
                 this.data = JSON.parse(localStorage.data);
+                if(this.data.marketScore === undefined) {
+                    this.data.marketScore = 0;
+                }
+                if(!this.data.leaderboard) {
+                    this.data.leaderboard = [];
+                }
             } else {
                 this.resetData();
             }
@@ -26,7 +32,9 @@ define(function() {
                     totalKills: 0,
                     totalDmg: 0,
                     totalRevives: 0
-                }
+                },
+                marketScore: 0,
+                leaderboard: []
             };
         },
     
@@ -161,6 +169,28 @@ define(function() {
                 this.data.achievements.totalRevives++;
                 this.save();
             }
+        },
+
+        getMarketScore: function() {
+            return this.data.marketScore || 0;
+        },
+
+        setMarketScore: function(score) {
+            this.data.marketScore = score;
+            this.save();
+        },
+
+        addMarketScore: function(points) {
+            this.setMarketScore(this.getMarketScore() + points);
+        },
+
+        getLeaderboard: function() {
+            return this.data.leaderboard || [];
+        },
+
+        setLeaderboard: function(entries) {
+            this.data.leaderboard = entries;
+            this.save();
         },
     });
     

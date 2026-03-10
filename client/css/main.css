@@ -1232,3 +1232,14 @@ footer, header, hgroup, menu, nav, section {
     .opera #achievements.active, .opera #instructions.active { z-index: 30000;}
     .opera #coinsparks {display:none;}
     .opera #death, .opera #about, .opera #credits, .opera #error, .opera #confirmation, .opera #loadcharacter { z-index: -30000; }
+#project-subtitle { font-size: 14px; margin: 8px 0; }
+.project-links a { margin-right: 10px; font-size: 12px; }
+#market-score-box { position:absolute; left:10px; top:30px; color:#fff; z-index:5; font-size:14px; }
+#leaderboard { display:none; }
+#leaderboard.active { display:block; }
+#leaderboard-list { text-align:left; max-height:260px; overflow:auto; }
+#project-about-panel { margin: 10px 0; }
+#project-logo { width: 40px; height: 40px; image-rendering: pixelated; }
+#project-social-footer { margin-bottom: 6px; }
+
+#project-social-footer a { margin:0 6px; font-size:20px; text-decoration:none; }
