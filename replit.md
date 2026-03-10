@@ -67,6 +67,16 @@ server-static.js - Express static file server with WebSocket proxy
 3. **client/js/gameclient.js**: Added WSS support for HTTPS environments (Replit proxy)
 4. **server-static.js**: Express server serving client files + WebSocket proxy to game server
 5. **server/js/player.js**: Fixed damage handler when player is hurt by mob - now correctly passes attacker and damage to `handleHurtEntity()`
+6. **server/js/worldserver.js**: Fixed mob despawn message - now sends despawn directly to attacking player (line 550) to ensure killed mobs disappear immediately
+7. **client/css/main.css**: Enlarged canvas sizes (desktop: 750px height, mobile: 260px height) for better gameplay visibility
+8. **client/index.html**: Added TG logo and CA (Contract Address) display in footer
+9. **client/js/app.js**: Added CA text display in footer and TG logo click handler for Telegram navigation
+10. **client/config/project.json**: Complete PumpQuest configuration with:
+    - Project name, token details, social links
+    - Game settings and entity mappings
+    - Market Score system configuration
+    - Fragment collection system
+    - UI labels and sharing templates
 
 ## Dependencies
 

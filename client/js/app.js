@@ -29,11 +29,20 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#about-token-name').text(this.project.tokenName + ' (' + this.project.tokenSymbol + ')');
             $('#about-project-description').text(this.project.description);
             $('#about-contract').text(this.project.contractAddress);
+            $('#footer-ca-text').text(this.project.contractAddress);
             $('#project-logo').attr('src', this.project.logo);
             $('#social-telegram').attr('href', this.project.telegram);
             $('#social-twitter').attr('href', this.project.twitter);
             $('#footer-telegram').attr('href', this.project.telegram);
             $('#footer-twitter').attr('href', this.project.twitter);
+            
+            var self = this;
+            var $tgLogo = $('#footer-tg-logo');
+            if($tgLogo.length) {
+                $tgLogo.click(function() {
+                    window.open($('#footer-telegram').attr('href'), '_blank');
+                });
+            }
 
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
