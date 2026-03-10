@@ -129,8 +129,8 @@ footer, header, hgroup, menu, nav, section {
     body.upscaled.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
     body.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
     body.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
-    .intro #logo { display: none !important; visibility: hidden; height: 0; margin: 0; padding: 0; }
-    .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:block !important;}
+    .intro #logo { display: block; visibility: visible; height: auto; margin: 20px auto; padding: 20px 0; }
+    .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:none !important;}
     
     footer {position:fixed; bottom:0; left:0; right:0; z-index:100; padding:5px 0; text-align:center; font-size:12px;}
         
@@ -293,7 +293,7 @@ footer, header, hgroup, menu, nav, section {
     #intro {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear;}
     #mask, #logo, #parchment {opacity:0;}
     .intro #parchment {opacity:1;}
-    .intro #logo {opacity:0 !important;}
+    .intro #logo {opacity:1 !important; display: block !important; visibility: visible !important; height: auto !important; margin: 20px auto !important; padding: 20px 0 !important;}
 
     .game #confirmation, .game #loadcharacter, .game #createcharacter, .game #error {display:none;}
 
@@ -1286,5 +1286,5 @@ footer, header, hgroup, menu, nav, section {
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
 #game-logo { display: none; }
-.game #game-logo { display: block; text-align: center; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 1000; pointer-events: none; width: 100%; }
-#game-logo img { width: 100px; height: auto; image-rendering: pixelated; }
+.game #game-logo { display: block; text-align: center; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 200; pointer-events: none; width: 100%; padding: 10px 0; }
+#game-logo img { width: 150px !important; max-width: 150px !important; height: auto !important; image-rendering: pixelated; }
