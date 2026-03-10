@@ -53,7 +53,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 $(this).removeClass('blink');
                 });
 
-                $(document).on('click', '#leaderboard-footer-label', function() {
+                $('#leaderboard-footer-label').click(function() {
                     app.toggleLeaderboard();
                 });
                 
