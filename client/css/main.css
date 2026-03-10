@@ -129,7 +129,7 @@ footer, header, hgroup, menu, nav, section {
     body.upscaled.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
     body.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
     body.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
-    .intro #logo { display: flex !important; justify-content: center !important; align-items: center !important; height: auto !important; width: auto !important; margin: 0 0 40px 0 !important; padding: 10px 20px !important; visibility: visible !important; position: relative !important; top: auto !important; left: auto !important; transform: none !important; z-index: 150 !important; }
+    .intro #logo { display: flex !important; justify-content: center !important; align-items: center !important; height: auto !important; width: auto !important; margin: 0 auto 30px auto !important; padding: 0 20px !important; visibility: visible !important; position: relative !important; top: auto !important; left: auto !important; transform: none !important; z-index: 150 !important; }
     .intro #logo img { max-width: 550px !important; height: auto !important; }
     .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:none !important;}
     
@@ -295,7 +295,7 @@ footer, header, hgroup, menu, nav, section {
     #intro {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear;}
     #mask, #logo, #parchment {opacity:0;}
     .intro #parchment {opacity:1;}
-    .intro #logo {opacity:1 !important; display: block !important; visibility: visible !important; height: auto !important; margin: 20px auto 50px auto !important; padding: 20px 0 !important;}
+    .intro #logo {opacity:1 !important; display: flex !important; visibility: visible !important; height: auto !important; margin: 0 auto 20px auto !important; padding: 0 20px !important; justify-content: center !important; align-items: center !important;}
 
     .game #confirmation, .game #loadcharacter, .game #createcharacter, .game #error {display:none;}
 
