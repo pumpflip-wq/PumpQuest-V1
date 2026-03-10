@@ -68,9 +68,15 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <article id="createcharacter">
                            <h1>
                                <span class="left-ornament"></span>
-                               Welcome to Memecoin Universe
+                               <span id="project-title">MEMECOIN QUEST</span>
                                <span class="right-ornament"></span>
                          </h1>
+                         <p id="project-subtitle">Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter</p>
+                         <div class="project-links">
+                            <a id="social-telegram" class="clickable" target="_blank" href="#">Join Telegram</a>
+                            <a id="social-twitter" class="clickable" target="_blank" href="#">Follow on X</a>
+                            <a id="social-website" class="clickable" target="_blank" href="#">Visit Website</a>
+                         </div>
                          <div id="character" class="disabled">
                              <div></div>
                          </div>
@@ -161,9 +167,15 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                                <span class="right-ornament"></span>
                         </h1>
                         <p id="game-desc">
-                            Memecoin Universe is a multiplayer game where you explore a
-                            world of adventure from your Web browser.
+                            Memecoin Universe is a multiplayer game where you explore PumpVerse from your Web browser.
                         </p>
+                        <div id="project-about-panel">
+                            <img id="project-logo" src="img/common/favicon.png" alt="Project logo" />
+                            <p><strong id="about-project-name">MEMECOIN QUEST</strong></p>
+                            <p id="about-token-name">MemeCoin (MEME)</p>
+                            <p id="about-project-description">Explore the PumpVerse and hunt legendary tokens.</p>
+                            <p>Contract: <span id="about-contract">COMING_SOON</span></p>
+                        </div>
                         <div class="left">
                             <div class="img"></div>
                             <p>
@@ -242,6 +254,11 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                                 <div id="next"></div>
                             </nav>
                         </article>
+                        <article id="leaderboard" class="clickable">
+                            <div class="close"></div>
+                            <h1><span class="left-ornament"></span>Top Crypto Hunters<span class="right-ornament"></span></h1>
+                            <ol id="leaderboard-list"></ol>
+                        </article>
                         <div id="canvas">
                                 <canvas id="background"></canvas>
                                 <canvas id="entities"></canvas>
@@ -274,11 +291,13 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <div id="playercount" class="clickable">
                         <span class="count">0</span> <span>players</span>
                     </div>
+                    <div id="market-score-box">Market Score: <span id="market-score">0</span></div>
                     <div id="barbuttons">
                         <div id="chatbutton" class="barbutton clickable"></div>
                         <div id="achievementsbutton" class="barbutton clickable"></div>
                         <div id="helpbutton" class="barbutton clickable"></div>
                         <div id="mutebutton" class="barbutton clickable active"></div>
+                        <div id="leaderboardbutton" class="barbutton clickable">LB</div>
                     </div>
                         </div>
                                 <div id="chatbox">
@@ -301,6 +320,11 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                       Share this on 
               <a id="xshare" href="#" class="twitter" title="Share on X">𝕏</a>
               <a id="tgshare" href="#" class="facebook" title="Share on Telegram">✈</a>
+                    </div>
+                    <div id="project-social-footer" class="clickable">
+                      [<a id="footer-telegram" target="_blank" href="#">Telegram</a>]
+                      [<a id="footer-twitter" target="_blank" href="#">X</a>]
+                      [<a id="footer-website" target="_blank" href="#">Website</a>]
                     </div>
                     <div id="credits-link" class="clickable">
                       – <span id="toggle-credits">Credits</span>

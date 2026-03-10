@@ -35,6 +35,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.mouse = { x: 0, y: 0 };
             this.zoningQueue = [];
             this.previousClickPosition = {};
+            this.lastMusicAreaName = null;
+            this.clearedAreas = {};
     
             this.selectedX = 0;
             this.selectedY = 0;
@@ -906,6 +908,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                             self.client.sendLoot(item); // Notify the server that this item has been looted
                             self.removeItem(item);
                             self.showNotification(item.getLootMessage());
+                            self.updateMarketScore(20);
                         
                             if(item.type === "armor") {
                                 self.tryUnlockingAchievement("FAT_LOOT");
@@ -1362,6 +1365,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     
                     self.storage.incrementTotalKills();
                     self.tryUnlockingAchievement("HUNTER");
+                    self.updateMarketScore(10);
 
                     if(kind === Types.Entities.DOGE) {
                         self.storage.incrementRatCount();
@@ -2284,6 +2288,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         onNotification: function(callback) {
             this.notification_callback = callback;
         },
+
+        onMarketScoreChange: function(callback) {
+            this.marketscore_callback = callback;
+        },
     
         onPlayerInvincible: function(callback) {
             this.invincible_callback = callback
@@ -2392,6 +2400,51 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
         
+        getAreaDisplayName: function(areaName) {
+            var names = {
+                village: "Genesis Launch",
+                forest: "Meme Jungle",
+                cave: "Rug Pull Cave",
+                desert: "Token Wasteland",
+                lavaland: "Pump Volcano",
+                beach: "Liquidity Coast",
+                boss: "Market Citadel"
+            };
+            return names[areaName] || areaName;
+        },
+
+        updateMarketProgress: function() {
+            var music = this.audioManager.getSurroundingMusic(this.player),
+                dangerMap = {
+                    village: "Low",
+                    beach: "Low",
+                    forest: "Medium",
+                    cave: "Medium",
+                    desert: "High",
+                    lavaland: "High",
+                    boss: "Extreme"
+                },
+                areaName;
+
+            if(music && music.name && music.name !== this.lastMusicAreaName) {
+                this.lastMusicAreaName = music.name;
+                areaName = this.getAreaDisplayName(music.name);
+                this.showNotification("Entering " + areaName + " • Danger Level: " + (dangerMap[music.name] || "Medium"));
+
+                if(!this.clearedAreas[music.name]) {
+                    this.clearedAreas[music.name] = true;
+                    this.updateMarketScore(50);
+                }
+            }
+        },
+
+        updateMarketScore: function(points) {
+            this.storage.addMarketScore(points);
+            if(this.marketscore_callback) {
+                this.marketscore_callback(this.storage.getMarketScore());
+            }
+        },
+
         checkUndergroundAchievement: function() {
             var music = this.audioManager.getSurroundingMusic(this.player);
 
@@ -2400,6 +2453,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     this.tryUnlockingAchievement("UNDERGROUND");
                 }
             }
+            this.updateMarketProgress();
         },
         
         forEachEntityAround: function(x, y, r, callback) {
