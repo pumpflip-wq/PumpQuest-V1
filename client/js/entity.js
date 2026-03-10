@@ -45,8 +45,8 @@ define(function() {
         
         setSprite: function(sprite) {
             if(!sprite) {
-                log.error(this.id + " : sprite is null", true);
-                throw new Error("Sprite is null for entity " + this.id);
+                log.error(this.id + " : sprite is null");
+                return;
             }
             
             if(this.sprite && this.sprite.name === sprite.name) {

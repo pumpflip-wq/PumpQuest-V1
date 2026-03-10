@@ -1184,7 +1184,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                                         }
 
                                         entity.isDying = true;
-                                        entity.setSprite(self.sprites[entity instanceof Mobs.Rat ? "rat" : "death"]);
+                                        var deathSprite = self.sprites[entity instanceof Mobs.Rat ? "rat" : "death"];
+                                        if(deathSprite) {
+                                            entity.setSprite(deathSprite);
+                                        }
                                         entity.animate("death", 120, 1, function() {
                                             log.info(entity.id + " was removed");
 
