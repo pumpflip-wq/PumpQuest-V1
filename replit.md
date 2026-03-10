@@ -57,7 +57,7 @@ server-static.js - Express static file server with WebSocket proxy
 - 5 worlds, 200 players per world
 - Metrics disabled (memcache not required)
 
-## Key Fixes Applied
+## Key Implementations & Fixes
 
 1. **package.json**: Fixed version constraints and deployment scripts
 2. **server/js/map.js**: Replaced deprecated `path.exists()` with `fs.access()`
@@ -73,21 +73,32 @@ server-static.js - Express static file server with WebSocket proxy
    - "About PumpQuest" page with token info, CA display, and buy/social links
    - "PumpQuest Token" page (Credits) with DeFi links and community links
    - PumpQuest logo integrated in landing page
+   - Leaderboard button visible with 🏆 emoji (was hidden, now showing)
 8. **client/js/app.js**: 
    - Initialize all UI links from project.json
    - About page: Telegram, Twitter, Website links
    - Token page: social links and buy links
    - Leaderboard system tracking top Crypto Hunters
-9. **client/config/project.json**: Complete PumpQuest config with:
+   - Market score tracking and display
+9. **client/js/main.js**:
+   - Leaderboard button click handler fully wired
+   - All UI buttons properly bound with event listeners
+10. **client/config/project.json**: Complete PumpQuest config with:
    - Token info (name, symbol, contract address)
    - Social links (Telegram, Twitter, Website)
    - Market scoring system with points for enemy defeat, fragment collection, area clearing
    - Crypto-themed entity names (Rug Dev, Paper Hands, FUD Bot, Market Manipulator)
    - Token fragments system (DOGE, PEPE, WOJAK, CHAD fragments)
-10. **client/js/storage.js**: 
+   - Zone progression with difficulty levels
+11. **client/js/storage.js**: 
    - Added fragment collection tracking
    - Added enemy defeat counter
+   - Leaderboard persistence with local storage
    - Extended storage to persist crypto-themed progression
+12. **client/js/game.js**:
+   - Area name display system for zone progression messages
+   - Market score updates for exploration and combat
+   - Entity removal properly handled via destroy messages
 
 ## Dependencies
 
