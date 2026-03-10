@@ -1,9 +1,18 @@
 
 define(['text!../config/config_build.json'],
 function(build) {
+    var defaultBuild = { host: "", port: 80, dispatcher: false },
+        parsedBuild = defaultBuild;
+
+    try {
+        parsedBuild = JSON.parse(build);
+    } catch(e) {
+        parsedBuild = defaultBuild;
+    }
+
     var config = {
         dev: { host: window.location.hostname, port: window.location.port || 5000, dispatcher: false },
-        build: JSON.parse(build)
+        build: parsedBuild
     };
     
     //>>excludeStart("prodHost", pragmas.prodHost);

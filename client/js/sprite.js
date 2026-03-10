@@ -1,6 +1,40 @@
 
 define(['jquery', 'animation', 'sprites'], function($, Animation, sprites) {
 
+    var spriteImageAliases = {
+        doge: "rat",
+        pepe: "skeleton",
+        wojak: "skeleton2",
+        chad: "ogre",
+        memecoin: "deathknight",
+        normie: "goblin",
+        paperhands: "crab",
+        fudster: "snake",
+        shill: "eye",
+        ngmi: "bat",
+        bagholder: "wizard",
+        finalmonk: "boss",
+        troll: "spectre",
+        gmhandle: "sword2",
+        dioptionhandle: "axe",
+        lambohandle: "goldensword",
+        moonshothandle: "morningstar",
+        diamondhandle: "redsword",
+        bluehandle: "sword1",
+        bluehandle2: "bluesword",
+        "item-gmhandle": "item-sword2",
+        "item-dioptionhandle": "item-axe",
+        "item-lambohandle": "item-goldensword",
+        "item-moonshothandle": "item-morningstar",
+        "item-diamondhandle": "item-redsword",
+        "item-bluehandle": "item-sword1",
+        "item-bluehandle2": "item-bluesword",
+        "item-energydrink": "item-flask",
+        "item-pizza": "item-cake",
+        "item-redherring": "item-burger",
+        "item-tendies": "item-firepotion"
+    };
+
     var Sprite = Class.extend({
         init: function(name, scale) {
         	this.name = name;
@@ -13,7 +47,8 @@ define(['jquery', 'animation', 'sprites'], function($, Animation, sprites) {
         
         loadJSON: function(data) {
     		this.id = data.id;
-    		this.filepath = "img/" + this.scale + "/" + this.id + ".png";
+    		var imageId = spriteImageAliases[this.id] || this.id;
+    		this.filepath = "img/" + this.scale + "/" + imageId + ".png";
     		this.animationData = data.animations;
     		this.width = data.width;
     		this.height = data.height;
