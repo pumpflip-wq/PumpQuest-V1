@@ -222,11 +222,13 @@ footer, header, hgroup, menu, nav, section {
     .intro footer {opacity:1;}
     footer:hover {opacity:1;}
     footer div  {display:inline-block;}
-    #sharing a {display:block;float:right;background-size:844px;position:relative;top:-2px;}
-    #sharing .facebook {height:22px;width:22px;background-position:-822px -224px;margin:0 12px 0 12px;}
-    #sharing .facebook:hover {background-position:-822px -224px;}
-    #sharing .twitter {height:22px;width:32px;background-position:-770px -224px;margin:0 12px 0 0;}
-    #sharing .twitter:hover {background-position:-770px -224px;}
+    #sharing a {display:inline-block;float:right;background-size:844px;position:relative;top:-2px;text-decoration:none;width:32px;height:22px;margin:0 8px 0 8px;transition:transform 0.2s;text-align:center;line-height:22px;font-size:16px;font-weight:bold;color:#fff;}
+    #sharing #xshare {background:none !important;border-radius:4px;padding:0 8px;font-size:18px;}
+    #sharing #xshare:hover {transform:scale(1.15);}
+    #sharing #tgshare {background:none !important;border-radius:4px;padding:0 8px;font-size:18px;}
+    #sharing #tgshare:hover {transform:scale(1.15);}
+    #sharing .facebook {display:none;}
+    #sharing .twitter {display:none;}
     #sharing .gplus {height:22px;width:22px;background:url('../img/common/gplus.png');margin:0 12px 0 0px;}
     #credits-link span {display:inline-block;margin-left:12px;}
     #credits-link span:hover {color:#fcda5c;cursor:pointer;}
