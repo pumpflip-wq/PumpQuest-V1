@@ -19,7 +19,10 @@
 
   "social": {
     "telegram": "https://t.me/yourproject",
-    "twitter": "https://x.com/yourproject"
+    "twitter": "https://x.com/yourproject",
+    "dexscreener": "https://dexscreener.com",
+    "pumpfun": "https://pump.fun",
+    "jupiter": "https://jup.ag"
   },
 
   "gameSettings": {

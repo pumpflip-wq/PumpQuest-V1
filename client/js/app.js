@@ -52,13 +52,13 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#token-telegram').attr('href', this.project.telegram);
             $('#token-twitter').attr('href', this.project.twitter);
             
-            // Token exchange links
-            $('#token-dexscreener').attr('href', 'https://dexscreener.com');
-            $('#token-pumpfun').attr('href', 'https://pump.fun');
-            $('#token-jupiter').attr('href', 'https://jup.ag');
-            $('#link-dexscreener').attr('href', 'https://dexscreener.com');
-            $('#link-pumpfun').attr('href', 'https://pump.fun');
-            $('#link-jupiter').attr('href', 'https://jup.ag');
+            // Token exchange links from config
+            $('#token-dexscreener').attr('href', this.project.social.dexscreener);
+            $('#token-pumpfun').attr('href', this.project.social.pumpfun);
+            $('#token-jupiter').attr('href', this.project.social.jupiter);
+            $('#link-dexscreener').attr('href', this.project.social.dexscreener);
+            $('#link-pumpfun').attr('href', this.project.social.pumpfun);
+            $('#link-jupiter').attr('href', this.project.social.jupiter);
             
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
