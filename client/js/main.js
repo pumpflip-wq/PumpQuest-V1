@@ -53,8 +53,15 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 $(this).removeClass('blink');
                 });
 
-                $('#leaderboard-footer-label').click(function() {
-                    app.toggleLeaderboard();
+                $('#leaderboard-footer-label').click(function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if(app.game) {
+                        app.toggleLeaderboard();
+                    } else {
+                        // On login page - show leaderboard overlay
+                        $('#leaderboard').show();
+                    }
                 });
                 
                 $('#leaderboard .close').click(function() {

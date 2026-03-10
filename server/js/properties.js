@@ -4,9 +4,9 @@ var Types = require("../../shared/js/gametypes");
 var Properties = {
     doge: {
         drops: {
-            energydrink: 40,
-            pizza: 10,
-            redherring: 5
+            energydrink: 60,
+            pizza: 25,
+            redherring: 15
         },
         hp: 25,
         armor: 1,
@@ -15,10 +15,10 @@ var Properties = {
     
     pepe: {
         drops: {
-            energydrink: 40,
-            mailarmor: 10,
-            gmhandle: 20,
-            redherring: 5
+            energydrink: 50,
+            mailarmor: 15,
+            gmhandle: 25,
+            redherring: 10
         },
         hp: 110,
         armor: 2,
@@ -27,10 +27,10 @@ var Properties = {
     
     wojak: {
         drops: {
-            energydrink: 50,
-            leatherarmor: 20,
-            gmhandle: 10,
-            redherring: 5
+            energydrink: 60,
+            leatherarmor: 25,
+            gmhandle: 15,
+            redherring: 10
         },
         hp: 90,
         armor: 2,
@@ -39,11 +39,11 @@ var Properties = {
     
     chad: {
         drops: {
-            pizza: 10,
-            energydrink: 50,
-            platearmor: 20,
-            diamondhandle: 20,
-            redherring: 5
+            pizza: 15,
+            energydrink: 60,
+            platearmor: 25,
+            diamondhandle: 25,
+            redherring: 10
         },
         hp: 200,
         armor: 3,
@@ -52,10 +52,10 @@ var Properties = {
     
     memecoin: {
         drops: {
-            energydrink: 30,
-            goldenarmor: 40,
-            lambohandle: 30,
-            redherring: 5
+            energydrink: 40,
+            goldenarmor: 50,
+            lambohandle: 40,
+            redherring: 10
         },
         hp: 250,
         armor: 2,
@@ -74,10 +74,10 @@ var Properties = {
     
     normie: {
         drops: {
-            energydrink: 50,
-            gmhandle: 20,
-            leatherarmor: 10,
-            redherring: 5
+            energydrink: 60,
+            gmhandle: 25,
+            leatherarmor: 15,
+            redherring: 10
         },
         hp: 60,
         armor: 2,
@@ -86,10 +86,10 @@ var Properties = {
     
     ngmi: {
         drops: {
-            energydrink: 50,
-            mailarmor: 10,
-            diamondhandle: 10,
-            redherring: 5
+            energydrink: 60,
+            mailarmor: 15,
+            diamondhandle: 15,
+            redherring: 10
         },
         hp: 150,
         armor: 3,
