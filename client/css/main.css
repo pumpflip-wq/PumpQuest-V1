@@ -232,6 +232,7 @@ footer, header, hgroup, menu, nav, section {
     footer div  {display:inline-block; margin:0 15px;}
     footer #footer-wrapper {display: flex !important; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px; margin-bottom: 12px;}
     footer #footer-wrapper > div {display: inline-block !important; margin: 0 !important;}
+    .game footer #footer-wrapper {gap: 60px;}
     .game footer div {display:inline-block; margin:0 20px;}
     .game #contract-footer {color:#ffffff; font-weight:bold; font-size:12px; letter-spacing:1px;}
     .game #footer-left {display:inline-block; margin-right:40px; font-size:16px;}
@@ -1264,6 +1265,7 @@ footer, header, hgroup, menu, nav, section {
 #market-score-box { position:absolute; left:10px; top:30px; color:#fff; z-index:5; font-size:14px; }
 #leaderboard { display:none; position:absolute; left:50%; top:50%; margin-left:-208px; margin-top:-180px; width:416px; z-index:1000; }
 #leaderboard.active { display:block; opacity:1; -moz-transition:0.5s opacity linear 0.5s; -webkit-transition:0.5s opacity linear 0.5s; -o-transition:0.5s opacity linear 0.5s; -ms-transition:0.5s opacity linear 0.5s; transition:0.5s opacity linear 0.5s; pointer-events:auto; }
+.intro #leaderboard { opacity:1; pointer-events:auto; }
 #leaderboard.parchment-modal { height:360px; }
 #leaderboard.parchment-modal .parchment-left { left:0; }
 #leaderboard.parchment-modal .parchment-right { right:0; }
@@ -1282,5 +1284,5 @@ footer, header, hgroup, menu, nav, section {
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
 #game-logo { display: none; }
-.game #game-logo { display: block; text-align: center; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); z-index: 10; }
+.game #game-logo { display: block; text-align: center; position: fixed; top: 5px; left: 50%; transform: translateX(-50%); z-index: 150; pointer-events: none; }
 #game-logo img { width: 80vw; height: auto; image-rendering: pixelated; max-width: 90vw; }
