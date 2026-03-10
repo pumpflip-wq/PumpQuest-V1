@@ -64,16 +64,30 @@ server-static.js - Express static file server with WebSocket proxy
 3. **client/js/gameclient.js**: Added WSS support for HTTPS environments (Replit proxy)
 4. **server-static.js**: Express server with WebSocket proxy to game server
 5. **server/js/worldserver.js**: Fixed mob despawn - sends message to attacking player for immediate removal
-6. **client/css/main.css**: Enlarged canvas (desktop: 750px, mobile: 260px) for better visibility
+6. **client/css/main.css**: 
+   - Enlarged canvas (desktop: 750px, mobile: 260px) for better visibility
+   - Made canvas responsive with width:100% and height:100%
+   - Fixed body/html sizing to eliminate margins/padding
 7. **client/index.html**: 
    - Cleaned up duplicate footer elements
    - "About PumpQuest" page with token info, CA display, and buy/social links
    - "PumpQuest Token" page (Credits) with DeFi links and community links
+   - PumpQuest logo integrated in landing page
 8. **client/js/app.js**: 
    - Initialize all UI links from project.json
    - About page: Telegram, Twitter, Website links
    - Token page: social links and buy links
-9. **client/config/project.json**: Complete PumpQuest config with token info, social links, market scoring system
+   - Leaderboard system tracking top Crypto Hunters
+9. **client/config/project.json**: Complete PumpQuest config with:
+   - Token info (name, symbol, contract address)
+   - Social links (Telegram, Twitter, Website)
+   - Market scoring system with points for enemy defeat, fragment collection, area clearing
+   - Crypto-themed entity names (Rug Dev, Paper Hands, FUD Bot, Market Manipulator)
+   - Token fragments system (DOGE, PEPE, WOJAK, CHAD fragments)
+10. **client/js/storage.js**: 
+   - Added fragment collection tracking
+   - Added enemy defeat counter
+   - Extended storage to persist crypto-themed progression
 
 ## Dependencies
 

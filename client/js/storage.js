@@ -34,7 +34,11 @@ define(function() {
                     totalRevives: 0
                 },
                 marketScore: 0,
-                leaderboard: []
+                leaderboard: [],
+                fragmentsCollected: 0,
+                enemies: {
+                    defeated: 0
+                }
             };
         },
     
@@ -192,6 +196,30 @@ define(function() {
             this.data.leaderboard = entries;
             this.save();
         },
+
+        getFragmentsCollected: function() {
+            return this.data.fragmentsCollected || 0;
+        },
+
+        addFragment: function() {
+            if(!this.data.fragmentsCollected) {
+                this.data.fragmentsCollected = 0;
+            }
+            this.data.fragmentsCollected++;
+            this.save();
+        },
+
+        getEnemiesDefeated: function() {
+            return (this.data.enemies && this.data.enemies.defeated) || 0;
+        },
+
+        incrementEnemiesDefeated: function() {
+            if(!this.data.enemies) {
+                this.data.enemies = { defeated: 0 };
+            }
+            this.data.enemies.defeated++;
+            this.save();
+        }
     });
     
     return Storage;
