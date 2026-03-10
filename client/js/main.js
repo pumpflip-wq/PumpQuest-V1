@@ -1,10 +1,12 @@
 
-define(['jquery', 'app'], function($, App) {
+define(['jquery', 'app', 'project'], function($, App, project) {
     var app, game;
 
     var initApp = function() {
         $(document).ready(function() {
                 app = new App();
+            app.setProject(project);
+            app.initProjectUI();
             app.center();
         
             if(Detect.isWindows()) {
@@ -49,6 +51,10 @@ define(['jquery', 'app'], function($, App) {
                     clearInterval(app.blinkInterval);
                 }
                 $(this).removeClass('blink');
+                });
+
+                $('#leaderboardbutton').click(function() {
+                    app.toggleLeaderboard();
                 });
         
                 $('#instructions').click(function() {
@@ -123,8 +129,9 @@ define(['jquery', 'app'], function($, App) {
             });
         
             $('#xshare').click(function() {
-                var text = encodeURIComponent('Join Memecoin Universe! A multiplayer HTML5 adventure game. Explore, fight, and conquer in our meme-themed world! 🎮 #MemecoινUniverse #WebSockets');
-                var url = 'https://x.com/intent/tweet?text=' + text + '&url=https%3A%2F%2Fmemecoinguniverse.com';
+                var score = app.storage.getMarketScore(),
+                    text = encodeURIComponent('I just scored ' + score + ' points hunting memecoins in ' + app.project.projectName + ' 🚀');
+                var url = 'https://x.com/intent/tweet?text=' + text + '&url=' + encodeURIComponent(app.project.website);
                app.openPopup('twitter', url);
                return false;
             });
@@ -253,6 +260,10 @@ define(['jquery', 'app'], function($, App) {
         
                 game.onNotification(function(message) {
                     app.showMessage(message);
+                });
+
+                game.onMarketScoreChange(function(score) {
+                    app.updateMarketScore(score);
                 });
         
             app.initHealthBar();

@@ -37,7 +37,7 @@ proxy.on('error', function(err, req, res) {
 });
 
 server.listen(STATIC_SERVER_PORT, '0.0.0.0', function() {
-    console.log('BrowserQuest client server running on port ' + STATIC_SERVER_PORT);
+    console.log('Memecoin Universe client server running on port ' + STATIC_SERVER_PORT);
     console.log('WebSocket connections proxied to game server on port ' + GAME_SERVER_PORT);
     console.log('NODE_ENV: ' + (process.env.NODE_ENV || 'development'));
 });
