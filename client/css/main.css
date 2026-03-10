@@ -222,12 +222,13 @@ footer, header, hgroup, menu, nav, section {
     #about .link a:hover {color:#d83939;}
 
     footer {font-family:'GraphicPixel';position:absolute;bottom:5%;left:0;text-align:center;width:100%;color:#ffffff;-moz-transition:0.2s opacity linear;-webkit-transition:0.2s opacity linear;-o-transition:0.2s opacity linear;-ms-transition:0.2s opacity linear;transition:0.2s opacity linear;}
-    .upscaled.game footer {color:#ffffff;}
-    .game footer {color:#ffffff;}
+    .upscaled.game footer {color:#ffffff; background:radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); border-radius:50%; padding:30px; width:200px; left:50%; transform:translateX(-50%); bottom:10%;}
+    .game footer {color:#ffffff; background:radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); border-radius:50%; padding:30px; width:200px; left:50%; transform:translateX(-50%); bottom:10%;}
     
     .intro footer {opacity:1;}
     footer:hover {opacity:1;}
     footer div  {display:inline-block;}
+    .game #contract-footer {color:#ffffff; font-weight:bold; font-size:13px;}
     #sharing a {display:inline-block;float:right;background-size:844px;position:relative;top:-2px;text-decoration:none;width:32px;height:22px;margin:0 8px 0 8px;transition:transform 0.2s;text-align:center;line-height:22px;font-size:16px;font-weight:bold;color:#fff;}
     #sharing #xshare {background:none !important;border-radius:4px;padding:0 8px;font-size:18px;}
     #sharing #xshare:hover {transform:scale(1.15);}
