@@ -31,6 +31,11 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#about-contract').text(this.project.contractAddress);
             $('#project-logo').attr('src', this.project.logo);
             
+            // Set contract address on all pages
+            $('#contract-address-about').text('CA: ' + this.project.contractAddress);
+            $('#contract-address-credits').text('CA: ' + this.project.contractAddress);
+            $('#footer-ca').text(this.project.contractAddress);
+            
             // Set social links
             $('#social-telegram').attr('href', this.project.telegram);
             $('#social-twitter').attr('href', this.project.twitter);
@@ -46,6 +51,14 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#token-symbol-credits').text(this.project.tokenSymbol);
             $('#token-telegram').attr('href', this.project.telegram);
             $('#token-twitter').attr('href', this.project.twitter);
+            
+            // Token exchange links
+            $('#token-dexscreener').attr('href', 'https://dexscreener.com');
+            $('#token-pumpfun').attr('href', 'https://pump.fun');
+            $('#token-jupiter').attr('href', 'https://jup.ag');
+            $('#link-dexscreener').attr('href', 'https://dexscreener.com');
+            $('#link-pumpfun').attr('href', 'https://pump.fun');
+            $('#link-jupiter').attr('href', 'https://jup.ag');
             
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
