@@ -56,6 +56,14 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 $('#leaderboardbutton').click(function() {
                     app.toggleLeaderboard();
                 });
+                
+                $('#leaderboard .close').click(function() {
+                    app.toggleLeaderboard();
+                });
+                
+                $('#close-leaderboard').click(function() {
+                    app.toggleLeaderboard();
+                });
         
                 $('#instructions').click(function() {
                 app.hideWindows();
