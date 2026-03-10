@@ -4,7 +4,7 @@ define(['jquery', 'app'], function($, App) {
 
     var initApp = function() {
         $(document).ready(function() {
-        	app = new App();
+                app = new App();
             app.center();
         
             if(Detect.isWindows()) {
@@ -26,67 +26,67 @@ define(['jquery', 'app'], function($, App) {
                     app.toggleAbout();
                 }
             });
-	
-        	$('.barbutton').click(function() {
-        	    $(this).toggleClass('active');
-        	});
-	
-        	$('#chatbutton').click(function() {
-        	    if($('#chatbutton').hasClass('active')) {
-        	        app.showChat();
-        	    } else {
+        
+                $('.barbutton').click(function() {
+                    $(this).toggleClass('active');
+                });
+        
+                $('#chatbutton').click(function() {
+                    if($('#chatbutton').hasClass('active')) {
+                        app.showChat();
+                    } else {
                     app.hideChat();
-        	    }
-        	});
-	
-        	$('#helpbutton').click(function() {
+                    }
+                });
+        
+                $('#helpbutton').click(function() {
                 app.toggleAbout();
-        	});
-	
-        	$('#achievementsbutton').click(function() {
+                });
+        
+                $('#achievementsbutton').click(function() {
                 app.toggleAchievements();
                 if(app.blinkInterval) {
                     clearInterval(app.blinkInterval);
                 }
                 $(this).removeClass('blink');
-        	});
-	
-        	$('#instructions').click(function() {
+                });
+        
+                $('#instructions').click(function() {
                 app.hideWindows();
-        	});
-        	
-        	$('#playercount').click(function() {
-        	    app.togglePopulationInfo();
-        	});
-        	
-        	$('#population').click(function() {
-        	    app.togglePopulationInfo();
-        	});
-	
-        	$('.clickable').click(function(event) {
+                });
+                
+                $('#playercount').click(function() {
+                    app.togglePopulationInfo();
+                });
+                
+                $('#population').click(function() {
+                    app.togglePopulationInfo();
+                });
+        
+                $('.clickable').click(function(event) {
                 event.stopPropagation();
-        	});
-	
-        	$('#toggle-credits').click(function() {
-        	    app.toggleCredits();
-        	});
-	
-        	$('#create-new span').click(function() {
-        	    app.animateParchment('loadcharacter', 'confirmation');
-        	});
-	
-        	$('.delete').click(function() {
+                });
+        
+                $('#toggle-credits').click(function() {
+                    app.toggleCredits();
+                });
+        
+                $('#create-new span').click(function() {
+                    app.animateParchment('loadcharacter', 'confirmation');
+                });
+        
+                $('.delete').click(function() {
                 app.storage.clear();
-        	    app.animateParchment('confirmation', 'createcharacter');
-        	});
-	
-        	$('#cancel span').click(function() {
-        	    app.animateParchment('confirmation', 'loadcharacter');
-        	});
-        	
-        	$('.ribbon').click(function() {
-        	    app.toggleAbout();
-        	});
+                    app.animateParchment('confirmation', 'createcharacter');
+                });
+        
+                $('#cancel span').click(function() {
+                    app.animateParchment('confirmation', 'loadcharacter');
+                });
+                
+                $('.ribbon').click(function() {
+                    app.toggleAbout();
+                });
 
             $('#nameinput').bind("keyup", function() {
                 app.toggleButton();
@@ -122,29 +122,45 @@ define(['jquery', 'app'], function($, App) {
                 app.hideWindows();
             });
         
-            $('.twitter').click(function() {
-                var url = $(this).attr('href');
-
+            $('#xshare').click(function() {
+                var text = encodeURIComponent('Join Memecoin Universe! A multiplayer HTML5 adventure game. Explore, fight, and conquer in our meme-themed world! 🎮 #MemecoινUniverse #WebSockets');
+                var url = 'https://x.com/intent/tweet?text=' + text + '&url=https%3A%2F%2Fmemecoinguniverse.com';
                app.openPopup('twitter', url);
                return false;
             });
 
-            $('.facebook').click(function() {
-                var url = $(this).attr('href');
+            $('#tgshare').click(function() {
+                var text = encodeURIComponent('Check out Memecoin Universe - a multiplayer HTML5 adventure game! 🎮');
+                var url = 'https://t.me/share/url?url=https://memecoinguniverse.com&text=' + text;
+               app.openPopup('telegram', url);
+               return false;
+            });
 
-               app.openPopup('facebook', url);
+            $('.twitter').click(function() {
+                if($(this).attr('id') !== 'xshare') {
+                    var url = $(this).attr('href');
+                    app.openPopup('twitter', url);
+                }
+               return false;
+            });
+
+            $('.facebook').click(function() {
+                if($(this).attr('id') !== 'tgshare') {
+                    var url = $(this).attr('href');
+                    app.openPopup('facebook', url);
+                }
                return false;
             });
         
             var data = app.storage.data;
-    		if(data.hasAlreadyPlayed) {
-    		    if(data.player.name && data.player.name !== "") {
-		            $('#playername').html(data.player.name);
-    		        $('#playerimage').attr('src', data.player.image);
-    		    }
-    		}
-    		
-    		$('.play div').click(function(event) {
+                if(data.hasAlreadyPlayed) {
+                    if(data.player.name && data.player.name !== "") {
+                            $('#playername').html(data.player.name);
+                        $('#playerimage').attr('src', data.player.image);
+                    }
+                }
+                
+                $('.play div').click(function(event) {
                 var nameFromInput = $('#nameinput').attr('value'),
                     nameFromStorage = $('#playername').html(),
                     name = nameFromInput || nameFromStorage;
@@ -168,97 +184,97 @@ define(['jquery', 'app'], function($, App) {
         require(['game'], function(Game) {
             
             var canvas = document.getElementById("entities"),
-        	    background = document.getElementById("background"),
-        	    foreground = document.getElementById("foreground"),
-        	    input = document.getElementById("chatinput");
+                    background = document.getElementById("background"),
+                    foreground = document.getElementById("foreground"),
+                    input = document.getElementById("chatinput");
 
-    		game = new Game(app);
-    		game.setup('#bubbles', canvas, background, foreground, input);
-    		game.setStorage(app.storage);
-    		app.setGame(game);
-    		
-    		if(app.isDesktop && app.supportsWorkers) {
-    		    game.loadMap();
-    		}
-	
-    		game.onGameStart(function() {
+                game = new Game(app);
+                game.setup('#bubbles', canvas, background, foreground, input);
+                game.setStorage(app.storage);
+                app.setGame(game);
+                
+                if(app.isDesktop && app.supportsWorkers) {
+                    game.loadMap();
+                }
+        
+                game.onGameStart(function() {
                 app.initEquipmentIcons();
-    		});
-    		
-    		game.onDisconnect(function(message) {
-    		    $('#death').find('p').html(message+"<em>Please reload the page.</em>");
-    		    $('#respawn').hide();
-    		});
-	
-    		game.onPlayerDeath(function() {
-    		    if($('body').hasClass('credits')) {
-    		        $('body').removeClass('credits');
-    		    }
+                });
+                
+                game.onDisconnect(function(message) {
+                    $('#death').find('p').html(message+"<em>Please reload the page.</em>");
+                    $('#respawn').hide();
+                });
+        
+                game.onPlayerDeath(function() {
+                    if($('body').hasClass('credits')) {
+                        $('body').removeClass('credits');
+                    }
                 $('body').addClass('death');
-    		});
-	
-    		game.onPlayerEquipmentChange(function() {
-    		    app.initEquipmentIcons();
-    		});
-	
-    		game.onPlayerInvincible(function() {
-    		    $('#hitpoints').toggleClass('invincible');
-    		});
+                });
+        
+                game.onPlayerEquipmentChange(function() {
+                    app.initEquipmentIcons();
+                });
+        
+                game.onPlayerInvincible(function() {
+                    $('#hitpoints').toggleClass('invincible');
+                });
 
-    		game.onNbPlayersChange(function(worldPlayers, totalPlayers) {
-    		    var setWorldPlayersString = function(string) {
-        		        $("#instance-population").find("span:nth-child(2)").text(string);
-        		        $("#playercount").find("span:nth-child(2)").text(string);
-        		    },
-        		    setTotalPlayersString = function(string) {
-        		        $("#world-population").find("span:nth-child(2)").text(string);
-        		    };
-    		    
-    		    $("#playercount").find("span.count").text(worldPlayers);
-    		    
-    		    $("#instance-population").find("span").text(worldPlayers);
-    		    if(worldPlayers == 1) {
-    		        setWorldPlayersString("player");
-    		    } else {
-    		        setWorldPlayersString("players");
-    		    }
-    		    
-    		    $("#world-population").find("span").text(totalPlayers);
-    		    if(totalPlayers == 1) {
-    		        setTotalPlayersString("player");
-    		    } else {
-    		        setTotalPlayersString("players");
-    		    }
-    		});
-	
-    		game.onAchievementUnlock(function(id, name, description) {
-    		    app.unlockAchievement(id, name);
-    		});
-	
-    		game.onNotification(function(message) {
-    		    app.showMessage(message);
-    		});
-	
+                game.onNbPlayersChange(function(worldPlayers, totalPlayers) {
+                    var setWorldPlayersString = function(string) {
+                                $("#instance-population").find("span:nth-child(2)").text(string);
+                                $("#playercount").find("span:nth-child(2)").text(string);
+                            },
+                            setTotalPlayersString = function(string) {
+                                $("#world-population").find("span:nth-child(2)").text(string);
+                            };
+                    
+                    $("#playercount").find("span.count").text(worldPlayers);
+                    
+                    $("#instance-population").find("span").text(worldPlayers);
+                    if(worldPlayers == 1) {
+                        setWorldPlayersString("player");
+                    } else {
+                        setWorldPlayersString("players");
+                    }
+                    
+                    $("#world-population").find("span").text(totalPlayers);
+                    if(totalPlayers == 1) {
+                        setTotalPlayersString("player");
+                    } else {
+                        setTotalPlayersString("players");
+                    }
+                });
+        
+                game.onAchievementUnlock(function(id, name, description) {
+                    app.unlockAchievement(id, name);
+                });
+        
+                game.onNotification(function(message) {
+                    app.showMessage(message);
+                });
+        
             app.initHealthBar();
-	
+        
             $('#nameinput').attr('value', '');
-    		$('#chatbox').attr('value', '');
-    		
-        	if(game.renderer.mobile || game.renderer.tablet) {
+                $('#chatbox').attr('value', '');
+                
+                if(game.renderer.mobile || game.renderer.tablet) {
                 $('#foreground').bind('touchstart', function(event) {
                     app.center();
                     app.setMouseCoordinates(event.originalEvent.touches[0]);
-                	game.click();
-                	app.hideWindows();
+                        game.click();
+                        app.hideWindows();
                 });
             } else {
                 $('#foreground').click(function(event) {
                     app.center();
                     app.setMouseCoordinates(event);
                     if(game) {
-                	    game.click();
-                	}
-                	app.hideWindows();
+                            game.click();
+                        }
+                        app.hideWindows();
                     // $('#chatinput').focus();
                 });
             }
@@ -297,14 +313,14 @@ define(['jquery', 'app'], function($, App) {
             });
             
             $(document).mousemove(function(event) {
-            	app.setMouseCoordinates(event);
-            	if(game.started) {
-            	    game.movecursor();
-            	}
+                app.setMouseCoordinates(event);
+                if(game.started) {
+                    game.movecursor();
+                }
             });
 
             $(document).keydown(function(e) {
-            	var key = e.which,
+                var key = e.which,
                     $chat = $('#chatinput');
 
                 if(key === 13) {
@@ -362,8 +378,8 @@ define(['jquery', 'app'], function($, App) {
             });
             
             $(document).bind("keydown", function(e) {
-            	var key = e.which,
-            	    $chat = $('#chatinput');
+                var key = e.which,
+                    $chat = $('#chatinput');
 
                 if($('#chatinput:focus').size() == 0 && $('#nameinput:focus').size() == 0) {
                     if(key === 13) { // Enter

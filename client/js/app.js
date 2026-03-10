@@ -110,10 +110,10 @@ define(['jquery', 'storage'], function($, Storage) {
                 this.center();
                 this.game.run(function() {
                     $('body').addClass('started');
-                	if(firstTimePlaying) {
-                	    self.toggleInstructions();
-                	}
-            	});
+                        if(firstTimePlaying) {
+                            self.toggleInstructions();
+                        }
+                });
             }
         },
 
@@ -125,31 +125,31 @@ define(['jquery', 'storage'], function($, Storage) {
                 mouse = this.game.mouse;
 
             mouse.x = event.pageX - gamePos.left - (this.isMobile ? 0 : 5 * scale);
-        	mouse.y = event.pageY - gamePos.top - (this.isMobile ? 0 : 7 * scale);
+                mouse.y = event.pageY - gamePos.top - (this.isMobile ? 0 : 7 * scale);
 
-        	if(mouse.x <= 0) {
-        	    mouse.x = 0;
-        	} else if(mouse.x >= width) {
-        	    mouse.x = width - 1;
-        	}
+                if(mouse.x <= 0) {
+                    mouse.x = 0;
+                } else if(mouse.x >= width) {
+                    mouse.x = width - 1;
+                }
 
-        	if(mouse.y <= 0) {
-        	    mouse.y = 0;
-        	} else if(mouse.y >= height) {
-        	    mouse.y = height - 1;
-        	}
+                if(mouse.y <= 0) {
+                    mouse.y = 0;
+                } else if(mouse.y >= height) {
+                    mouse.y = height - 1;
+                }
         },
 
         initHealthBar: function() {
             var scale = this.game.renderer.getScaleFactor(),
                 healthMaxWidth = $("#healthbar").width() - (12 * scale);
 
-        	this.game.onPlayerHealthChange(function(hp, maxHp) {
-        	    var barWidth = Math.round((healthMaxWidth / maxHp) * (hp > 0 ? hp : 0));
-        	    $("#hitpoints").css('width', barWidth + "px");
-        	});
+                this.game.onPlayerHealthChange(function(hp, maxHp) {
+                    var barWidth = Math.round((healthMaxWidth / maxHp) * (hp > 0 ? hp : 0));
+                    $("#hitpoints").css('width', barWidth + "px");
+                });
 
-        	this.game.onPlayerHurt(this.blinkHealthBar.bind(this));
+                this.game.onPlayerHurt(this.blinkHealthBar.bind(this));
         },
 
         blinkHealthBar: function() {
@@ -201,17 +201,17 @@ define(['jquery', 'storage'], function($, Storage) {
 
         toggleInstructions: function() {
             if($('#achievements').hasClass('active')) {
-        	    this.toggleAchievements();
-        	    $('#achievementsbutton').removeClass('active');
-        	}
+                    this.toggleAchievements();
+                    $('#achievementsbutton').removeClass('active');
+                }
             $('#instructions').toggleClass('active');
         },
 
         toggleAchievements: function() {
-        	if($('#instructions').hasClass('active')) {
-        	    this.toggleInstructions();
-        	    $('#helpbutton').removeClass('active');
-        	}
+                if($('#instructions').hasClass('active')) {
+                    this.toggleInstructions();
+                    $('#helpbutton').removeClass('active');
+                }
             this.resetPage();
             $('#achievements').toggleClass('active');
         },
@@ -247,19 +247,19 @@ define(['jquery', 'storage'], function($, Storage) {
 
         hideWindows: function() {
             if($('#achievements').hasClass('active')) {
-        	    this.toggleAchievements();
-        	    $('#achievementsbutton').removeClass('active');
-        	}
-        	if($('#instructions').hasClass('active')) {
-        	    this.toggleInstructions();
-        	    $('#helpbutton').removeClass('active');
-        	}
-        	if($('body').hasClass('credits')) {
-        	    this.closeInGameCredits();
-        	}
-        	if($('body').hasClass('about')) {
-        	    this.closeInGameAbout();
-        	}
+                    this.toggleAchievements();
+                    $('#achievementsbutton').removeClass('active');
+                }
+                if($('#instructions').hasClass('active')) {
+                    this.toggleInstructions();
+                    $('#helpbutton').removeClass('active');
+                }
+                if($('body').hasClass('credits')) {
+                    this.closeInGameCredits();
+                }
+                if($('body').hasClass('about')) {
+                    this.closeInGameAbout();
+                }
         },
 
         showAchievementNotification: function(id, name) {
@@ -316,7 +316,7 @@ define(['jquery', 'storage'], function($, Storage) {
                 if(!achievement.hidden) {
                     self.setAchievementData($a, achievement.name, achievement.desc);
                 }
-                $a.find('.twitter').attr('href', 'http://twitter.com/share?url=http%3A%2F%2Fbrowserquest.mozilla.org&text=I%20unlocked%20the%20%27'+ achievement.name +'%27%20achievement%20on%20Mozilla%27s%20%23BrowserQuest%21&related=glecollinet:Creators%20of%20BrowserQuest%2Cwhatthefranck');
+                $a.find('.twitter').attr('href', 'https://x.com/intent/tweet?text=I%20unlocked%20the%20%27'+ achievement.name +'%27%20achievement%20in%20%23MemecoινUniverse%21%20%F0%9F%8E%AE&url=https%3A%2F%2Fmemecoinguniverse.com');
                 $a.show();
                 $a.find('a').click(function() {
                      var url = $(this).attr('href');
@@ -372,9 +372,9 @@ define(['jquery', 'storage'], function($, Storage) {
                     if(currentState === 'credits') {
                         this.animateParchment(currentState, this.previousState);
                     } else {
-            	        this.animateParchment(currentState, 'credits');
-            	        this.previousState = currentState;
-            	    }
+                        this.animateParchment(currentState, 'credits');
+                        this.previousState = currentState;
+                    }
                 }
             }
         },
@@ -400,9 +400,9 @@ define(['jquery', 'storage'], function($, Storage) {
                             this.animateParchment(currentState, 'createcharacter');
                         }
                     } else {
-            	        this.animateParchment(currentState, 'about');
-            	        this.previousState = currentState;
-            	    }
+                        this.animateParchment(currentState, 'about');
+                        this.previousState = currentState;
+                    }
                 }
             }
         },
@@ -450,8 +450,8 @@ define(['jquery', 'storage'], function($, Storage) {
             top = (h / 2) - (popupHeight / 2);
             left = (w / 2) - (popupWidth / 2);
 
-        	newwindow = window.open(url,'name','height=' + popupHeight + ',width=' + popupWidth + ',top=' + top + ',left=' + left);
-        	if (window.focus) {newwindow.focus()}
+                newwindow = window.open(url,'name','height=' + popupHeight + ',width=' + popupWidth + ',top=' + top + ',left=' + left);
+                if (window.focus) {newwindow.focus()}
         },
 
         animateParchment: function(origin, destination) {
@@ -479,7 +479,7 @@ define(['jquery', 'storage'], function($, Storage) {
                     setTimeout(function() {
                         self.isParchmentReady = !self.isParchmentReady;
                     }, duration * 1000);
-        	    }
+                    }
             }
         },
 
