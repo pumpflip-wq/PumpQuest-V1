@@ -16,7 +16,7 @@ var Properties = {
     pepe: {
         drops: {
             energydrink: 40,
-            hoddiehoodie: 10,
+            mailarmor: 10,
             gmhandle: 20,
             redherring: 5
         },
@@ -28,7 +28,7 @@ var Properties = {
     wojak: {
         drops: {
             energydrink: 50,
-            leatherhoddie: 20,
+            leatherarmor: 20,
             gmhandle: 10,
             redherring: 5
         },
@@ -41,7 +41,7 @@ var Properties = {
         drops: {
             pizza: 10,
             energydrink: 50,
-            platinumhoddie: 20,
+            platearmor: 20,
             diamondhandle: 20,
             redherring: 5
         },
@@ -53,7 +53,7 @@ var Properties = {
     memecoin: {
         drops: {
             energydrink: 30,
-            goldhoddie: 40,
+            goldenarmor: 40,
             lambohandle: 30,
             redherring: 5
         },
@@ -76,7 +76,7 @@ var Properties = {
         drops: {
             energydrink: 50,
             gmhandle: 20,
-            leatherhoddie: 10,
+            leatherarmor: 10,
             redherring: 5
         },
         hp: 60,
@@ -87,7 +87,7 @@ var Properties = {
     ngmi: {
         drops: {
             energydrink: 50,
-            hoddiehoodie: 10,
+            mailarmor: 10,
             diamondhandle: 10,
             redherring: 5
         },
@@ -99,7 +99,7 @@ var Properties = {
     bagholder: {
         drops: {
             energydrink: 60,
-            platinumhoddie: 15,
+            platearmor: 15,
             bluehandle: 15,
             redherring: 5
         },
@@ -111,7 +111,7 @@ var Properties = {
     shill: {
         drops: {
             energydrink: 50,
-            goldhoddie: 20,
+            goldenarmor: 20,
             lambohandle: 10,
             redherring: 5
         },
@@ -134,7 +134,7 @@ var Properties = {
     fudster: {
         drops: {
             energydrink: 50,
-            platinumhoddie: 20,
+            platearmor: 20,
             redherring: 5
         },
         hp: 100,

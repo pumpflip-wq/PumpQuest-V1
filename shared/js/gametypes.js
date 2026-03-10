@@ -50,12 +50,12 @@ Types = {
         
         // Armors
         MEMECAP: 20,
-        CLOTHHODDIE: 21,
-        LEATHERHODDIE: 22,
-        HODDIEHOODIE: 23,
-        PLATINUMHODDIE: 24,
-        GOLDHODDIE: 25,
-        ULTIMATEHODDIE: 26,
+        CLOTHARMOR: 21,
+        LEATHERARMOR: 22,
+        MAILARMOR: 23,
+        PLATEARMOR: 24,
+        GOLDENARMOR: 25,
+        REDARMOR: 26,
         
         // Objects
         ENERGYDRINK: 35,
@@ -126,12 +126,12 @@ var kinds = {
     bluehandle2: [Types.Entities.BLUEHANDLE2, "weapon"],
     
     memecap: [Types.Entities.MEMECAP, "armor"],
-    clothhoddie: [Types.Entities.CLOTHHODDIE, "armor"],
-    leatherhoddie: [Types.Entities.LEATHERHODDIE, "armor"],
-    hoddiehoodie: [Types.Entities.HODDIEHOODIE, "armor"],
-    platinumhoddie: [Types.Entities.PLATINUMHODDIE, "armor"],
-    goldhoddie: [Types.Entities.GOLDHODDIE, "armor"],
-    ultimatehoddie: [Types.Entities.ULTIMATEHODDIE, "armor"],
+    clotharmor: [Types.Entities.CLOTHARMOR, "armor"],
+    leatherarmor: [Types.Entities.LEATHERARMOR, "armor"],
+    mailarmor: [Types.Entities.MAILARMOR, "armor"],
+    platearmor: [Types.Entities.PLATEARMOR, "armor"],
+    goldenarmor: [Types.Entities.GOLDENARMOR, "armor"],
+    redarmor: [Types.Entities.REDARMOR, "armor"],
 
     energydrink: [Types.Entities.ENERGYDRINK, "object"],
     tendies: [Types.Entities.TENDIES, "object"],
@@ -172,12 +172,12 @@ Types.rankedWeapons = [
 ];
 
 Types.rankedArmors = [
-    Types.Entities.CLOTHHODDIE,
-    Types.Entities.LEATHERHODDIE,
-    Types.Entities.HODDIEHOODIE,
-    Types.Entities.PLATINUMHODDIE,
-    Types.Entities.GOLDHODDIE,
-    Types.Entities.ULTIMATEHODDIE
+    Types.Entities.CLOTHARMOR,
+    Types.Entities.LEATHERARMOR,
+    Types.Entities.MAILARMOR,
+    Types.Entities.PLATEARMOR,
+    Types.Entities.GOLDENARMOR,
+    Types.Entities.REDARMOR
 ];
 
 Types.getWeaponRank = function(weaponKind) {
