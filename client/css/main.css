@@ -125,10 +125,10 @@ footer, header, hgroup, menu, nav, section {
     
 /* Common rules */
     
-    body.upscaled.game {background:-moz-radial-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,1) 125%), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
-    body.upscaled.game {background:-webkit-gradient(radial, center center, 120, center center, 400, from(rgba(0,0,0,0)), to(rgba(0,0,0,1))), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
-    body.game {background:-moz-radial-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,1) 125%), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
-    body.game {background:-webkit-gradient(radial, center center, 120, center center, 400, from(rgba(0,0,0,0)), to(rgba(0,0,0,1))), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
+    body.upscaled.game {background:-moz-radial-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.5) 125%), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
+    body.upscaled.game {background:-webkit-gradient(radial, center center, 120, center center, 400, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.5))), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
+    body.game {background:-moz-radial-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.5) 125%), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
+    body.game {background:-webkit-gradient(radial, center center, 120, center center, 400, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.5))), url('../img/1/wood.png') repeat, #000; background-size:auto, 128px;}
     .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200;}
         
     #logosparks, .left-ornament, .right-ornament, #character, #character div, .button, .button div, #respawn, #scroll, #instructions, .icon, #tilt, .parchment-left, .parchment-middle, .parchment-right, .avatar, .facebook, .twitter, .close, #note, .ribbon .top, .ribbon .bottom, #about .img, .ext-link {background:url('../img/1/spritesheet.png');image-rendering:-moz-crisp-edges; image-rendering:-webkit-optimize-contrast;}
@@ -222,13 +222,18 @@ footer, header, hgroup, menu, nav, section {
     #about .link a:hover {color:#d83939;}
 
     footer {font-family:'GraphicPixel';position:absolute;bottom:5%;left:0;text-align:center;width:100%;color:#ffffff;-moz-transition:0.2s opacity linear;-webkit-transition:0.2s opacity linear;-o-transition:0.2s opacity linear;-ms-transition:0.2s opacity linear;transition:0.2s opacity linear;}
-    .upscaled.game footer {color:#ffffff; background:radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); border-radius:50%; padding:30px; width:200px; left:50%; transform:translateX(-50%); bottom:10%;}
-    .game footer {color:#ffffff; background:radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); border-radius:50%; padding:30px; width:200px; left:50%; transform:translateX(-50%); bottom:10%;}
+    .upscaled.game footer {color:#ffffff; background:radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%); border-radius:50%; padding:25px; width:280px; left:50%; transform:translateX(-50%); bottom:8%; text-align:center;}
+    .game footer {color:#ffffff; background:radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%); border-radius:50%; padding:25px; width:280px; left:50%; transform:translateX(-50%); bottom:8%; text-align:center;}
     
     .intro footer {opacity:1;}
     footer:hover {opacity:1;}
-    footer div  {display:inline-block;}
-    .game #contract-footer {color:#ffffff; font-weight:bold; font-size:13px;}
+    footer div  {display:block; margin:3px 0;}
+    .game footer div {display:block; margin:2px 0;}
+    .game #contract-footer {color:#ffffff; font-weight:bold; font-size:11px; letter-spacing:1px;}
+    .game #sharing {float:none; display:block;}
+    .game #sharing a {float:none; margin:0 6px;}
+    .game #project-social-footer {display:block;}
+    .game #credits-link {display:block;}
     #sharing a {display:inline-block;float:right;background-size:844px;position:relative;top:-2px;text-decoration:none;width:32px;height:22px;margin:0 8px 0 8px;transition:transform 0.2s;text-align:center;line-height:22px;font-size:16px;font-weight:bold;color:#fff;}
     #sharing #xshare {background:none !important;border-radius:4px;padding:0 8px;font-size:18px;}
     #sharing #xshare:hover {transform:scale(1.15);}

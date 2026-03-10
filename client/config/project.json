@@ -7,9 +7,20 @@
   "website": "https://yourproject.com",
   "twitter": "https://x.com/yourproject",
   "telegram": "https://t.me/yourproject",
-  "logo": "img/common/favicon.png",
+  "logo": "img/common/pumpquest-logo.png",
   "description": "Explore the PumpVerse, hunt legendary tokens, and become the ultimate Crypto Hunter.",
   "tagline": "Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter",
+
+  "trading": {
+    "dexscreener": "https://dexscreener.com",
+    "pumpfun": "https://pump.fun",
+    "jupiter": "https://jup.ag"
+  },
+
+  "social": {
+    "telegram": "https://t.me/yourproject",
+    "twitter": "https://x.com/yourproject"
+  },
 
   "gameSettings": {
     "playerTitle": "Crypto Hunter",
