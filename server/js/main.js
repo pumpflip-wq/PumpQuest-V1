@@ -34,7 +34,7 @@ function main(config) {
             log = new Log(Log.INFO); break;
     };
     
-    log.info("Starting BrowserQuest game server...");
+    log.info("Starting Memecoin Universe game server...");
     
     server.onConnect(function(connection) {
         var world, // the one in which the player will be spawned
