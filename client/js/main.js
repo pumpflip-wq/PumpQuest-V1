@@ -60,22 +60,34 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         app.toggleLeaderboard();
                     } else {
                         // On login page - show leaderboard overlay
-                        $('#leaderboard').show();
+                        $('#leaderboard').toggleClass('active');
                     }
                 });
                 
                 $('#leaderboard .close').click(function() {
-                    app.toggleLeaderboard();
+                    if(app.game) {
+                        app.toggleLeaderboard();
+                    } else {
+                        $('#leaderboard').removeClass('active');
+                    }
                 });
                 
                 $('#leaderboard').click(function(e) {
                     if(e.target.id === 'leaderboard' || $(e.target).closest('.parchment-middle').length === 0) {
-                        app.toggleLeaderboard();
+                        if(app.game) {
+                            app.toggleLeaderboard();
+                        } else {
+                            $('#leaderboard').removeClass('active');
+                        }
                     }
                 });
                 
                 $('#close-leaderboard').click(function() {
-                    app.toggleLeaderboard();
+                    if(app.game) {
+                        app.toggleLeaderboard();
+                    } else {
+                        $('#leaderboard').removeClass('active');
+                    }
                 });
         
                 $('#instructions').click(function() {
