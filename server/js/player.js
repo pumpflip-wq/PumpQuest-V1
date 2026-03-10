@@ -137,8 +137,9 @@ module.exports = Player = Character.extend({
             else if(action === Types.Messages.HURT) {
                 var mob = self.server.getEntityById(message[1]);
                 if(mob && self.hitPoints > 0) {
-                    self.hitPoints -= Formulas.dmg(mob.weaponLevel, self.armorLevel);
-                    self.server.handleHurtEntity(self);
+                    var dmg = Formulas.dmg(mob.weaponLevel, self.armorLevel);
+                    self.hitPoints -= dmg;
+                    self.server.handleHurtEntity(self, mob, dmg);
                     
                     if(self.hitPoints <= 0) {
                         self.isDead = true;
