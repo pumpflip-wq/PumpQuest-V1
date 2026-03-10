@@ -3,80 +3,80 @@ define(function() {
 
     var Entity = Class.extend({
         init: function(id, kind) {
-    	    var self = this;
-	    
+            var self = this;
+            
             this.id = id;
             this.kind = kind;
 
             // Renderer
-    		this.sprite = null;
-    		this.flipSpriteX = false;
-        	this.flipSpriteY = false;
-    		this.animations = null;
-    		this.currentAnimation = null;
+                this.sprite = null;
+                this.flipSpriteX = false;
+                this.flipSpriteY = false;
+                this.animations = null;
+                this.currentAnimation = null;
             this.shadowOffsetY = 0;
-		
-    		// Position
-    		this.setGridPosition(0, 0);
-		
+                
+                // Position
+                this.setGridPosition(0, 0);
+                
             // Modes
             this.isLoaded = false;
             this.isHighlighted = false;
             this.visible = true;
             this.isFading = false;
             this.setDirty();
-    	},
-	
-    	setName: function(name) {
-    		this.name = name;
-    	},
-	
-    	setPosition: function(x, y) {
-    		this.x = x;
-    		this.y = y;
-    	},
-	
-    	setGridPosition: function(x, y) {
-    		this.gridX = x;
-    		this.gridY = y;
-		
-    		this.setPosition(x * 16, y * 16);
-    	},
-	
-    	setSprite: function(sprite) {
-    	    if(!sprite) {
-    	        log.error(this.id + " : sprite is null", true);
-    	        throw "Error";
-    	    }
-	    
-    	    if(this.sprite && this.sprite.name === sprite.name) {
-    	        return;
-    	    }
+        },
+        
+        setName: function(name) {
+                this.name = name;
+        },
+        
+        setPosition: function(x, y) {
+                this.x = x;
+                this.y = y;
+        },
+        
+        setGridPosition: function(x, y) {
+                this.gridX = x;
+                this.gridY = y;
+                
+                this.setPosition(x * 16, y * 16);
+        },
+        
+        setSprite: function(sprite) {
+            if(!sprite) {
+                log.error(this.id + " : sprite is null", true);
+                throw new Error("Sprite is null for entity " + this.id);
+            }
+            
+            if(this.sprite && this.sprite.name === sprite.name) {
+                return;
+            }
 
-    	    this.sprite = sprite;
+            this.sprite = sprite;
             this.normalSprite = this.sprite;
         
             if(Types.isMob(this.kind) || Types.isPlayer(this.kind)) {
-            	this.hurtSprite = sprite.getHurtSprite();
+                this.hurtSprite = sprite.getHurtSprite();
             }
-		
-    		this.animations = sprite.createAnimations();
-		
-    		this.isLoaded = true;
-    		if(this.ready_func) {
-    			this.ready_func();
-    		}
-    	},
-	
-    	getSprite: function() {
-    	    return this.sprite;
-    	},
-	
-    	getSpriteName: function() {
-    	    return Types.getKindAsString(this.kind);
-    	},
-	
-    	getAnimationByName: function(name) {
+                
+                this.animations = sprite.createAnimations();
+                
+                this.isLoaded = true;
+                if(this.ready_func) {
+                        this.ready_func();
+                }
+        },
+        
+        getSprite: function() {
+            return this.sprite;
+        },
+        
+        getSpriteName: function() {
+            return Types.getKindAsString(this.kind);
+        },
+        
+        getAnimationByName: function(name) {
             var animation = null;
         
             if(name in this.animations) {
@@ -88,45 +88,45 @@ define(function() {
             return animation;
         },
     
-    	setAnimation: function(name, speed, count, onEndCount) {
-    	    var self = this;
-	    
+        setAnimation: function(name, speed, count, onEndCount) {
+            var self = this;
+            
             if(this.isLoaded) {
-    		    if(this.currentAnimation && this.currentAnimation.name === name) {
-    		        return;
-    		    }
-		    
-    		    var s = this.sprite,
+                    if(this.currentAnimation && this.currentAnimation.name === name) {
+                        return;
+                    }
+                    
+                    var s = this.sprite,
                     a = this.getAnimationByName(name);
-		
-    			if(a) {
-    				this.currentAnimation = a;
-    				if(name.substr(0, 3) === "atk") {
-    				    this.currentAnimation.reset();
-    				}
-    				this.currentAnimation.setSpeed(speed);
-    				this.currentAnimation.setCount(count ? count : 0, onEndCount || function() {
-    				    self.idle();
-    				});
-    			}
-    		}
-    		else {
-    			this.log_error("Not ready for animation");
-    		}
-    	},
-	
-    	hasShadow: function() {
-    	    return false;
-    	},
-	
-    	ready: function(f) {
-    		this.ready_func = f;
-    	},
-	
-    	clean: function() {
+                
+                        if(a) {
+                                this.currentAnimation = a;
+                                if(name.substr(0, 3) === "atk") {
+                                    this.currentAnimation.reset();
+                                }
+                                this.currentAnimation.setSpeed(speed);
+                                this.currentAnimation.setCount(count ? count : 0, onEndCount || function() {
+                                    self.idle();
+                                });
+                        }
+                }
+                else {
+                        this.log_error("Not ready for animation");
+                }
+        },
+        
+        hasShadow: function() {
+            return false;
+        },
+        
+        ready: function(f) {
+                this.ready_func = f;
+        },
+        
+        clean: function() {
             this.stopBlinking();
-    	},
-	
+        },
+        
         log_info: function(message) {
             log.info("["+this.id+"] " + message);
         },
