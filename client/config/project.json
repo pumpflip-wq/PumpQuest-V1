@@ -25,6 +25,14 @@
     "jupiter": "https://jup.ag"
   },
 
+  "logos": {
+    "telegram": "img/common/telegram-logo.png",
+    "twitter": "img/common/x-logo.png",
+    "dexscreener": "img/common/dexscreener-logo.jpg",
+    "pumpfun": "img/common/pumpfun-logo.png",
+    "jupiter": "img/common/jupiter-logo.png"
+  },
+
   "gameSettings": {
     "playerTitle": "Crypto Hunter",
     "gameTitle": "PumpQuest",

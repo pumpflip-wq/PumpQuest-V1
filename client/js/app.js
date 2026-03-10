@@ -60,6 +60,26 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#link-pumpfun').attr('href', this.project.social.pumpfun);
             $('#link-jupiter').attr('href', this.project.social.jupiter);
             
+            // Update logo images from config
+            if(this.project.logos) {
+                if(this.project.logos.telegram) {
+                    $('[id*="telegram"] img').attr('src', this.project.logos.telegram);
+                }
+                if(this.project.logos.twitter) {
+                    $('[id*="twitter"] img').attr('src', this.project.logos.twitter);
+                    $('#xshare img').attr('src', this.project.logos.twitter);
+                }
+                if(this.project.logos.dexscreener) {
+                    $('#token-dexscreener img, #link-dexscreener img').attr('src', this.project.logos.dexscreener);
+                }
+                if(this.project.logos.pumpfun) {
+                    $('#token-pumpfun img, #link-pumpfun img').attr('src', this.project.logos.pumpfun);
+                }
+                if(this.project.logos.jupiter) {
+                    $('#token-jupiter img, #link-jupiter img').attr('src', this.project.logos.jupiter);
+                }
+            }
+            
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
         },
