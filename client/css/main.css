@@ -1440,8 +1440,10 @@ footer, header, hgroup, menu, nav, section {
     .game .achievement19 .coin { background-position: -480px -548px !important; }
     .game .achievement20 .coin { background-position: -528px -548px !important; }
     .game #achievements-count { margin: 12px 48px 0 0 !important; }
-    /* Achievement sharing icons: force scale-2 positions and dimensions */
-    .game .achievement-sharing { right: 16px !important; top: 16px !important; }
+    /* Achievement sharing icons: force scale-2 positions and dimensions.
+       The ul has margin-left:40px inside the 744px wrapper (overflow:hidden),
+       so the li's right 40px is clipped. We compensate with right:56px (16px visible gap + 40px ul margin offset). */
+    .game .achievement-sharing { right: 56px !important; top: 16px !important; }
     .game .achievement-sharing .twitter { height: 22px !important; width: 32px !important; background-position: -754px -392px !important; margin-left: 10px !important; }
     .game .achievement-sharing .twitter:hover { background-position: -754px -414px !important; }
     .game .achievement-sharing .facebook { height: 22px !important; width: 10px !important; background-position: -744px -392px !important; }
