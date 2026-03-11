@@ -355,8 +355,8 @@ footer, header, hgroup, menu, nav, section {
     .game.credits .parchment-left, .game.death .parchment-left, .game.about .parchment-left {left:0%;}
     .game.credits .parchment-right, .game.death .parchment-right, .game.about .parchment-right {right:0%;}
 
-    #container {z-index:100;background:rgba(0,0,0,0.2);-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:auto;height:auto;}
-    .intro #container {opacity:0;pointer-events:none;}
+    #container {z-index:100;background:rgba(0,0,0,0.2);-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;}
+    .intro #container {opacity:0;pointer-events:none;position:fixed !important;top:50% !important;left:50% !important;transform:translate(-50%,-50%) !important;width:auto !important;height:auto !important;}
     .game #container {opacity:1;}
     #logo, #parchment { transition: none !important; }
 
