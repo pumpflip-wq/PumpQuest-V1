@@ -357,10 +357,10 @@ footer, header, hgroup, menu, nav, section {
 
     #container {z-index:100;background:rgba(0,0,0,0.2);-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;}
     .intro #container {opacity:0;pointer-events:none;position:fixed !important;top:50% !important;left:50% !important;transform:translate(-50%,-50%) !important;width:auto !important;height:auto !important;}
-    .game #container {opacity:1;position:relative !important;top:0 !important;left:0 !important;margin:auto !important;transform:none !important;}
+    .game #container {opacity:1;position:relative !important;top:0 !important;left:0 !important;margin:0 auto !important;transform:none !important;width:auto !important;max-width:calc(100vw - 40px);flex-shrink:0;}
     #logo, #parchment { transition: none !important; }
     
-    .game {display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;overflow:auto;padding-bottom:120px;}
+    .game {display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;overflow:auto;padding-bottom:120px;}
 
     @-moz-keyframes flash { 0% {background:#ffa2a2;} 100% {background:#e22525; }}
     @-webkit-keyframes flash { 0% {background:#ffa2a2;} 100% {background:#e22525; }}
