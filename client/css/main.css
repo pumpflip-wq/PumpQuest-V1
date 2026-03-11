@@ -149,7 +149,8 @@ footer, header, hgroup, menu, nav, section {
 
     #character div {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear;}
 
-    .play div {position:absolute;top:0;left:0;opacity:1;-moz-transition:0.4s linear opacity;-webkit-transition:0.4s linear opacity;-o-transition:0.4s linear opacity;-ms-transition:0.4s linear opacity;transition:0.4s linear opacity}
+    .play div {position:absolute;top:0;left:0;opacity:1;-moz-transition:0.4s linear opacity, 0.2s ease transform;-webkit-transition:0.4s linear opacity, 0.2s ease transform;-o-transition:0.4s linear opacity, 0.2s ease transform;-ms-transition:0.4s linear opacity, 0.2s ease transform;transition:0.4s linear opacity, 0.2s ease transform}
+    .play div:hover {transform:scale(1.1);}
     .play.disabled div {opacity:0;pointer-events:none;}
     .play img {display:none;}
     .play.loading img {display:block;position:absolute;top:54%;left:50%;}
