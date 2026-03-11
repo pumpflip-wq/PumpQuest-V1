@@ -1287,6 +1287,10 @@ footer, header, hgroup, menu, nav, section {
 #about-telegram:hover, #about-twitter:hover, #about-website:hover { transform: scale(1.3); }
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
-#game-logo { display: none !important; }
-.game #game-logo { display: none !important; }
+#game-logo { display: none; }
+.game #game-logo { display: block; opacity: 0; animation: logoFadeIn 0.5s ease-in-out 1.2s forwards; text-align: center; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 200; pointer-events: none; width: 100%; padding: 10px 0; }
 #game-logo img { width: 320px !important; max-width: 320px !important; height: auto !important; image-rendering: pixelated; }
+@keyframes logoFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
