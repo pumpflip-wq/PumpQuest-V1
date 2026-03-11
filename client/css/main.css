@@ -131,7 +131,7 @@ footer, header, hgroup, menu, nav, section {
     body.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
     .intro #logo { display: flex !important; justify-content: center !important; align-items: center !important; height: auto !important; width: auto !important; margin: 0 auto 30px auto !important; padding: 0 20px !important; visibility: visible !important; position: relative !important; top: auto !important; left: auto !important; transform: none !important; z-index: 150 !important; }
     .intro #logo img { max-width: 380px !important; height: auto !important; }
-    .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:none !important;}
+    .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:block !important; width: auto; height: auto;}
     
     footer {position:fixed; bottom:0; left:0; right:0; z-index:100; padding:5px 0; text-align:center; font-size:12px;}
         
@@ -482,7 +482,7 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-687px -153px;}
         .button.delete:active {background-position:0 -2178px;}
         
-                #container {width:1800px;margin:0 auto;position:absolute;top:50%;margin-top:-300px;left:50%;margin-left:-900px;}
+                #container {width:1800px;margin:0 auto;position:absolute;top:50%;margin-top:-350px;left:50%;margin-left:-900px;}
                 #canvasborder {padding:25px;background:url('../img/3/border.png') no-repeat;}
                 #canvas {width:100%;height:880px;}
                 #fade {width:1750px;height:880px;top:25px;left:25px;}
@@ -643,7 +643,7 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-458px -102px;}
         .button.delete:active {background-position:0 -1452px;}
         
-                #container {width:980px;margin:0 auto;position:absolute;top:50%;margin-top:-100px;left:50%;margin-left:-490px;}
+                #container {width:980px;margin:0 auto;position:absolute;top:50%;margin-top:-250px;left:50%;margin-left:-490px;}
                 #canvasborder {padding:10px;background:url('../img/2/border.png') no-repeat;}
                 #canvas {width:100%;height:448px;}
                 #fade {width:960px;height:448px;top:10px;left:10px;}
@@ -806,7 +806,7 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-458px -102px;}
         .button.delete:active {background-position:0 -1452px;}
         
-                #container {width:980px;margin:0 auto;position:absolute;top:50%;margin-top:-100px;left:50%;margin-left:-490px;}
+                #container {width:980px;margin:0 auto;position:absolute;top:50%;margin-top:-250px;left:50%;margin-left:-490px;}
                 #canvasborder {padding:10px;background:url('../img/2/border.png') no-repeat;}
                 #canvas {width:100%;height:448px;}
                 #fade {width:960px;height:448px;top:10px;left:10px;}
@@ -965,7 +965,7 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-229px -51px;}
         .button.delete:active {background-position:0 -726px;}
         
-                #container {width:600px;margin:0 auto;position:absolute;top:50%;margin-top:-160px;left:50%;margin-left:-300px;}
+                #container {width:600px;margin:0 auto;position:absolute;top:50%;margin-top:-200px;left:50%;margin-left:-300px;}
                 #canvasborder {padding:10px;background:url('../img/1/border.png') no-repeat;}
                 #canvas {width:100%;height:300px;}
                 #fade {width:580px;height:300px;top:10px;left:10px;}
@@ -1094,7 +1094,7 @@ footer, header, hgroup, menu, nav, section {
         @media screen and (max-width: 800px) {
 
         body {border-top:0px;}
-        .intro #container, .game #logo, .game #parchment {display:none;}
+        .intro #container, .game #parchment {display:none;}
         .game.about #parchment {display:block;left:50%;background:url('../img/1/spritesheet.png') no-repeat 0 -527px;height:172px;width:417px;top:50%;margin-left:-208px;margin-top:-98px;position:absolute;}
         .game.about .parchment-middle {top:50%;left:50%;color:#000;position:absolute;}
         #about .right {width:34%;}
