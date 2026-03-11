@@ -170,8 +170,8 @@ define(['jquery', 'app', 'project'], function($, App, project) {
             });
 
             $('#tgshare').click(function() {
-                var text = encodeURIComponent('Check out Memecoin Universe - a multiplayer HTML5 adventure game! 🎮');
-                var url = 'https://t.me/share/url?url=https://memecoinguniverse.com&text=' + text;
+                var text = encodeURIComponent('Check out PumpQuest - hunt legendary tokens in the PumpVerse! 🚀');
+                var url = 'https://t.me/share/url?url=https://pumpquest.com&text=' + text;
                app.openPopup('telegram', url);
                return false;
             });

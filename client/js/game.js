@@ -207,7 +207,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 AT_WORLDS_END: {
                     id: 7,
                     name: "Edge of the Feed",
-                    desc: "Reach the bottom edge of Memecoin Universe"
+                    desc: "Reach the bottom edge of the PumpVerse"
                 },
                 COWARD: {
                     id: 8,
@@ -794,9 +794,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.storage.savePlayer(self.renderer.getPlayerImage(),
                                             self.player.getSpriteName(),
                                             self.player.getWeaponName());
-                    self.showNotification("Welcome to Memecoin Universe!");
+                    self.showNotification("Welcome to PumpQuest!");
                 } else {
-                    self.showNotification("Welcome back to Memecoin Universe!");
+                    self.showNotification("Welcome back to PumpQuest!");
                     self.storage.setPlayerName(name);
                 }
         

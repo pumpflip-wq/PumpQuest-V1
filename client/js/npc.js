@@ -10,36 +10,36 @@ define(['character'], function(Character) {
         ],
     
         "king": [
-            "I'm the Doge King",
-            "I run the Memecoin Universe",
+            "I'm the Whale King",
+            "I rule the PumpVerse",
             "Much power",
-            "I influence the masses",
-            "Much control",
-            "I wear a golden memecap",
-            "Such prestige",
-            "I pump bags all day",
-            "Much profit",
+            "I influence the markets",
+            "Such control",
+            "I wear a golden crown",
+            "Much prestige",
+            "I pump legendary tokens",
+            "Such profit",
             "Now leave me alone",
             "Much busy"
         ],
     
         "villagegirl": [
-            "WAGMI, crypto explorer!",
-            "How are you liking the Memecoin Universe?",
+            "WAGMI, Crypto Hunter!",
+            "How are you liking the PumpVerse?",
             "It's all running on a decentralized web page! Isn't it wild?",
             "It's made possible thanks to peer-to-peer connections.",
             "I'm just a digital entity trading memes and dreams.",
-            'Check out <a target="_blank" href="https://memecoin.universe/">the Memecoin docs</a> to learn about the metaverse!'
+            "Keep hunting for legendary tokens and building your market score!"
         ],
     
         "villager": [
-            "Yo, anon. You like shitposting?",
+            "Yo, Hunter! Looking for some action?",
             "Doge is love, Pepe is memes...",
-            "I like grinding normies, and so should you...",
-            "The normies are rekt, now what to do?",
+            "I like hunting enemies, and so should you...",
+            "Defeat them and collect those fragments!",
             "To be honest, just HODL and chill.",
-            "Maybe the Lava Zone could interest you...",
-            "or instead, stake your tendies."
+            "Maybe the Market Citadel could interest you...",
+            "or instead, collect more token fragments."
         ],
     
         "agent": [
@@ -102,42 +102,42 @@ define(['character'], function(Character) {
         ],
     
         "priest": [
-            "HODL, young traveler.",
-            "Memecoin wisdom is everything, so I'll share a few HODLing tips with you.",
-            "You are free to farm and explore the Memecoin Universe",
+            "HODL, young Hunter.",
+            "PumpVerse wisdom is everything, so I'll share a few HODLing tips with you.",
+            "You are free to farm and explore the PumpVerse",
             "but beware of the many FUDsters and rug pullers that await you.",
-            "You can find many dope weapons and hoddies by defeating the normies.",
+            "You can find many dope weapons and armor by defeating enemies.",
             "The stronger the enemy, the better the loot you'll receive.",
             "You can also unlock achievements by exploring and grinding.",
             "Click on the moon icon to see a list of all the achievements.",
-            "Please stay a while and enjoy the many memes of Memecoin Universe",
-            "To the moon, friend."
+            "Please stay a while and enjoy hunting legendary tokens in PumpQuest",
+            "To the moon, Hunter!"
         ],
         
         "sorcerer": [
             "Ah... I predicted you would come seek me out.",
-            "Well? How do you like my new lambo handle?",
+            "Well? How do you like my new lambo blade?",
             "Pretty sick, yeah?",
             "Where did I score it, you wonder?",
             "I feel you. It's easy to get FOMO.",
-            "I actually farmed it myself, using my elite shitposting skills.",
+            "I actually farmed it myself, using my elite trading skills.",
             "But let me tell you something real...",
-            "There are tons of loot in the Memecoin Universe.",
+            "There are tons of legendary tokens in the PumpVerse.",
             "Some way more valuable than others.",
             "To find them, you gotta grind and explore.",
-            "Get those bags."
+            "Get those fragments."
         ],
         
         "octocat": [
-            "Welcome to Memecoin Universe!",
-            "Want to see the source code?",
-            'Check out <a target="_blank" href="https://github.com/your-org/memecoin-universe">the Memecoin GitHub</a>'
+            "Welcome to PumpQuest!",
+            "Hunting for legendary tokens?",
+            "Keep grinding and exploring the PumpVerse to level up!"
         ],
         
         "coder": [
-            "Yo! You can play Memecoin Universe on any device with a browser!",
+            "Yo! You can play PumpQuest on any device with a browser!",
             "That's the power of blockchain and web3!",
-            "Get trading, anon..."
+            "Keep hunting, Crypto Hunter!"
         ],
     
         "beachnpc": [
