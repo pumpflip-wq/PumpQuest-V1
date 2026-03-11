@@ -361,7 +361,7 @@ footer, header, hgroup, menu, nav, section {
     .game #canvasborder {position:relative;overflow:hidden;}
     #logo, #parchment { transition: none !important; }
     
-    .game {display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;overflow:auto;padding-bottom:120px;margin:0;background:#111;}
+    .game {display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;overflow:hidden;padding-bottom:120px;margin:0;background:#111;}
 
     @-moz-keyframes flash { 0% {background:#ffa2a2;} 100% {background:#e22525; }}
     @-webkit-keyframes flash { 0% {background:#ffa2a2;} 100% {background:#e22525; }}
