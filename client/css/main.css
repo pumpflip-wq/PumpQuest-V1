@@ -1440,6 +1440,14 @@ footer, header, hgroup, menu, nav, section {
     .game .achievement19 .coin { background-position: -480px -548px !important; }
     .game .achievement20 .coin { background-position: -528px -548px !important; }
     .game #achievements-count { margin: 12px 48px 0 0 !important; }
+    /* Achievement sharing icons: force scale-2 positions and dimensions */
+    .game .achievement-sharing { right: 16px !important; top: 16px !important; }
+    .game .achievement-sharing .twitter { height: 22px !important; width: 32px !important; background-position: -754px -392px !important; margin-left: 10px !important; }
+    .game .achievement-sharing .twitter:hover { background-position: -754px -414px !important; }
+    .game .achievement-sharing .facebook { height: 22px !important; width: 10px !important; background-position: -744px -392px !important; }
+    .game .achievement-sharing .facebook:hover { background-position: -744px -414px !important; }
+    /* Coinsparks: force scale-2 dimensions and animation */
+    .game #achievement-notification.active #coinsparks { height: 52px !important; width: 48px !important; -moz-animation: coinsparks2 0.8s steps(6, end) 7 !important; -webkit-animation: coinsparks2 0.8s steps(6, end) 7 !important; animation: coinsparks2 0.8s steps(6, end) 7 !important; }
     .game #lists { width: 4000px !important; }
     .game #achievements.page1 #lists { left: 0 !important; }
     .game #achievements.page2 #lists { left: -784px !important; }
