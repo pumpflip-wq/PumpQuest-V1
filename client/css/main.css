@@ -91,15 +91,13 @@ footer, header, hgroup, menu, nav, section {
     html {-webkit-text-size-adjust: 100%}
         html, body {height:100%;width:100%;}
 
-        body {padding:0;margin:0;background:#111;overflow:hidden;image-rendering:-moz-crisp-edges; image-rendering:-webkit-optimize-contrast;border-top:none;display:flex;justify-content:center;align-items:center;flex-direction:column;}
+        body {padding:0;margin:0;background:#111;overflow:hidden;image-rendering:-moz-crisp-edges; image-rendering:-webkit-optimize-contrast;border-top:2px solid #707070;}
 
         canvas { position:absolute;image-rendering:optimizeSpeed;}
         #background { background:url('../img/common/loading.png') no-repeat center center, #000;}
         .error #background { background:url('../img/common/loading-error.png') no-repeat center center, #000;}
 
         #background, #foreground { margin:0; padding:0;}
-        
-        #canvasborder { position:relative;margin:auto; }
 
     #achievements nav::selection {background:transparent;text-decoration:none;color:transparent;}
     #canvas, #bar-container, #bubbles, #chatbox, #canvasborder, #foreground, #background, footer, #container, #achievement-notification {-moz-user-select:none;-webkit-user-select:none;-o-user-select:none;-ms-user-select:none;}
@@ -357,7 +355,7 @@ footer, header, hgroup, menu, nav, section {
     .game.credits .parchment-left, .game.death .parchment-left, .game.about .parchment-left {left:0%;}
     .game.credits .parchment-right, .game.death .parchment-right, .game.about .parchment-right {right:0%;}
 
-    #container {z-index:100;background:transparent;-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center;}
+    #container {z-index:100;background:rgba(0,0,0,0.2);-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:auto;height:auto;}
     .intro #container {opacity:0;pointer-events:none;}
     .game #container {opacity:1;}
     #logo, #parchment { transition: none !important; }
