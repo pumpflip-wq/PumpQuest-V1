@@ -355,12 +355,12 @@ footer, header, hgroup, menu, nav, section {
     .game.credits .parchment-left, .game.death .parchment-left, .game.about .parchment-left {left:0%;}
     .game.credits .parchment-right, .game.death .parchment-right, .game.about .parchment-right {right:0%;}
 
-    #container {z-index:100;background:rgba(0,0,0,0.2);-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;}
+    #container {z-index:100;background:rgba(0,0,0,0.2);-moz-transition:1s opacity linear 0.5s;-webkit-transition:1s opacity linear 0.5s;-o-transition:1s opacity linear 0.5s;-ms-transition:1s opacity linear 0.5s;transition:1s opacity linear 0.5s;position:relative;width:480px;height:320px;margin:auto;overflow:hidden;}
     .intro #container {opacity:0;pointer-events:none;position:fixed !important;top:50% !important;left:50% !important;transform:translate(-50%,-50%) !important;width:auto !important;height:auto !important;}
-    .game #container {opacity:1;position:relative !important;top:0 !important;left:0 !important;margin:0 auto !important;transform:none !important;width:auto !important;max-width:calc(100vw - 40px);flex-shrink:0;}
+    .game #container {opacity:1;position:relative !important;top:0 !important;left:0 !important;margin:0 auto !important;transform:none !important;width:480px !important;height:320px !important;overflow:hidden !important;flex-shrink:0;}
     #logo, #parchment { transition: none !important; }
     
-    .game {display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;overflow:auto;padding-bottom:120px;}
+    .game {display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;overflow:auto;padding-bottom:120px;margin:0;background:#111;}
 
     @-moz-keyframes flash { 0% {background:#ffa2a2;} 100% {background:#e22525; }}
     @-webkit-keyframes flash { 0% {background:#ffa2a2;} 100% {background:#e22525; }}
@@ -525,9 +525,9 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-687px -153px;}
         .button.delete:active {background-position:0 -2178px;}
 
-                #container {width:1800px;max-width:100%;margin:0 auto;position:relative !important;top:auto !important;margin-top:0 !important;left:auto !important;margin-left:0 !important;}
-                #canvasborder {padding:25px;background:url('../img/3/border.png') no-repeat;}
-                #canvas {width:100%;height:880px;}
+                #container {width:480px !important;height:320px !important;max-width:100%;margin:0 auto !important;position:relative !important;top:auto !important;margin-top:0 !important;left:auto !important;margin-left:0 !important;overflow:hidden !important;}
+                #canvasborder {padding:0;background:none;width:480px;height:320px;}
+                #canvas {width:480px !important;height:320px !important;}
                 #fade {width:1750px;height:880px;top:25px;left:25px;}
 
                 #instructions {height:516px;width:1251px;background-position:0 -1581px;margin-left:-624px;margin-top:-279px;color:#373737;}
@@ -685,9 +685,9 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-458px -102px;}
         .button.delete:active {background-position:0 -1452px;}
 
-                #container {width:980px;margin:0 auto;position:absolute;top:50%;margin-top:-250px;left:50%;margin-left:-490px;}
-                #canvasborder {padding:10px;background:url('../img/2/border.png') no-repeat;}
-                #canvas {width:100%;height:448px;}
+                #container {width:480px !important;height:320px !important;margin:0 auto !important;position:relative !important;top:auto !important;margin-top:0 !important;left:50%;margin-left:0 !important;overflow:hidden !important;}
+                #canvasborder {padding:0;background:none;width:480px;height:320px;}
+                #canvas {width:480px !important;height:320px !important;}
                 #fade {width:960px;height:448px;top:10px;left:10px;}
 
                 #instructions {height:344px;width:834px;background-position:0 -1054px;margin-left:-416px;margin-top:-186px;color:#373737;}
@@ -847,9 +847,9 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-458px -102px;}
         .button.delete:active {background-position:0 -1452px;}
 
-                #container {width:980px;margin:0 auto;position:absolute;top:50%;margin-top:-250px;left:50%;margin-left:-490px;}
-                #canvasborder {padding:10px;background:url('../img/2/border.png') no-repeat;}
-                #canvas {width:100%;height:448px;}
+                #container {width:480px !important;height:320px !important;margin:0 auto !important;position:relative !important;top:auto !important;margin-top:0 !important;left:50%;margin-left:0 !important;overflow:hidden !important;}
+                #canvasborder {padding:0;background:none;width:480px;height:320px;}
+                #canvas {width:480px !important;height:320px !important;}
                 #fade {width:960px;height:448px;top:10px;left:10px;}
 
                 #instructions {height:344px;width:834px;background-position:0 -1054px;margin-left:-416px;margin-top:-186px;color:#373737;}
@@ -1005,9 +1005,9 @@ footer, header, hgroup, menu, nav, section {
         .button.delete {background-position:-229px -51px;}
         .button.delete:active {background-position:0 -726px;}
 
-                #container {width:600px;margin:0 auto;position:absolute;top:50%;margin-top:-200px;left:50%;margin-left:-300px;}
-                #canvasborder {padding:10px;background:url('../img/1/border.png') no-repeat;}
-                #canvas {width:100%;height:300px;}
+                #container {width:480px !important;height:320px !important;margin:0 auto !important;position:relative !important;top:auto !important;margin-top:0 !important;left:50%;margin-left:0 !important;overflow:hidden !important;}
+                #canvasborder {padding:0;background:none;width:480px;height:320px;}
+                #canvas {width:480px !important;height:320px !important;}
                 #fade {width:580px;height:300px;top:10px;left:10px;}
 
                 #instructions {height:172px;width:417px;background-position:0 -527px;margin-left:-208px;margin-top:-93px;color:#373737;}
@@ -1151,8 +1151,8 @@ footer, header, hgroup, menu, nav, section {
         body.intro {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
         body {background:#000;}
         #logosparks {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;display:none;}
-                #container {height:258px;width:480px;position:relative;left:50%;top:50%;margin:-128px auto 0 -240px;}
-                #canvasborder {background:none;padding:0;}
+                #container {height:320px !important;width:480px !important;position:relative !important;left:auto !important;top:auto !important;margin:0 auto !important;overflow:hidden !important;}
+                #canvasborder {background:none;padding:0;width:480px;height:320px;}
 
                 #parchment, #logosparks, .left-ornament, .right-ornament, #character, #character div, .button, .button div, #respawn, #scroll, #instructions, .icon {background-size:422px auto;}
         #parchment {background:none;}
