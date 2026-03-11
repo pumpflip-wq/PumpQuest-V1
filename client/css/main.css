@@ -1335,41 +1335,72 @@ footer, header, hgroup, menu, nav, section {
 
 /* ── Force scale=2 game layout on large screens ── */
 @media screen and (min-width: 1501px) {
+    /* Container */
     .game #container { width: 980px !important; max-width: 100% !important; }
     .game #canvasborder { padding: 10px !important; background-image: url('../img/2/border.png') !important; }
     .game #canvas { height: 448px !important; }
     .game #fade { width: 960px !important; height: 448px !important; top: 10px !important; left: 10px !important; }
     .game #bubbles { width: 960px !important; height: 448px !important; margin-bottom: -448px !important; top: -448px !important; }
+    /* Health bar */
     .game #bar-container { height: 34px !important; top: -2px !important; background-size: 960px !important; }
     .game #healthbar { height: 26px !important; background-position: 0 -34px !important; width: 204px !important; top: 6px !important; background-size: 960px !important; }
     .game #hitpoints { height: 22px !important; top: 8px !important; left: 22px !important; }
     .game #armor, .game #weapon { width: 32px !important; height: 32px !important; background-size: 192px !important; background-position: -64px !important; }
     .game #weapon { left: 208px !important; top: 2px !important; }
     .game #armor { left: 242px !important; top: 2px !important; }
-    .game #notifications { display: none !important; }
-    .game #playercount { font-size: 20px !important; left: 270px !important; top: 10px !important; width: 114px !important; text-align: center !important; }
-    .game #playercount span { display: none !important; }
-    .game #playercount span.count { display: inline !important; }
-    .game #population { background-size: 960px !important; right: 35px !important; bottom: 22px !important; width: 131px !important; background-position: -240px -48px !important; font-size: 9px !important; }
-    .game #population.visible { height: 32px !important; }
-    .game #instance-population { padding-top: 5px !important; }
+    /* Notifications */
+    .game #notifications { width: 392px !important; margin-left: -196px !important; font-size: 16px !important; top: 2px !important; height: 30px !important; display: block !important; }
+    .game #notifications div.top { top: -30px !important; }
+    .game #notifications span { line-height: 30px !important; height: 30px !important; }
+    /* Player count */
+    .game #playercount { font-size: 16px !important; left: 717px !important; top: 10px !important; width: 114px !important; text-align: center !important; }
+    /* Population */
+    .game #population { background-size: 960px !important; right: 70px !important; bottom: 44px !important; width: 262px !important; background-position: -480px -96px !important; font-size: 14px !important; line-height: 20px !important; }
+    .game #population.visible { height: 64px !important; }
+    .game #instance-population { padding-top: 12px !important; }
+    /* Bar buttons */
     .game .barbutton { background-size: 960px !important; height: 30px !important; width: 28px !important; }
-    .game #chatbutton { background-position: -204px -34px !important; top: 2px !important; right: 45px !important; }
+    .game #chatbutton { background-position: -204px -34px !important; top: 2px !important; right: 90px !important; }
     .game #chatbutton:hover { background-position: -232px -34px !important; }
     .game #chatbutton.active { background-position: -260px -34px !important; }
-    .game #achievementsbutton { background-position: -288px -34px !important; top: 2px !important; right: 30px !important; }
+    .game #achievementsbutton { background-position: -288px -34px !important; top: 2px !important; right: 60px !important; }
     .game #achievementsbutton:hover, .game #achievementsbutton.blink:hover { background-position: -316px -34px !important; }
-    .game #achievementsbutton.blink { background-position: -288px -34px !important; }
+    .game #achievementsbutton.blink { background-position: -576px -34px !important; }
     .game #achievementsbutton.active { background-position: -344px -34px !important; }
-    .game #helpbutton { background-position: -372px -34px !important; top: 2px !important; right: 15px !important; }
+    .game #helpbutton { background-position: -372px -34px !important; top: 2px !important; right: 30px !important; }
     .game #helpbutton:hover { background-position: -400px -34px !important; }
     .game #helpbutton.active { background-position: -428px -34px !important; }
     .game #mutebutton { background-position: -456px -34px !important; top: 2px !important; right: 0 !important; }
     .game #mutebutton:hover { background-position: -484px -34px !important; }
     .game #mutebutton.active { background-position: -512px -34px !important; }
-    .game #chatbox { height: 32px !important; width: 480px !important; background-size: 960px !important; background-position: 0 -64px !important; margin-left: -240px !important; bottom: 2px !important; }
-    .game #chatbox.active { bottom: 34px !important; }
+    /* Chatbox */
+    .game #chatbox { height: 32px !important; width: 788px !important; background-size: 960px !important; background-position: 0 -64px !important; margin-left: -394px !important; bottom: 12px !important; }
+    .game #chatbox.active { bottom: 44px !important; }
     .game #chatbox input { font-size: 20px !important; padding: 7px 0 !important; }
+    /* Modals & parchments */
+    .game #credits, .game #death, .game #about { width: 844px !important; height: 364px !important; margin-left: -422px !important; margin-top: -182px !important; font-size: 20px !important; }
+    .game .parchment-left, .game .parchment-right, .game .parchment-middle { background-size: 844px !important; }
+    .game .parchment-left { width: 76px !important; height: 364px !important; background-position: 0 -588px !important; }
+    .game .parchment-right { width: 76px !important; height: 364px !important; background-position: -768px -588px !important; }
+    .game .parchment-middle { height: 364px !important; background-position: -76px -588px !important; width: 692px !important; margin-left: -346px !important; }
+    .game .parchment-middle { background-position: -422px -588px !important; }
+    .game.credits .parchment-middle, .game.death .parchment-middle, .game.about .parchment-middle { width: 692px !important; margin-left: -346px !important; background-position: -76px -588px !important; }
+    /* Instructions panel */
+    .game #instructions { height: 344px !important; width: 834px !important; background-position: 0 -1054px !important; margin-left: -416px !important; margin-top: -186px !important; }
+    .game #instructions h1 { font-size: 30px !important; margin: 40px 0 !important; }
+    .game #instructions ul { font-size: 20px !important; margin-top: 40px !important; }
+    .game #instructions ul li { margin: 20px 0 !important; }
+    .game #instructions p { font-size: 20px !important; margin-top: 20px !important; }
+    /* Close button */
+    .game .close { height: 32px !important; width: 32px !important; top: -8px !important; right: -10px !important; background-position: -708px -252px !important; }
+    /* Ribbons */
+    .game .ribbon { width: 36px !important; right: 20px !important; top: 8px !important; }
+    .game .ribbon .top { height: 12px !important; background-position: -762px -344px !important; }
+    .game .ribbon .bottom { height: 44px !important; background-position: -762px -370px !important; }
+    /* Market score */
+    .game #market-score-box { font-size: 12px !important; top: 20px !important; }
+    /* Achievement notification */
     .game #achievement-notification { background-size: 960px !important; }
-    .game #market-score-box { font-size: 10px !important; top: 20px !important; }
+    /* Leaderboard button */
+    .game #leaderboardbutton { top: 2px !important; left: 960px !important; font-size: 11px !important; line-height: 30px !important; }
 }
