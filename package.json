@@ -8,12 +8,14 @@
         "start": "node server/js/main.js & sleep 2 && node server-static.js"
     },
     "dependencies": {
+        "@solana/web3.js": "^1.98.4",
         "bison": "^1.1.1",
         "express": "^5.2.1",
         "http-proxy": "^1.18.1",
         "http-proxy-middleware": "^3.0.5",
         "log": "^1.4.0",
         "memcache": "^1.4.0",
+        "pg": "^8.20.0",
         "sanitizer": "^0.0.8",
         "underscore": "^1.13.8",
         "websocket": "^1.0.35",
