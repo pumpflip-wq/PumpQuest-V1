@@ -1377,13 +1377,24 @@ footer, header, hgroup, menu, nav, section {
     .game #chatbox { height: 32px !important; width: 788px !important; background-size: 960px !important; background-position: 0 -64px !important; margin-left: -394px !important; bottom: 12px !important; }
     .game #chatbox.active { bottom: 44px !important; }
     .game #chatbox input { font-size: 20px !important; padding: 7px 0 !important; }
+    /* Spritesheet elements: force scale=2 background-size */
+    .game #instructions, .game .icon, .game .avatar, .game .close, .game #note, .game .ribbon .top, .game .ribbon .bottom, .game #about .img, .game .ext-link { background-size: 844px auto !important; }
+    /* Parchment container: force scale=2 dimensions for about/credits/death overlays in game mode */
+    .game.credits #parchment, .game.death #parchment, .game.about #parchment {
+        position: fixed !important;
+        width: 844px !important;
+        height: 364px !important;
+        top: 50% !important;
+        left: 50% !important;
+        margin-left: -422px !important;
+        margin-top: -182px !important;
+    }
     /* Modals & parchments */
     .game #credits, .game #death, .game #about { width: 844px !important; height: 364px !important; margin-left: -422px !important; margin-top: -182px !important; font-size: 20px !important; }
     .game .parchment-left, .game .parchment-right, .game .parchment-middle { background-size: 844px !important; }
     .game .parchment-left { width: 76px !important; height: 364px !important; background-position: 0 -588px !important; }
     .game .parchment-right { width: 76px !important; height: 364px !important; background-position: -768px -588px !important; }
-    .game .parchment-middle { height: 364px !important; background-position: -76px -588px !important; width: 692px !important; margin-left: -346px !important; }
-    .game .parchment-middle { background-position: -422px -588px !important; }
+    .game .parchment-middle { height: 364px !important; background-position: -422px -588px !important; width: 692px !important; margin-left: -346px !important; }
     .game.credits .parchment-middle, .game.death .parchment-middle, .game.about .parchment-middle { width: 692px !important; margin-left: -346px !important; background-position: -76px -588px !important; }
     /* Instructions panel */
     .game #instructions { height: 344px !important; width: 834px !important; background-position: 0 -1054px !important; margin-left: -416px !important; margin-top: -186px !important; }
@@ -1391,6 +1402,8 @@ footer, header, hgroup, menu, nav, section {
     .game #instructions ul { font-size: 20px !important; margin-top: 40px !important; }
     .game #instructions ul li { margin: 20px 0 !important; }
     .game #instructions p { font-size: 20px !important; margin-top: 20px !important; }
+    /* Achievements panel: properly center within canvasborder */
+    .game #achievements { transform: translate(-50%, -50%) !important; }
     /* Close button */
     .game .close { height: 32px !important; width: 32px !important; top: -8px !important; right: -10px !important; background-position: -708px -252px !important; }
     /* Ribbons */
@@ -1403,4 +1416,8 @@ footer, header, hgroup, menu, nav, section {
     .game #achievement-notification { background-size: 960px !important; }
     /* Leaderboard button */
     .game #leaderboardbutton { top: 2px !important; left: 960px !important; font-size: 11px !important; line-height: 30px !important; }
+    /* Canvasborder: ensure correct positioning context */
+    .game #canvasborder { position: relative !important; overflow: hidden !important; }
+    /* Container: ensure position for absolute children */
+    .game #container { position: relative !important; }
 }
