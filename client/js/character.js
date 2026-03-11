@@ -3,30 +3,30 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
 
     var Character = Entity.extend({
         init: function(id, kind) {
-    	    var self = this;
-	    
+            var self = this;
+            
             this._super(id, kind);
-		    
-    		// Position and orientation
-    		this.nextGridX = -1;
-    		this.nextGridY = -1;
-    		this.orientation = Types.Orientations.DOWN;
-		
-    		// Speeds
+                    
+                // Position and orientation
+                this.nextGridX = -1;
+                this.nextGridY = -1;
+                this.orientation = Types.Orientations.DOWN;
+                
+                // Speeds
             this.atkSpeed = 50;
-    		this.moveSpeed = 120;
-    		this.walkSpeed = 100;
-    		this.idleSpeed = 450;
-    		this.setAttackRate(800);
+                this.moveSpeed = 120;
+                this.walkSpeed = 100;
+                this.idleSpeed = 450;
+                this.setAttackRate(800);
         
             // Pathing
-    		this.movement = new Transition();
-    		this.path = null;
-    		this.newDestination = null;
-    		this.adjacentTiles = {};
-		
-    		// Combat
-    		this.target = null;
+                this.movement = new Transition();
+                this.path = null;
+                this.newDestination = null;
+                this.adjacentTiles = {};
+                
+                // Combat
+                this.target = null;
             this.unconfirmedTarget = null;
             this.attackers = {};
         
@@ -38,74 +38,74 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
             this.isDead = false;
             this.attackingMode = false;
             this.followingMode = false;
-    	},
-	
-    	clean: function() {
-    	    this.forEachAttacker(function(attacker) {
+        },
+        
+        clean: function() {
+            this.forEachAttacker(function(attacker) {
                 attacker.disengage();
                 attacker.idle();
             });
-    	},
-	
-    	setMaxHitPoints: function(hp) {
-    	    this.maxHitPoints = hp;
-    	    this.hitPoints = hp;
-    	},
+        },
+        
+        setMaxHitPoints: function(hp) {
+            this.maxHitPoints = hp;
+            this.hitPoints = hp;
+        },
     
-    	setDefaultAnimation: function() {
-    		this.idle();
-    	},
-	
-    	hasWeapon: function() {
-    	    return false;
-    	},
-	
-    	hasShadow: function() {
-    	    return true;
-    	},
-	
-    	animate: function(animation, speed, count, onEndCount) {
-    	    var oriented = ['atk', 'walk', 'idle'];
-    	        o = this.orientation;
+        setDefaultAnimation: function() {
+                this.idle();
+        },
+        
+        hasWeapon: function() {
+            return false;
+        },
+        
+        hasShadow: function() {
+            return true;
+        },
+        
+        animate: function(animation, speed, count, onEndCount) {
+            var oriented = ['atk', 'walk', 'idle'];
+                o = this.orientation;
             
             if(!(this.currentAnimation && this.currentAnimation.name === "death")) { // don't change animation if the character is dying
-            	this.flipSpriteX = false;
-        	    this.flipSpriteY = false;
-	    
-        	    if(_.indexOf(oriented, animation) >= 0) {
-        	        animation += "_" + (o === Types.Orientations.LEFT ? "right" : Types.getOrientationAsString(o));
-        	        this.flipSpriteX = (this.orientation === Types.Orientations.LEFT) ? true : false;
-        	    }
+                this.flipSpriteX = false;
+                    this.flipSpriteY = false;
+            
+                    if(_.indexOf(oriented, animation) >= 0) {
+                        animation += "_" + (o === Types.Orientations.LEFT ? "right" : Types.getOrientationAsString(o));
+                        this.flipSpriteX = (this.orientation === Types.Orientations.LEFT) ? true : false;
+                    }
 
-        		this.setAnimation(animation, speed, count, onEndCount);
-        	}
-    	},
+                        this.setAnimation(animation, speed, count, onEndCount);
+                }
+        },
     
         turnTo: function(orientation) {
             this.orientation = orientation;
             this.idle();
         },
-	
-    	setOrientation: function(orientation) {
-    	    if(orientation) {
-    	        this.orientation = orientation;
-    	    }
-    	},
-	
-    	idle: function(orientation) {
-    	    this.setOrientation(orientation);
-    	    this.animate("idle", this.idleSpeed);
-    	},
-	
-    	hit: function(orientation) {
-    	    this.setOrientation(orientation);
-    	    this.animate("atk", this.atkSpeed, 1);
-    	},
-	
-    	walk: function(orientation) {
-    	    this.setOrientation(orientation);
-    	    this.animate("walk", this.walkSpeed);
-    	},
+        
+        setOrientation: function(orientation) {
+            if(orientation) {
+                this.orientation = orientation;
+            }
+        },
+        
+        idle: function(orientation) {
+            this.setOrientation(orientation);
+            this.animate("idle", this.idleSpeed);
+        },
+        
+        hit: function(orientation) {
+            this.setOrientation(orientation);
+            this.animate("atk", this.atkSpeed, 1);
+        },
+        
+        walk: function(orientation) {
+            this.setOrientation(orientation);
+            this.animate("walk", this.walkSpeed);
+        },
     
         moveTo_: function(x, y, callback) {
             this.destination = { gridX: x, gridY: y };
@@ -141,59 +141,59 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
         onStopPathing: function(callback) {
             this.stop_pathing_callback = callback;
         },
-	
-    	followPath: function(path) {
-    		if(path.length > 1) { // Length of 1 means the player has clicked on himself
-    			this.path = path;
-    			this.step = 0;
-			
+        
+        followPath: function(path) {
+                if(path.length > 1) { // Length of 1 means the player has clicked on himself
+                        this.path = path;
+                        this.step = 0;
+                        
                 if(this.followingMode) { // following a character
                     path.pop();
                 }
-			
+                        
                 if(this.start_pathing_callback) {
                     this.start_pathing_callback(path);
                 }
                 this.nextStep();
-    		}
-    	},
+                }
+        },
 
-    	continueTo: function(x, y) {
-    		this.newDestination = { x: x, y: y };
-    	},
-	
-    	updateMovement: function() {
-    		var p = this.path,
-    			i = this.step;
-		
-    		if(p[i][0] < p[i-1][0]) {
-    			this.walk(Types.Orientations.LEFT);
-    		}
-    		if(p[i][0] > p[i-1][0]) {
-    			this.walk(Types.Orientations.RIGHT);
-    		}
-    		if(p[i][1] < p[i-1][1]) {
-    			this.walk(Types.Orientations.UP);
-    		}
-    		if(p[i][1] > p[i-1][1]) {
-    			this.walk(Types.Orientations.DOWN);
-    		}
-    	},
+        continueTo: function(x, y) {
+                this.newDestination = { x: x, y: y };
+        },
+        
+        updateMovement: function() {
+                var p = this.path,
+                        i = this.step;
+                
+                if(p[i][0] < p[i-1][0]) {
+                        this.walk(Types.Orientations.LEFT);
+                }
+                if(p[i][0] > p[i-1][0]) {
+                        this.walk(Types.Orientations.RIGHT);
+                }
+                if(p[i][1] < p[i-1][1]) {
+                        this.walk(Types.Orientations.UP);
+                }
+                if(p[i][1] > p[i-1][1]) {
+                        this.walk(Types.Orientations.DOWN);
+                }
+        },
 
-    	updatePositionOnGrid: function() {
-    		this.setGridPosition(this.path[this.step][0], this.path[this.step][1]);
-    	},
+        updatePositionOnGrid: function() {
+                this.setGridPosition(this.path[this.step][0], this.path[this.step][1]);
+        },
 
-    	nextStep: function() {
+        nextStep: function() {
             var stop = false,
                 x, y, path;
         
-    		if(this.isMoving()) {
-    		    if(this.before_step_callback) {
+                if(this.isMoving()) {
+                    if(this.before_step_callback) {
                     this.before_step_callback();
                 }
             
-    		    this.updatePositionOnGrid();
+                    this.updatePositionOnGrid();
                 this.checkAggro();
             
                 if(this.interrupted) { // if Character.stop() has been called
@@ -209,39 +209,39 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
                     if(this.step_callback) {
                         this.step_callback();
                     }
-			    
-        			if(this.hasChangedItsPath()) {
-        				x = this.newDestination.x;
-        				y = this.newDestination.y;
-        				path = this.requestPathfindingTo(x, y);
+                            
+                                if(this.hasChangedItsPath()) {
+                                        x = this.newDestination.x;
+                                        y = this.newDestination.y;
+                                        path = this.requestPathfindingTo(x, y);
                 
                         this.newDestination = null;
-        				if(path.length < 2) {
+                                        if(path.length < 2) {
                             stop = true;
                         }
                         else {
                             this.followPath(path);
                         }
-        			}
-        			else if(this.hasNextStep()) {
-        				this.step += 1;
-        				this.updateMovement();
-        			}
+                                }
+                                else if(this.hasNextStep()) {
+                                        this.step += 1;
+                                        this.updateMovement();
+                                }
                     else {
                         stop = true;
                     }
                 }
             
-    		    if(stop) { // Path is complete or has been interrupted
-    		        this.path = null;
-        			this.idle();
+                    if(stop) { // Path is complete or has been interrupted
+                        this.path = null;
+                                this.idle();
                 
                     if(this.stop_pathing_callback) {
                         this.stop_pathing_callback(this.gridX, this.gridY);
                     }
-        		}
-        	}
-    	},
+                        }
+                }
+        },
     
         onBeforeStep: function(callback) {
             this.before_step_callback = callback;
@@ -251,16 +251,16 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
             this.step_callback = callback;
         },
 
-    	isMoving: function() {
-    		return !(this.path === null);
-    	},
+        isMoving: function() {
+                return !(this.path === null);
+        },
 
-    	hasNextStep: function() {
-    		return (this.path.length - 1 > this.step);
-    	},
+        hasNextStep: function() {
+                return (this.path.length - 1 > this.step);
+        },
 
-    	hasChangedItsPath: function() {
-    		return !(this.newDestination === null);
+        hasChangedItsPath: function() {
+                return !(this.newDestination === null);
         },
     
         isNear: function(character, distance) {
@@ -312,7 +312,7 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
          * 
          */
         go: function(x, y) {
-    	    if(this.isAttacking()) {
+            if(this.isAttacking()) {
                 this.disengage();
             }
             else if(this.followingMode) {
@@ -333,13 +333,13 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
         },
     
         /**
-    	 * Stops a moving character.
-    	 */
-    	stop: function() {
-    	    if(this.isMoving()) {
+         * Stops a moving character.
+         */
+        stop: function() {
+            if(this.isMoving()) {
                 this.interrupted = true;
-    	    }
-    	},
+            }
+        },
     
         /**
          * Makes the character attack another character. Same as Character.follow but with an auto-attacking behavior.
@@ -417,9 +417,8 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
         removeAttacker: function(character) {
             if(this.isAttackedBy(character)) {
                 delete this.attackers[character.id];
-            } else {
-                log.error(this.id + " is not attacked by " + character.id);
             }
+            // Silently ignore if attacker wasn't registered (can happen due to timing)
         },
     
         /**
@@ -510,27 +509,27 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
         /**
          * 
          */
-    	die: function() {
-    	    this.removeTarget();
-    	    this.isDead = true;
-	    
-    	    if(this.death_callback) {
-    	        this.death_callback();
-    	    }
-    	},
-	
-    	onHasMoved: function(callback) {
-    	    this.hasmoved_callback = callback;
-    	},
-	
-    	hasMoved: function() {
-    	    this.setDirty();
-    	    if(this.hasmoved_callback) {
-    	        this.hasmoved_callback(this);
-    	    }
-    	},
-	
-    	hurt: function() {
+        die: function() {
+            this.removeTarget();
+            this.isDead = true;
+            
+            if(this.death_callback) {
+                this.death_callback();
+            }
+        },
+        
+        onHasMoved: function(callback) {
+            this.hasmoved_callback = callback;
+        },
+        
+        hasMoved: function() {
+            this.setDirty();
+            if(this.hasmoved_callback) {
+                this.hasmoved_callback(this);
+            }
+        },
+        
+        hurt: function() {
             var self = this;
         
             this.stopHurting();

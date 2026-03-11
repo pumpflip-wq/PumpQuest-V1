@@ -707,9 +707,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             if(id in this.entities) {
                 return this.entities[id];
             }
-            else {
-                log.error("Unknown entity id : " + id, true);
-            }
+            // Entity doesn't exist - return null (callers should check before using)
+            return null;
         },
 
         connect: function(started_callback) {
