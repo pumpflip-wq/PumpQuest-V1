@@ -1402,6 +1402,10 @@ footer, header, hgroup, menu, nav, section {
     .game #instructions ul { font-size: 20px !important; margin-top: 40px !important; }
     .game #instructions ul li { margin: 20px 0 !important; }
     .game #instructions p { font-size: 20px !important; margin-top: 20px !important; }
+    /* Instruction icons: force scale-2 sprite positions (scale-3 positions are out-of-range for the 844px sheet) */
+    .game #instructions li:nth-child(1) span { height: 58px !important; width: 30px !important; background-position: -756px -24px !important; margin: 0 20px 6px 40px !important; top: -26px !important; }
+    .game #instructions li:nth-child(2) span { height: 32px !important; width: 26px !important; background-position: -786px -24px !important; margin: 0 24px 28px 40px !important; top: -6px !important; }
+    .game #instructions li:nth-child(3) span { height: 42px !important; width: 32px !important; background-position: -812px -24px !important; margin: 0 18px 0 40px !important; top: -12px !important; }
     /* Achievements panel: force scale=2 dimensions (game always uses scale=2 regardless of screen size) */
     .game #achievements { height: 392px !important; width: 832px !important; margin-left: -416px !important; margin-top: -216px !important; font-size: 20px !important; transform: none !important; }
     .game #achievements, .game #achievements li, .game #achievements .coin, .game #achievement-notification, .game #achievement-notification .coin, .game #coinsparks, .game .achievement-sharing a, .game #previous, .game #next { background-size: 832px !important; }
