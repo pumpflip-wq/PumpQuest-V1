@@ -174,7 +174,7 @@ footer, header, hgroup, menu, nav, section {
     #population span:nth-child(1) {color:#FCE045;}
     #population.visible {opacity:1;pointer-events:auto;}
     
-    .barbutton {background:url('../img/1/barsheet.png');image-rendering:-moz-crispt-edges;position:absolute; pointer-events: auto; z-index: 15;}
+    .barbutton {background:url('../img/1/barsheet.png');image-rendering:-moz-crispt-edges;position:absolute;}
     
     #chatbox {background:url('../img/1/barsheet.png');image-rendering:-moz-crisp-edges;position:absolute;left:50%;z-index:5;-moz-transition:0.2s bottom ease;-webkit-transition:0.2s bottom ease;-o-transition:0.2s bottom ease;-ms-transition:0.2s bottom ease;transition:0.2s bottom ease;}
     .bubble p {-moz-user-select:none;-webkit-user-select:none;}
@@ -263,7 +263,7 @@ footer, header, hgroup, menu, nav, section {
     .close {position:absolute;z-index:20000;}
     .close:hover {cursor:pointer;}
     
-    .ribbon {position:absolute; pointer-events: auto !important; z-index: 100 !important; cursor: pointer;}
+    .ribbon {position:absolute; cursor:pointer;}
     .ribbon:hover {cursor:pointer;}
     .ribbon .top {-moz-transition:0.25s height ease;-webkit-transition:0.25s height ease;-o-transition:0.25s height ease;-ms-transition:0.25s height ease;transition:0.25s height ease;}
     
@@ -273,8 +273,6 @@ footer, header, hgroup, menu, nav, section {
     .alert {height:50px;background:#d83939;width:100%;color:#eee;font-size:20px;font-family:'GraphicPixel', arial, sans-serif;text-align:center;line-height:50px;border-bottom:1px solid #000;}
 
     #instructions, #achievements, #lists, #about, #credits, .ribbon, .play, .play div, .barbutton {-webkit-tap-highlight-color:transparent;}
-    .clickable {pointer-events: auto !important; cursor: pointer;}
-    .intro .clickable {pointer-events: auto !important; cursor: pointer;}
     #nameinput::-webkit-input-placeholder  {color:#fff;}
 
     #resize-check {position:absolute;height:0;top:0;left:0;-moz-transition:0.001s height ease;-webkit-transition:0.001s height ease;-o-transition:0.001s height ease;-ms-transition:0.001s height ease;transition:0.001s height ease;}
@@ -283,22 +281,20 @@ footer, header, hgroup, menu, nav, section {
 
 /* Magic Parchment */
 
-    .parchment-left {position:absolute;top:0;left:0%; pointer-events: none;}
-    .parchment-right {position:absolute;top:0;right:0%; pointer-events: none;}
-    .parchment-middle {position:absolute;left:50%;top:0; pointer-events: auto;}
+    .parchment-left {position:absolute;top:0;left:0%;}
+    .parchment-right {position:absolute;top:0;right:0%;}
+    .parchment-middle {position:absolute;left:50%;top:0;}
     .animate .parchment-left {-moz-animation:parchleft 1s ease 1;-webkit-animation:parchleft 1s ease 1;-o-animation:parchleft 1s ease 1;-ms-animation:parchleft 1s ease 1;animation:parchleft 1s ease 1;}
     .animate .parchment-right {-moz-animation:parchright 1s ease 1;-webkit-animation:parchright 1s ease 1;-o-animation:parchright 1s ease 1;-ms-animation:parchright 1s ease 1;animation:parchright 1s ease 1;}
 
     #credits, #createcharacter, #loadcharacter, #confirmation, #death, #error, #about {opacity:0;pointer-events:none;-moz-transition:none;-webkit-transition:none;-o-transition:none;-ms-transition:none;transition:none;}
-    .intro #createcharacter, .intro #loadcharacter, .intro #credits, .intro #confirmation, .intro #about {pointer-events: auto !important;}
     .credits #credits, .createcharacter #createcharacter, .loadcharacter #loadcharacter, .confirmation #confirmation, .death #death, .error #error, .about #about {opacity:1;pointer-events:auto !important;-moz-transition:0.5s opacity linear;-webkit-transition:0.5s opacity linear;-o-transition:0.5s opacity linear;-ms-transition:0.5s opacity linear;transition:0.5s opacity linear;}
-    .intro .ribbon {pointer-events: auto !important; z-index: 100 !important;}
 
 /* States & Transitions */
 
-    #intro {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear; pointer-events: auto; z-index: 100;}
+    #intro {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear;}
     #mask, #logo, #parchment {opacity:0;}
-    .intro #parchment {opacity:1; pointer-events: auto; z-index: 150;}
+    .intro #parchment {opacity:1;}
     .intro #logo {opacity:1 !important; display: flex !important; visibility: visible !important; height: auto !important; margin: 0 auto 20px auto !important; padding: 0 20px !important; justify-content: center !important; align-items: center !important;}
 
     .game #confirmation, .game #loadcharacter, .game #createcharacter, .game #error {display:none;}
@@ -1292,7 +1288,7 @@ footer, header, hgroup, menu, nav, section {
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
 #game-logo { display: none; pointer-events: none; }
-.game #game-logo { display: block; opacity: 0; animation: logoFadeIn 0.5s ease-in-out 1.2s forwards; text-align: center; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 200; pointer-events: none; width: 100%; padding: 10px 0; }
+.game #game-logo { display: block; opacity: 1; text-align: center; position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 200; pointer-events: none; width: 100%; padding: 10px 0; }
 #game-logo img { width: 320px !important; max-width: 320px !important; height: auto !important; image-rendering: pixelated; }
 @keyframes logoFadeIn {
     from { opacity: 0; }
