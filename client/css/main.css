@@ -131,7 +131,8 @@ footer, header, hgroup, menu, nav, section {
     body.game {background:url('../img/1/wood.png') repeat, #000; background-size:128px;}
     .intro #logo { display: flex !important; justify-content: center !important; align-items: center !important; height: auto !important; width: auto !important; margin: 0 auto 30px auto !important; padding: 0 20px !important; visibility: visible !important; position: relative !important; top: auto !important; left: auto !important; transform: none !important; z-index: 150 !important; }
     .intro #logo img { max-width: 380px !important; height: auto !important; }
-    .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:block !important; width: auto; height: auto;}
+    .game #logo {-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none; position:fixed; top:15px; left:50%; transform:translateX(-50%); z-index:200; display:block !important; width: auto; height: auto; visibility: visible !important; opacity: 1 !important;}
+    .game #logo img { max-width: 200px !important; height: auto !important; display: block !important; visibility: visible !important; opacity: 1 !important; }
     
     footer {position:fixed; bottom:0; left:0; right:0; z-index:100; padding:5px 0; text-align:center; font-size:12px;}
         
@@ -1288,5 +1289,6 @@ footer, header, hgroup, menu, nav, section {
 #about-telegram:hover, #about-twitter:hover, #about-website:hover { transform: scale(1.3); }
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
-#game-logo { display: none !important; pointer-events: none; }
+#game-logo { display: none !important; pointer-events: none; visibility: hidden !important; opacity: 0 !important; }
+.game #game-logo { display: none !important; pointer-events: none; visibility: hidden !important; opacity: 0 !important; }
 #game-logo img { width: 260px !important; max-width: 260px !important; height: auto !important; image-rendering: pixelated; }
