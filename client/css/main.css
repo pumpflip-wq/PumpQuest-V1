@@ -542,17 +542,17 @@ footer, header, hgroup, menu, nav, section {
 
 
         .barbutton {background-size:1440px;height:45px;width:42px;}
-        #chatbutton {background-position:-306px -51px;top:3px;left:1260px;}
+        #chatbutton {background-position:-306px -51px;top:3px;right:135px;}
         #chatbutton:hover {background-position:-348px -51px;}
         #chatbutton.active {background-position:-390px -51px;}
-        #achievementsbutton {background-position:-432px -51px;top:3px;left:1305px;}
+        #achievementsbutton {background-position:-432px -51px;top:3px;right:90px;}
         #achievementsbutton:hover, #achievementsbutton.blink:hover {background-position:-474px -51px;}
         #achievementsbutton.blink {background-position:-864px -51px;}
         #achievementsbutton.active {background-position:-516px -51px;}
-        #helpbutton {background-position:-558px -51px;top:3px;left:1350px;}
+        #helpbutton {background-position:-558px -51px;top:3px;right:45px;}
         #helpbutton:hover {background-position:-600px -51px;}
         #helpbutton.active {background-position:-642px -51px;}
-        #mutebutton {background-position:-684px -51px;top:3px;left:1395px;}
+        #mutebutton {background-position:-684px -51px;top:3px;right:0;}
         #mutebutton:hover {background-position:-726px -51px;}
         #mutebutton.active {background-position:-768px -51px;}
         
@@ -702,17 +702,17 @@ footer, header, hgroup, menu, nav, section {
         #instance-population {padding-top:12px;}
 
         .barbutton {background-size:960px;height:30px;width:28px;}
-        #chatbutton {background-position:-204px -34px;top:2px;left:840px;}
+        #chatbutton {background-position:-204px -34px;top:2px;right:90px;}
         #chatbutton:hover {background-position:-232px -34px;}
         #chatbutton.active {background-position:-260px -34px;}
-        #achievementsbutton {background-position:-288px -34px;top:2px;left:870px;}
+        #achievementsbutton {background-position:-288px -34px;top:2px;right:60px;}
         #achievementsbutton:hover, #achievementsbutton.blink:hover {background-position:-316px -34px;}
         #achievementsbutton.blink {background-position:-576px -34px;}
         #achievementsbutton.active {background-position:-344px -34px;}
-        #helpbutton {background-position:-372px -34px;top:2px;left:900px;}
+        #helpbutton {background-position:-372px -34px;top:2px;right:30px;}
         #helpbutton:hover {background-position:-400px -34px;}
         #helpbutton.active {background-position:-428px -34px;}
-        #mutebutton {background-position:-456px -34px;top:2px;left:930px;}
+        #mutebutton {background-position:-456px -34px;top:2px;right:0;}
         #mutebutton:hover {background-position:-484px -34px;}
         #mutebutton.active {background-position:-512px -34px;}
         #leaderboardbutton {top:2px;left:960px;font-size:11px;line-height:30px;text-align:center;background:none;color:#fff;font-weight:bold;}
@@ -865,17 +865,17 @@ footer, header, hgroup, menu, nav, section {
         #instance-population {padding-top:12px;}
 
         .barbutton {background-size:960px;height:30px;width:28px;}
-        #chatbutton {background-position:-204px -34px;top:2px;left:840px;}
+        #chatbutton {background-position:-204px -34px;top:2px;right:90px;}
         #chatbutton:hover {background-position:-232px -34px;}
         #chatbutton.active {background-position:-260px -34px;}
-        #achievementsbutton {background-position:-288px -34px;top:2px;left:870px;}
+        #achievementsbutton {background-position:-288px -34px;top:2px;right:60px;}
         #achievementsbutton:hover, #achievementsbutton.blink:hover {background-position:-316px -34px;}
         #achievementsbutton.blink {background-position:-576px -34px;}
         #achievementsbutton.active {background-position:-344px -34px;}
-        #helpbutton {background-position:-372px -34px;top:2px;left:900px;}
+        #helpbutton {background-position:-372px -34px;top:2px;right:30px;}
         #helpbutton:hover {background-position:-400px -34px;}
         #helpbutton.active {background-position:-428px -34px;}
-        #mutebutton {background-position:-456px -34px;top:2px;left:930px;}
+        #mutebutton {background-position:-456px -34px;top:2px;right:0;}
         #mutebutton:hover {background-position:-484px -34px;}
         #mutebutton.active {background-position:-512px -34px;}
         #leaderboardbutton {top:2px;left:960px;font-size:11px;line-height:30px;text-align:center;background:none;color:#fff;font-weight:bold;}
@@ -1025,17 +1025,17 @@ footer, header, hgroup, menu, nav, section {
         #instance-population {padding-top:5px;}
 
         .barbutton {background-size:480px;height:15px;width:14px;}
-        #chatbutton {background-position:-102px -17px;top:1px;left:420px;}
+        #chatbutton {background-position:-102px -17px;top:1px;right:45px;}
         #chatbutton:hover {background-position:-116px -17px;}
         #chatbutton.active {background-position:-130px -17px;}
-        #achievementsbutton {background-position:-144px -17px;top:1px;left:435px;}
+        #achievementsbutton {background-position:-144px -17px;top:1px;right:30px;}
         #achievementsbutton:hover, #achievementsbutton.blink:hover {background-position:-158px -17px;}
         #achievementsbutton.blink {background-position:-288px -17px;}
         #achievementsbutton.active {background-position:-172px -17px;}
-        #helpbutton {background-position:-186px -17px;top:1px;left:450px;}
+        #helpbutton {background-position:-186px -17px;top:1px;right:15px;}
         #helpbutton:hover {background-position:-200px -17px;}
         #helpbutton.active {background-position:-214px -17px;}
-        #mutebutton {background-position:-228px -17px;top:1px;left:465px;}
+        #mutebutton {background-position:-228px -17px;top:1px;right:0;}
         #mutebutton:hover {background-position:-242px -17px;}
         #mutebutton.active {background-position:-256px -17px;}
 
@@ -1182,16 +1182,16 @@ footer, header, hgroup, menu, nav, section {
         #playercount span.count {display:inline;}
 
         .barbutton {background-size:960px;height:30px;width:28px;}
-        #chatbutton {background-position:-204px -34px;top:2px;left:360px;}
+        #chatbutton {background-position:-204px -34px;top:2px;right:45px;}
         #chatbutton:hover {background-position:-232px -34px;}
         #chatbutton.active {background-position:-260px -34px;}
-        #achievementsbutton {background-position:-288px -34px;top:2px;left:390px;}
+        #achievementsbutton {background-position:-288px -34px;top:2px;right:30px;}
         #achievementsbutton:hover, #achievementsbutton.blink {background-position:-316px -34px;}
         #achievementsbutton.active {background-position:-344px -34px;}
-        #helpbutton {background-position:-372px -34px;top:2px;left:420px;}
+        #helpbutton {background-position:-372px -34px;top:2px;right:15px;}
         #helpbutton:hover {background-position:-400px -34px;}
         #helpbutton.active {background-position:-428px -34px;}
-        #mutebutton {background-position:-456px -34px;top:2px;left:450px;}
+        #mutebutton {background-position:-456px -34px;top:2px;right:0;}
         #mutebutton:hover {background-position:-484px -34px;}
         #mutebutton.active {background-position:-512px -34px;}
 
