@@ -263,7 +263,7 @@ footer, header, hgroup, menu, nav, section {
     .close {position:absolute;z-index:20000;}
     .close:hover {cursor:pointer;}
     
-    .ribbon {position:absolute; cursor:pointer;}
+    .ribbon {position:absolute; cursor:pointer; z-index: 999;}
     .ribbon:hover {cursor:pointer;}
     .ribbon .top {-moz-transition:0.25s height ease;-webkit-transition:0.25s height ease;-o-transition:0.25s height ease;-ms-transition:0.25s height ease;transition:0.25s height ease;}
     
