@@ -247,11 +247,9 @@ define(['jquery', 'storage'], function($, Storage) {
         hideIntro: function(hidden_callback) {
             clearInterval(this.watchNameInputInterval);
             $('body').removeClass('intro');
-            var self = this;
             setTimeout(function() {
                 $('body').addClass('game');
                 hidden_callback();
-                setTimeout(function() { self.fitContainer(); }, 100);
             }, 1000);
         },
 
@@ -628,31 +626,6 @@ define(['jquery', 'storage'], function($, Storage) {
             clearTimeout(this.messageTimer);
         },
         
-        fitContainer: function() {
-            var container = document.getElementById('container');
-            if (!container) return;
-
-            container.style.zoom = '';
-            container.style.transform = '';
-            container.style.marginBottom = '';
-
-            var footerH = 140;
-            var availH = window.innerHeight - footerH;
-            var availW = window.innerWidth - 20;
-            var contH = container.offsetHeight;
-            var contW = container.offsetWidth;
-
-            if (contH <= 0 || contW <= 0) return;
-
-            var scaleH = availH / contH;
-            var scaleW = availW / contW;
-            var scale = Math.min(1, scaleH, scaleW);
-
-            if (scale < 0.99) {
-                container.style.zoom = scale;
-            }
-        },
-
         resizeUi: function() {
             if(this.game) {
                 if(this.game.started) {
@@ -664,7 +637,6 @@ define(['jquery', 'storage'], function($, Storage) {
                     this.game.renderer.rescale(newScale);
                 }
             }
-            this.fitContainer();
         }
     });
 

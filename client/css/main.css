@@ -1332,3 +1332,44 @@ footer, header, hgroup, menu, nav, section {
 #game-logo { display: none !important; pointer-events: none; visibility: hidden !important; opacity: 0 !important; }
 .game #game-logo { display: none !important; pointer-events: none; visibility: hidden !important; opacity: 0 !important; }
 #game-logo img { width: 260px !important; max-width: 260px !important; height: auto !important; image-rendering: pixelated; }
+
+/* ── Force scale=2 game layout on large screens ── */
+@media screen and (min-width: 1501px) {
+    .game #container { width: 980px !important; max-width: 100% !important; }
+    .game #canvasborder { padding: 10px !important; background-image: url('../img/2/border.png') !important; }
+    .game #canvas { height: 448px !important; }
+    .game #fade { width: 960px !important; height: 448px !important; top: 10px !important; left: 10px !important; }
+    .game #bubbles { width: 960px !important; height: 448px !important; margin-bottom: -448px !important; top: -448px !important; }
+    .game #bar-container { height: 34px !important; top: -2px !important; background-size: 960px !important; }
+    .game #healthbar { height: 26px !important; background-position: 0 -34px !important; width: 204px !important; top: 6px !important; background-size: 960px !important; }
+    .game #hitpoints { height: 22px !important; top: 8px !important; left: 22px !important; }
+    .game #armor, .game #weapon { width: 32px !important; height: 32px !important; background-size: 192px !important; background-position: -64px !important; }
+    .game #weapon { left: 208px !important; top: 2px !important; }
+    .game #armor { left: 242px !important; top: 2px !important; }
+    .game #notifications { display: none !important; }
+    .game #playercount { font-size: 20px !important; left: 270px !important; top: 10px !important; width: 114px !important; text-align: center !important; }
+    .game #playercount span { display: none !important; }
+    .game #playercount span.count { display: inline !important; }
+    .game #population { background-size: 960px !important; right: 35px !important; bottom: 22px !important; width: 131px !important; background-position: -240px -48px !important; font-size: 9px !important; }
+    .game #population.visible { height: 32px !important; }
+    .game #instance-population { padding-top: 5px !important; }
+    .game .barbutton { background-size: 960px !important; height: 30px !important; width: 28px !important; }
+    .game #chatbutton { background-position: -204px -34px !important; top: 2px !important; right: 45px !important; }
+    .game #chatbutton:hover { background-position: -232px -34px !important; }
+    .game #chatbutton.active { background-position: -260px -34px !important; }
+    .game #achievementsbutton { background-position: -288px -34px !important; top: 2px !important; right: 30px !important; }
+    .game #achievementsbutton:hover, .game #achievementsbutton.blink:hover { background-position: -316px -34px !important; }
+    .game #achievementsbutton.blink { background-position: -288px -34px !important; }
+    .game #achievementsbutton.active { background-position: -344px -34px !important; }
+    .game #helpbutton { background-position: -372px -34px !important; top: 2px !important; right: 15px !important; }
+    .game #helpbutton:hover { background-position: -400px -34px !important; }
+    .game #helpbutton.active { background-position: -428px -34px !important; }
+    .game #mutebutton { background-position: -456px -34px !important; top: 2px !important; right: 0 !important; }
+    .game #mutebutton:hover { background-position: -484px -34px !important; }
+    .game #mutebutton.active { background-position: -512px -34px !important; }
+    .game #chatbox { height: 32px !important; width: 480px !important; background-size: 960px !important; background-position: 0 -64px !important; margin-left: -240px !important; bottom: 2px !important; }
+    .game #chatbox.active { bottom: 34px !important; }
+    .game #chatbox input { font-size: 20px !important; padding: 7px 0 !important; }
+    .game #achievement-notification { background-size: 960px !important; }
+    .game #market-score-box { font-size: 10px !important; top: 20px !important; }
+}
