@@ -227,8 +227,8 @@ footer, header, hgroup, menu, nav, section {
     #about .link a:hover {color:#d83939;}
 
     footer {font-family:'GraphicPixel';position:absolute;bottom:5%;left:0;text-align:center;width:100%;color:#ffffff;-moz-transition:0.2s opacity linear;-webkit-transition:0.2s opacity linear;-o-transition:0.2s opacity linear;-ms-transition:0.2s opacity linear;transition:0.2s opacity linear;}
-    .upscaled.game footer {color:#ffffff; position:fixed; bottom:0; left:0; right:0; z-index:100; padding:5px 0; text-align:center; font-size:12px;}
-    .game footer {color:#ffffff; position:fixed; bottom:5%; left:0; right:0; z-index:100; padding:5px 0 40px 0; font-size:16px; text-align:center;}
+    .upscaled.game footer {color:#ffffff; position:fixed; bottom:15px; left:0; right:0; z-index:100; padding:15px 0; text-align:center; font-size:12px;}
+    .game footer {color:#ffffff; position:fixed; bottom:20px; left:0; right:0; z-index:100; padding:15px 0; font-size:16px; text-align:center;}
     
     .intro footer {opacity:1;}
     .intro #footer-left { display: none !important; }
@@ -1288,10 +1288,5 @@ footer, header, hgroup, menu, nav, section {
 #about-telegram:hover, #about-twitter:hover, #about-website:hover { transform: scale(1.3); }
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
-#game-logo { display: none; pointer-events: none; }
-.game #game-logo { display: block; opacity: 1; text-align: center; position: fixed; top: 8px; left: 50%; transform: translateX(-50%); z-index: 200; pointer-events: none; width: 100%; padding: 0; }
+#game-logo { display: none !important; pointer-events: none; }
 #game-logo img { width: 260px !important; max-width: 260px !important; height: auto !important; image-rendering: pixelated; }
-@keyframes logoFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
