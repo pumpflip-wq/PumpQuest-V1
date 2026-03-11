@@ -183,6 +183,12 @@ define(['jquery', 'storage'], function($, Storage) {
                         if(firstTimePlaying) {
                             self.toggleInstructions();
                         }
+                    // Handle window resize to adapt canvas to viewport
+                    window.addEventListener('resize', function() {
+                        if(self.game && self.game.renderer) {
+                            self.game.renderer.rescale();
+                        }
+                    });
                 });
             }
         },

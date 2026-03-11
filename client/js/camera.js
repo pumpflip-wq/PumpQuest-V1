@@ -14,9 +14,16 @@ define(function() {
     
         rescale: function() {
             var factor = this.renderer.mobile ? 1 : 2;
+            var scale = this.renderer.scale;
+            var tilesize = this.renderer.tilesize;
         
-            this.gridW = 15 * factor;
-            this.gridH = 7 * factor;
+            // Calculate grid dimensions based on actual window size to fit the viewport
+            this.gridW = Math.ceil(window.innerWidth / (tilesize * scale));
+            this.gridH = Math.ceil(window.innerHeight / (tilesize * scale));
+        
+            // Ensure minimum grid size
+            if(this.gridW < 15 * factor) this.gridW = 15 * factor;
+            if(this.gridH < 7 * factor) this.gridH = 7 * factor;
         
             log.debug("---------");
             log.debug("Factor:"+factor);
