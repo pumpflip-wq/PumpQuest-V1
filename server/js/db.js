@@ -75,8 +75,27 @@ async function recordWalletSession(walletAddress, playerName, worldId) {
     );
 }
 
+async function getPlayerByWallet(walletAddress) {
+    if(!walletAddress || !isEnabled()) {
+        return null;
+    }
+
+    await init();
+    var db = getPool();
+    var result = await db.query(
+        "SELECT player_name, world_id, last_seen FROM player_wallet_sessions WHERE wallet_address = $1 LIMIT 1",
+        [walletAddress]
+    );
+
+    if(result.rows && result.rows.length > 0) {
+        return result.rows[0];
+    }
+    return null;
+}
+
 module.exports = {
     isEnabled: isEnabled,
     init: init,
-    recordWalletSession: recordWalletSession
+    recordWalletSession: recordWalletSession,
+    getPlayerByWallet: getPlayerByWallet
 };

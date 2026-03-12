@@ -207,9 +207,14 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         $('#createcharacter').removeClass('wallet-ready');
                     }
                 },
-                applyWalletContext = function(walletAddress) {
-                    var savedNickname = $.trim(app.storage.getWalletNickname(walletAddress) || ''),
+                applyWalletContext = function(walletAddress, serverName) {
+                    var localNickname = $.trim(app.storage.getWalletNickname(walletAddress) || ''),
+                        savedNickname = $.trim(serverName || localNickname || ''),
                         firstTimeWallet = savedNickname === '';
+
+                    if(savedNickname && !localNickname) {
+                        app.storage.setWalletNickname(walletAddress, savedNickname);
+                    }
 
                     app.setWalletNeedsNickname(firstTimeWallet);
 
@@ -237,7 +242,26 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         if(currentState !== 'loadcharacter' && currentState !== 'animate') {
                             app.animateParchment(currentState, 'loadcharacter');
                         }
+                    } else if(!firstTimeWallet && savedNickname) {
+                        $('#playername').html(savedNickname);
+                        var currentState2 = $('#parchment').attr('class');
+                        if(currentState2 !== 'loadcharacter' && currentState2 !== 'animate') {
+                            app.animateParchment(currentState2, 'loadcharacter');
+                        }
                     }
+                },
+                fetchPlayerFromServer = function(walletAddress, callback) {
+                    $.ajax({
+                        url: '/api/player?wallet=' + encodeURIComponent(walletAddress),
+                        method: 'GET',
+                        timeout: 5000,
+                        success: function(data) {
+                            callback(data && data.player_name ? data.player_name : null);
+                        },
+                        error: function() {
+                            callback(null);
+                        }
+                    });
                 },
                 resolvePlayerName = function() {
                     var nickname = $.trim($('#nicknameinput').val() || ''),
@@ -306,7 +330,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 },
                 connectWithProvider = function(type) {
                     var provider = null,
-                        playBtn = $('#createcharacter .play');
+                        playBtn = $('#connect-wallet');
 
                     if(type === 'phantom') {
                         provider = window.solana;
@@ -335,8 +359,10 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         app.setWalletAddress(walletAddress);
                         app.clearWalletAuthProof();
                         $('#walletaddress').val(walletAddress);
-                        applyWalletContext(walletAddress);
-                        playBtn.removeClass('loading');
+                        fetchPlayerFromServer(walletAddress, function(serverName) {
+                            applyWalletContext(walletAddress, serverName);
+                            playBtn.removeClass('loading');
+                        });
                     }).catch(function(err) {
                         log.error(err);
                         alert('Wallet connection was canceled or failed.');
@@ -364,6 +390,10 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 $('#nicknameinput').val('');
                 $('#nicknameinput').attr('placeholder', 'Choose your nickname');
 
+                $('#connect-wallet div').click(function() {
+                    showWalletPicker();
+                });
+
                 $('#pick-phantom').click(function() {
                     connectWithProvider('phantom');
                 });
@@ -383,12 +413,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 });
 
                 $('#createcharacter .play div').click(function(event) {
-                    var walletAddress = app.getWalletAddress();
-                    if(!walletAddress) {
-                        showWalletPicker();
-                    } else {
-                        startWithWalletAuth();
-                    }
+                    startWithWalletAuth();
                 });
 
                 $('#loadcharacter .play div').click(function(event) {

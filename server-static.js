@@ -2,6 +2,7 @@ var express = require('express');
 var http = require('http');
 var httpProxy = require('http-proxy');
 var path = require('path');
+var DB = require('./server/js/db');
 
 var app = express();
 var proxy = httpProxy.createProxyServer({ ws: true });
@@ -21,6 +22,24 @@ app.use(function(req, res, next) {
 app.set('trust proxy', 1);
 app.use(express.static(path.join(__dirname, 'client')));
 app.use('/shared', express.static(path.join(__dirname, 'shared')));
+
+// API: lookup saved player profile by wallet address
+app.get('/api/player', async function(req, res) {
+    var wallet = (req.query.wallet || '').toString().trim();
+    if(!wallet) {
+        return res.status(400).json({ error: 'Missing wallet parameter' });
+    }
+    if(!DB.isEnabled()) {
+        return res.json({ player_name: null });
+    }
+    try {
+        var result = await DB.getPlayerByWallet(wallet);
+        res.json(result || { player_name: null });
+    } catch(err) {
+        console.error('API /api/player error:', err.message);
+        res.json({ player_name: null });
+    }
+});
 
 var server = http.createServer(app);
 

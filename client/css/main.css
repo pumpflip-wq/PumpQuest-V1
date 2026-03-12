@@ -198,6 +198,14 @@ footer, header, hgroup, menu, nav, section {
     #createcharacter.wallet-ready #nicknameinput {display:block;}
     #createcharacter.wallet-ready #character {margin-top:10px;}
     #createcharacter.wallet-ready .play {margin-top:8px;}
+    #createcharacter .play {display:none;}
+    #createcharacter.wallet-ready .play {display:block;}
+    #connect-wallet {display:block;margin:10px auto 0 auto;}
+    #createcharacter.wallet-ready #connect-wallet {display:none;}
+    .connect-label {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;color:#fce045;letter-spacing:1px;pointer-events:none;white-space:nowrap;}
+    .connect-wallet-button img {display:none;}
+    .connect-wallet-button.loading .connect-label {opacity:0.65;}
+    .connect-wallet-button.loading img {display:block;position:absolute;top:54%;left:50%;}
 
     #wallet-picker {display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.55);justify-content:center;align-items:center;}
     #wallet-picker.visible {display:flex;}
