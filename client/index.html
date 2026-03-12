@@ -77,15 +77,9 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                          <div id="character" class="disabled">
                              <div></div>
                          </div>
-                         <form action="none" method="get" accept-charset="utf-8">
-                             <div id="connect-wallet" class="button connect-wallet-button">
-                                 <div></div>
-                                 <span class="connect-label stroke">CONNECT WALLET</span>
-                             </div>
-                             <input type="text" id="walletaddress" class="stroke wallet-gated" name="wallet-address" placeholder="Wallet address" readonly>
-                             <input type="text" id="nicknameinput" class="stroke wallet-gated" name="player-nickname" placeholder="Choose your nickname" maxlength="15">
-                         </form>
-                         <div class="play button disabled">
+                         <input type="hidden" id="walletaddress" name="wallet-address">
+                         <input type="text" id="nicknameinput" class="stroke" name="player-nickname" placeholder="Choose your nickname" maxlength="15">
+                         <div class="play button">
                              <div></div>
                              <img src="img/common/spinner.gif" alt="">
                          </div>
@@ -420,5 +414,18 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                 var require = { waitSeconds: 60 };
         </script>
         <script data-main="js/home" src="js/lib/require-jquery.js"></script>
+
+        <div id="wallet-picker">
+            <div class="wallet-picker-box">
+                <p class="wallet-picker-title">Choose Your Wallet</p>
+                <div class="wallet-option" id="pick-phantom">
+                    <span class="wallet-icon">&#128123;</span> Phantom
+                </div>
+                <div class="wallet-option" id="pick-solflare">
+                    <span class="wallet-icon">&#9728;</span> Solflare
+                </div>
+                <div class="wallet-cancel" id="wallet-picker-cancel">Cancel</div>
+            </div>
+        </div>
         </body>
 </html>

@@ -199,6 +199,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                     }
                     return address.substr(0, 4) + '...' + address.substr(address.length - 4);
                 },
+                activeProvider = null,
                 setWalletUiReady = function(isReady) {
                     if(isReady) {
                         $('#createcharacter').addClass('wallet-ready');
@@ -214,12 +215,13 @@ define(['jquery', 'app', 'project'], function($, App, project) {
 
                     if(savedNickname) {
                         $('#nicknameinput').val(savedNickname);
-                        $('#nicknameinput').attr('placeholder', 'Nickname loaded from your wallet');
+                        $('#nicknameinput').attr('placeholder', 'Nickname loaded');
                     } else {
                         $('#nicknameinput').val('');
-                        $('#nicknameinput').attr('placeholder', 'Choose your nickname (required first time)');
+                        $('#nicknameinput').attr('placeholder', 'Choose your nickname (required)');
                     }
 
+                    $('#character').removeClass('disabled');
                     setWalletUiReady(true);
 
                     var walletHasCharacter = !firstTimeWallet &&
@@ -236,8 +238,6 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                             app.animateParchment(currentState, 'loadcharacter');
                         }
                     }
-
-                    app.toggleButton();
                 },
                 resolvePlayerName = function() {
                     var nickname = $.trim($('#nicknameinput').val() || ''),
@@ -246,7 +246,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         storageName = $.trim($('#playername').text() || '');
 
                     if(!walletAddress) {
-                        alert('Please connect your wallet first.');
+                        showWalletPicker();
                         return '';
                     }
 
@@ -271,7 +271,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                     return btoa(binary);
                 },
                 requestWalletAuthProof = function(walletAddress) {
-                    var provider = window.solana,
+                    var provider = activeProvider,
                         nonce = Math.random().toString(36).slice(2) + String(new Date().getTime()),
                         authMessage = 'PumpQuest Login\nWallet: ' + walletAddress + '\nNonce: ' + nonce,
                         messageBytes = new TextEncoder().encode(authMessage);
@@ -304,37 +304,50 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         alert('Wallet signature is required to play. Please sign the message and try again.');
                     });
                 },
-                connectWallet = function() {
-                    var provider = window.solana,
-                        connectButton = $('#connect-wallet'),
-                        connectLabel = $('#connect-wallet .connect-label');
+                connectWithProvider = function(type) {
+                    var provider = null,
+                        playBtn = $('#createcharacter .play');
 
-                    if(connectButton.hasClass('connecting')) {
+                    if(type === 'phantom') {
+                        provider = window.solana;
+                        if(!provider || !provider.isPhantom) {
+                            alert('Phantom wallet not found. Please install Phantom and refresh.');
+                            return;
+                        }
+                    } else if(type === 'solflare') {
+                        provider = window.solflare;
+                        if(!provider || !provider.isSolflare) {
+                            alert('Solflare wallet not found. Please install Solflare and refresh.');
+                            return;
+                        }
+                    } else {
                         return;
                     }
 
-                    if(!provider || !provider.isPhantom) {
-                        alert('Phantom wallet is required. Please install Phantom and refresh.');
-                        return;
-                    }
-
-                    connectButton.addClass('connecting');
-                    connectLabel.text('CONNECTING...');
+                    hideWalletPicker();
+                    playBtn.addClass('loading');
 
                     provider.connect().then(function(response) {
-                        var walletAddress = response.publicKey.toString();
+                        var walletAddress = (response && response.publicKey)
+                            ? response.publicKey.toString()
+                            : provider.publicKey.toString();
+                        activeProvider = provider;
                         app.setWalletAddress(walletAddress);
                         app.clearWalletAuthProof();
-                        connectLabel.text('WALLET CONNECTED');
                         $('#walletaddress').val(walletAddress);
                         applyWalletContext(walletAddress);
-                        connectButton.removeClass('connecting');
+                        playBtn.removeClass('loading');
                     }).catch(function(err) {
                         log.error(err);
                         alert('Wallet connection was canceled or failed.');
-                        connectLabel.text('CONNECT WALLET');
-                        connectButton.removeClass('connecting');
+                        playBtn.removeClass('loading');
                     });
+                },
+                showWalletPicker = function() {
+                    $('#wallet-picker').addClass('visible');
+                },
+                hideWalletPicker = function() {
+                    $('#wallet-picker').removeClass('visible');
                 };
 
                 var currentParchment = $('#parchment').attr('class');
@@ -345,24 +358,40 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 setWalletUiReady(false);
                 app.clearWalletAuthProof();
                 app.walletAddress = '';
+                activeProvider = null;
                 $('#walletaddress').val('');
                 app.setWalletNeedsNickname(false);
                 $('#nicknameinput').val('');
                 $('#nicknameinput').attr('placeholder', 'Choose your nickname');
 
-                $('#createcharacter .play').css('display', 'none');
-                $('#connect-wallet').css('display', 'block');
-
-                if(data.player && data.player.walletAddress) {
-                    $('#connect-wallet').attr('title', 'Connect your wallet to load your saved nickname');
-                }
-
-                $('#connect-wallet').click(function(event) {
-                    event.preventDefault();
-                    connectWallet();
+                $('#pick-phantom').click(function() {
+                    connectWithProvider('phantom');
                 });
 
-                $('.play div').click(function(event) {
+                $('#pick-solflare').click(function() {
+                    connectWithProvider('solflare');
+                });
+
+                $('#wallet-picker-cancel').click(function() {
+                    hideWalletPicker();
+                });
+
+                $('#wallet-picker').click(function(e) {
+                    if(e.target === this) {
+                        hideWalletPicker();
+                    }
+                });
+
+                $('#createcharacter .play div').click(function(event) {
+                    var walletAddress = app.getWalletAddress();
+                    if(!walletAddress) {
+                        showWalletPicker();
+                    } else {
+                        startWithWalletAuth();
+                    }
+                });
+
+                $('#loadcharacter .play div').click(function(event) {
                     startWithWalletAuth();
                 });
         
