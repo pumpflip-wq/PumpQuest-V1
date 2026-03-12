@@ -223,15 +223,16 @@ define(['jquery', 'storage'], function($, Storage) {
         },
 
         initHealthBar: function() {
-            var scale = this.game.renderer.getScaleFactor(),
-                healthMaxWidth = $("#healthbar").width() - (12 * scale);
+            var self = this;
 
-                this.game.onPlayerHealthChange(function(hp, maxHp) {
-                    var barWidth = Math.round((healthMaxWidth / maxHp) * (hp > 0 ? hp : 0));
-                    $("#hitpoints").css('width', barWidth + "px");
-                });
+            this.game.onPlayerHealthChange(function(hp, maxHp) {
+                var scale = self.game.renderer.getScaleFactor();
+                var healthMaxWidth = $("#healthbar").width() - (12 * scale);
+                var barWidth = Math.round((healthMaxWidth / maxHp) * (hp > 0 ? hp : 0));
+                $("#hitpoints").css('width', barWidth + "px");
+            });
 
-                this.game.onPlayerHurt(this.blinkHealthBar.bind(this));
+            this.game.onPlayerHurt(this.blinkHealthBar.bind(this));
         },
 
         blinkHealthBar: function() {
