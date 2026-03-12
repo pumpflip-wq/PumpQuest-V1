@@ -5,7 +5,7 @@ var cls = require("./lib/class"),
     Entity = require('./entity'),
     Character = require('./character'),
     Mob = require('./mob'),
-    Map = require('./map'),
+    GameMap = require('./map'),
     Npc = require('./npc'),
     Player = require('./player'),
     Item = require('./item'),
@@ -151,7 +151,7 @@ module.exports = World = cls.Class.extend({
     run: function(mapFilePath) {
         var self = this;
         
-        this.map = new Map(mapFilePath);
+        this.map = new GameMap(mapFilePath);
 
         this.map.ready(function() {
             self.initZoneGroups();

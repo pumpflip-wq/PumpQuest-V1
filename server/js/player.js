@@ -53,16 +53,20 @@ module.exports = Player = Character.extend({
                     walletAuthSignature = message[6] || "",
                     walletLike = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(walletAddress),
                     walletDisplayName = walletLike ? (walletAddress.substr(0, 4) + "..." + walletAddress.substr(walletAddress.length - 4)) : "",
-                    hasWalletAuth = walletLike && walletAuthMessage && walletAuthSignature;
+                    hasWalletAuth = walletLike && walletAuthMessage && walletAuthSignature,
+                    isRevive = self.hasEnteredGame && self.isDead;
 
-                if(walletLike && !hasWalletAuth) {
-                    self.connection.close("Wallet signature proof is required.");
-                    return;
-                }
+                // On revive, the player is already authenticated — skip wallet re-verification
+                if(!isRevive) {
+                    if(walletLike && !hasWalletAuth) {
+                        self.connection.close("Wallet signature proof is required.");
+                        return;
+                    }
 
-                if(hasWalletAuth && !WalletAuth.verifyWalletProof(walletAddress, walletAuthMessage, walletAuthSignature)) {
-                    self.connection.close("Wallet signature verification failed.");
-                    return;
+                    if(hasWalletAuth && !WalletAuth.verifyWalletProof(walletAddress, walletAuthMessage, walletAuthSignature)) {
+                        self.connection.close("Wallet signature verification failed.");
+                        return;
+                    }
                 }
 
                 // Optional nickname. If missing, use the wallet short form to identify the player.

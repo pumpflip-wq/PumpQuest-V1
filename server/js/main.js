@@ -37,12 +37,17 @@ function main(config) {
     
     log.info("Starting Memecoin Universe game server...");
 
+    if(!DB.isEnabled()) {
+        log.error('DATABASE_URL is not set. The server requires an external PostgreSQL database to run.');
+        process.exit(1);
+        return;
+    }
+
     DB.init().then(function() {
-        if(DB.isEnabled()) {
-            log.info('PostgreSQL wallet session storage enabled.');
-        }
+        log.info('PostgreSQL wallet session storage enabled.');
     }).catch(function(err) {
         log.error('Database initialization failed: ' + err.message);
+        process.exit(1);
     });
     
     server.onConnect(function(connection) {
