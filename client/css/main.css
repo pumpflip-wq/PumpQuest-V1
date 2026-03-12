@@ -1329,6 +1329,14 @@ footer, header, hgroup, menu, nav, section {
 #about-telegram:hover, #about-twitter:hover, #about-website:hover { transform: scale(1.3); }
 #token-telegram, #token-twitter, #token-website { transition: transform 0.2s; }
 #token-telegram:hover, #token-twitter:hover, #token-website:hover { transform: scale(1.3); }
+#link-dexscreener, #link-pumpfun, #link-jupiter { transition: transform 0.2s; display: inline-block; }
+#link-dexscreener:hover, #link-pumpfun:hover, #link-jupiter:hover { transform: scale(1.3); }
+#token-dexscreener, #token-pumpfun, #token-jupiter { transition: transform 0.2s; display: inline-block; }
+#token-dexscreener:hover, #token-pumpfun:hover, #token-jupiter:hover { transform: scale(1.3); }
+#link-dexscreener img, #link-pumpfun img, #link-jupiter img,
+#token-dexscreener img, #token-pumpfun img, #token-jupiter img,
+#about-telegram img, #about-twitter img,
+#token-telegram img, #token-twitter img { width: 40px !important; height: 40px !important; object-fit: contain !important; }
 #game-logo { display: none !important; pointer-events: none; visibility: hidden !important; opacity: 0 !important; }
 .game #game-logo { display: none !important; pointer-events: none; visibility: hidden !important; opacity: 0 !important; }
 #game-logo img { width: 260px !important; max-width: 260px !important; height: auto !important; image-rendering: pixelated; }
