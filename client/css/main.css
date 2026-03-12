@@ -198,14 +198,14 @@ footer, header, hgroup, menu, nav, section {
     #createcharacter.wallet-ready #nicknameinput {display:block;}
     #createcharacter.wallet-ready #character {margin-top:10px;}
     #createcharacter.wallet-ready .play {margin-top:8px;}
-    #createcharacter .play {display:none;}
-    #createcharacter.wallet-ready .play {display:block;}
-    #connect-wallet {display:block;margin:10px auto 0 auto;}
     #createcharacter.wallet-ready #connect-wallet {display:none;}
-    .connect-label {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;color:#fce045;letter-spacing:1px;pointer-events:none;white-space:nowrap;}
-    .connect-wallet-button img {display:none;}
-    .connect-wallet-button.loading .connect-label {opacity:0.65;}
-    .connect-wallet-button.loading img {display:block;position:absolute;top:54%;left:50%;}
+    #connect-wallet {display:flex;align-items:center;justify-content:center;gap:8px;margin:14px auto 0 auto;cursor:pointer;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);border:2px solid #e2b96a;border-radius:8px;padding:10px 24px;font-family:'GraphicPixel',sans-serif;font-size:14px;color:#e2b96a;letter-spacing:1px;box-shadow:0 4px 15px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);-webkit-transition:all 0.2s ease;transition:all 0.2s ease;max-width:220px;text-align:center;}
+    #connect-wallet:hover {background:linear-gradient(135deg,#1e2246 0%,#1a2550 60%,#1a4080 100%);border-color:#f5d28a;box-shadow:0 4px 20px rgba(226,185,106,0.3),inset 0 1px 0 rgba(255,255,255,0.15);}
+    .connect-wallet-icon {font-size:18px;line-height:1;}
+    .connect-wallet-text {font-size:14px;white-space:nowrap;}
+    .connect-wallet-spinner {display:none;width:16px;height:16px;}
+    #connect-wallet.loading .connect-wallet-spinner {display:inline-block;}
+    #connect-wallet.loading .connect-wallet-text {opacity:0.7;}
 
     #wallet-picker {display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.55);justify-content:center;align-items:center;}
     #wallet-picker.visible {display:flex;}
@@ -219,8 +219,8 @@ footer, header, hgroup, menu, nav, section {
 
     #character div {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear;}
 
-    .play div, #connect-wallet div {position:absolute;top:0;left:0;opacity:1;-moz-transition:0.4s linear opacity, 0.2s ease transform;-webkit-transition:0.4s linear opacity, 0.2s ease transform;-o-transition:0.4s linear opacity, 0.2s ease transform;-ms-transition:0.4s linear opacity, 0.2s ease transform;transition:0.4s linear opacity, 0.2s ease transform}
-    .play div:hover, #connect-wallet div:hover {transform:scale(1.1);}
+    .play div {position:absolute;top:0;left:0;opacity:1;-moz-transition:0.4s linear opacity, 0.2s ease transform;-webkit-transition:0.4s linear opacity, 0.2s ease transform;-o-transition:0.4s linear opacity, 0.2s ease transform;-ms-transition:0.4s linear opacity, 0.2s ease transform;transition:0.4s linear opacity, 0.2s ease transform}
+    .play div:hover {transform:scale(1.1);}
     .play.disabled div {opacity:0;pointer-events:none;}
     .play img {display:none;}
 
@@ -343,7 +343,7 @@ footer, header, hgroup, menu, nav, section {
 
     .alert {height:50px;background:#d83939;width:100%;color:#eee;font-size:20px;font-family:'GraphicPixel', arial, sans-serif;text-align:center;line-height:50px;border-bottom:1px solid #000;}
 
-    #instructions, #achievements, #lists, #about, #credits, .ribbon, .play, .play div, #connect-wallet, #connect-wallet div, .barbutton {-webkit-tap-highlight-color:transparent;}
+    #instructions, #achievements, #lists, #about, #credits, .ribbon, .play, .play div, .barbutton {-webkit-tap-highlight-color:transparent;}
     #nicknameinput::-webkit-input-placeholder  {color:#fff;}
 
     #resize-check {position:absolute;height:0;top:0;left:0;-moz-transition:0.001s height ease;-webkit-transition:0.001s height ease;-o-transition:0.001s height ease;-ms-transition:0.001s height ease;transition:0.001s height ease;}
@@ -538,11 +538,10 @@ footer, header, hgroup, menu, nav, section {
         #character.disabled div {opacity:0;pointer-events:none;}
         #parchment input {margin-top:30px; padding:0 15px; border:3px dashed #b2af9b; font-size:30px;border-radius:9px;height:61px;}
         .button {height:153px;width:375px;background-position:-687px -306px;margin:30px auto 0 auto;position:relative;}
-        .play div, #connect-wallet div {height:153px;width:375px;background-position:-687px 0px;}
-        .play div:active, #connect-wallet:active div {background-position:-687px -459px;}
+        .play div {height:153px;width:375px;background-position:-687px 0px;}
         .play.loading div {background-position:-681px -2178px;}
         .play.loading img {margin-top:-16px;margin-left:-16px;height:32px;width:32px;}
-        .connect-wallet-button .connect-label, .play .play-label {font-size:22px;}
+        .play .play-label {font-size:22px;}
         .stroke, .achievement-name {text-shadow:3px 3px 0 #373737, 3px -3px 0 #373737, 0 3px 0 #373737, 3px 0 0 #373737, -3px 3px 0 #373737, -3px -3px 0 #373737, 0 -3px 0 #373737, 0 3px 0 #373737, -3px 0 0 #373737;}
 
         #loadcharacter h1, #confirmation h1, #error h1 {margin-top:30px;}
@@ -699,11 +698,10 @@ footer, header, hgroup, menu, nav, section {
         #character.disabled div {opacity:0;pointer-events:none;}
         #parchment input {margin-top:20px; padding:0 10px; border:2px dashed #b2af9b; font-size:20px;border-radius:6px;height:41px;}
         .button {height:102px;width:250px;background-position:-458px -204px;margin:20px auto 0 auto;position:relative;}
-        .play div, #connect-wallet div {height:102px;width:250px;background-position:-458px 0px;}
-        .play div:active, #connect-wallet:active div {background-position:-458px -306px;}
+        .play div {height:102px;width:250px;background-position:-458px 0px;}
         .play.loading div {background-position:-454px -1452px;}
         .play.loading img {margin-top:-12px;margin-left:-12px;height:24px;width:24px;}
-        .connect-wallet-button .connect-label, .play .play-label {font-size:16px;}
+        .play .play-label {font-size:16px;}
         .stroke, .achievement-name {text-shadow:2px 2px 0 #373737, 2px -2px 0 #373737, 0 2px 0 #373737, 2px 0 0 #373737, -2px 2px 0 #373737, -2px -2px 0 #373737, 0 -2px 0 #373737, 0 2px 0 #373737, -2px 0 0 #373737;}
 
         #loadcharacter h1, #confirmation h1, #error h1 {margin-top:20px;}
@@ -862,11 +860,10 @@ footer, header, hgroup, menu, nav, section {
         #character.disabled div {opacity:0;pointer-events:none;}
         #parchment input {margin-top:20px; padding:0 10px; border:2px dashed #b2af9b; font-size:20px;border-radius:6px;height:41px;}
         .button {height:102px;width:250px;background-position:-458px -204px;margin:20px auto 0 auto;position:relative;}
-        .play div, #connect-wallet div {height:102px;width:250px;background-position:-458px 0px;}
-        .play div:active, #connect-wallet:active div {background-position:-458px -306px;}
+        .play div {height:102px;width:250px;background-position:-458px 0px;}
         .play.loading div {background-position:-454px -1452px;}
         .play.loading img {margin-top:-12px;margin-left:-12px;height:24px;width:24px;}
-        .connect-wallet-button .connect-label, .play .play-label {font-size:16px;}
+        .play .play-label {font-size:16px;}
         .stroke, .achievement-name {text-shadow:2px 2px 0 #373737, 2px -2px 0 #373737, 0 2px 0 #373737, 2px 0 0 #373737, -2px 2px 0 #373737, -2px -2px 0 #373737, 0 -2px 0 #373737, 0 2px 0 #373737, -2px 0 0 #373737;}
 
         #loadcharacter h1, #confirmation h1, #error h1 {margin-top:20px;}
@@ -1021,11 +1018,10 @@ footer, header, hgroup, menu, nav, section {
         #character.disabled div {opacity:0;pointer-events:none;}
         #parchment input {margin-top:10px; padding:0 5px; border:1px dashed #b2af9b; font-size:10px;border-radius:3px;height:21px;}
         .button {height:51px;width:125px;background-position:-229px -102px;margin:10px auto 0 auto;position:relative;}
-        .play div, #connect-wallet div {height:51px;width:125px;background-position:-229px 0px;}
-        .play div:active, #connect-wallet:active div {background-position:-229px -153px;}
+        .play div {height:51px;width:125px;background-position:-229px 0px;}
         .play.loading div {background-position:-227px -726px;}
         .play.loading img {margin-top:-8px;margin-left:-8px;height:16px;width:16px;}
-        .connect-wallet-button .connect-label, .play .play-label {font-size:9px;}
+        .play .play-label {font-size:9px;}
         .stroke, .achievement-name {text-shadow:1px 1px 0 #373737, 1px -1px 0 #373737, 0 1px 0 #373737, 1px 0 0 #373737, -1px 1px 0 #373737, -1px -1px 0 #373737, 0 -1px 0 #373737, 0 1px 0 #373737, -1px 0 0 #373737;}
 
         #loadcharacter h1, #confirmation h1, #error h1 {margin-top:20px;}

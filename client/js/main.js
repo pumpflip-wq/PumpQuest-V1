@@ -203,8 +203,12 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 setWalletUiReady = function(isReady) {
                     if(isReady) {
                         $('#createcharacter').addClass('wallet-ready');
+                        $('#createcharacter .play').show();
+                        $('#connect-wallet').hide();
                     } else {
                         $('#createcharacter').removeClass('wallet-ready');
+                        $('#createcharacter .play').hide();
+                        $('#connect-wallet').show();
                     }
                 },
                 applyWalletContext = function(walletAddress, serverName) {
@@ -390,7 +394,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 $('#nicknameinput').val('');
                 $('#nicknameinput').attr('placeholder', 'Choose your nickname');
 
-                $('#connect-wallet div').click(function() {
+                $('#connect-wallet').click(function() {
                     showWalletPicker();
                 });
 
