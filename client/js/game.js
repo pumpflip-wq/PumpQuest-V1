@@ -2442,8 +2442,18 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
 
         updateMarketScore: function(points) {
             this.storage.addMarketScore(points);
+            var total = this.storage.getMarketScore();
             if(this.marketscore_callback) {
-                this.marketscore_callback(this.storage.getMarketScore());
+                this.marketscore_callback(total);
+            }
+            if(this.client && this.client.sendScore) {
+                this.client.sendScore(total);
+            }
+        },
+
+        onLeaderboardUpdate: function(callback) {
+            if(this.client) {
+                this.client.onLeaderboardUpdate(callback);
             }
         },
 

@@ -216,6 +216,13 @@ module.exports = Player = Character.extend({
                     self.lastCheckpoint = checkpoint;
                 }
             }
+            else if(action === Types.Messages.SCORE) {
+                var newScore = message[1];
+                if(typeof newScore === 'number' && newScore >= 0) {
+                    self.score = newScore;
+                    self.server.broadcastLeaderboard();
+                }
+            }
             else {
                 if(self.message_callback) {
                     self.message_callback(message);

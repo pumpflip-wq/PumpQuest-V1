@@ -298,6 +298,10 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 game.onMarketScoreChange(function(score) {
                     app.updateMarketScore(score);
                 });
+
+                game.onLeaderboardUpdate(function(players) {
+                    app.updateServerLeaderboard(players);
+                });
         
             app.initHealthBar();
         

@@ -27,7 +27,9 @@ Types = {
         HP: 23,
         BLINK: 24,
         OPEN: 25,
-        CHECK: 26
+        CHECK: 26,
+        SCORE: 27,
+        LEADERBOARD: 28
     },
     
     Entities: {

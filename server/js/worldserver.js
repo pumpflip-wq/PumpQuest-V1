@@ -69,6 +69,8 @@ module.exports = World = cls.Class.extend({
             // Number of players in this world
             self.pushToPlayer(player, new Messages.Population(self.playerCount));
             self.pushRelevantEntityListTo(player);
+            // Send leaderboard to joining player and broadcast updated list to all
+            self.broadcastLeaderboard();
     
             var move_callback = function(x, y) {
                 log.debug(player.name + " is moving to (" + x + ", " + y + ").");
@@ -112,6 +114,7 @@ module.exports = World = cls.Class.extend({
                 log.info(player.name + " has left the game.");
                 self.removePlayer(player);
                 self.decrementPlayerCount();
+                self.broadcastLeaderboard();
                 
                 if(self.removed_callback) {
                     self.removed_callback();
@@ -449,6 +452,22 @@ module.exports = World = cls.Class.extend({
         for(var id in this.players) {
             callback(this.players[id]);
         }
+    },
+
+    broadcastLeaderboard: function() {
+        var self = this;
+        var playerList = [];
+        this.forEachPlayer(function(player) {
+            if(player.hasEnteredGame && player.name) {
+                playerList.push({ name: player.name, score: player.score || 0 });
+            }
+        });
+        playerList = _.sortBy(playerList, function(p) { return -p.score; });
+        var msg = new Messages.Leaderboard(playerList);
+        // Send to all players (including newly joining ones whose queue already exists)
+        this.forEachPlayer(function(player) {
+            self.pushToPlayer(player, msg);
+        });
     },
     
     forEachMob: function(callback) {

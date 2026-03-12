@@ -208,3 +208,12 @@ Messages.Blink = Message.extend({
                 this.item.id];
     }
 });
+
+Messages.Leaderboard = Message.extend({
+    init: function(players) {
+        this.players = players;
+    },
+    serialize: function() {
+        return [Types.Messages.LEADERBOARD, this.players];
+    }
+});

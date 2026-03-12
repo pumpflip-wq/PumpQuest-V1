@@ -509,7 +509,30 @@ define(['jquery', 'storage'], function($, Storage) {
             this.renderLeaderboard();
         },
 
+        updateServerLeaderboard: function(players) {
+            this._serverLeaderboard = players;
+            this.renderLeaderboard();
+        },
+
         renderLeaderboard: function() {
+            var escapeHtml = function(str) {
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            };
+
+            if(this._serverLeaderboard && this._serverLeaderboard.length > 0) {
+                var html = '';
+                _.each(this._serverLeaderboard, function(row, idx) {
+                    html += '<li><span class="rank">' + (idx + 1) + '.</span> ' + escapeHtml(row.name) + ' <strong>' + row.score + '</strong></li>';
+                });
+                $('#leaderboard-list').html(html);
+                return;
+            }
+
             var name = (this.storage.data.player && this.storage.data.player.name) ? this.storage.data.player.name : 'Crypto Hunter',
                 score = this.storage.getMarketScore(),
                 list = this.storage.getLeaderboard(),
@@ -523,15 +546,7 @@ define(['jquery', 'storage'], function($, Storage) {
             list = _.sortBy(list, function(row) { return -row.score; }).slice(0, 10);
             this.storage.setLeaderboard(list);
 
-            var html = '',
-                escapeHtml = function(str) {
-                    return String(str)
-                        .replace(/&/g, '&amp;')
-                        .replace(/</g, '&lt;')
-                        .replace(/>/g, '&gt;')
-                        .replace(/"/g, '&quot;')
-                        .replace(/'/g, '&#39;');
-                };
+            var html = '';
             _.each(list, function(row, idx) {
                 html += '<li><span class="rank">' + (idx + 1) + '.</span> ' + escapeHtml(row.name) + ' <strong>' + row.score + '</strong></li>';
             });

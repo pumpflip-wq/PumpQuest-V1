@@ -99,6 +99,18 @@ server-static.js - Express static file server with WebSocket proxy
    - Area name display system for zone progression messages
    - Market score updates for exploration and combat
    - Entity removal properly handled via destroy messages
+13. **Real-time leaderboard (all connected players)**:
+   - `shared/js/gametypes.js`: Added SCORE (27) and LEADERBOARD (28) message types
+   - `server/js/format.js`: Added SCORE format validation ['n']
+   - `server/js/message.js`: Added Messages.Leaderboard class
+   - `server/js/player.js`: Handles SCORE message from client, updates player.score
+   - `server/js/worldserver.js`: broadcastLeaderboard() sends sorted player list to all; called on join/leave/score
+   - `client/js/gameclient.js`: sendScore() sends score to server; receiveLeaderboard handler
+   - `client/js/game.js`: Sends score to server on updateMarketScore; onLeaderboardUpdate callback
+   - `client/js/app.js`: updateServerLeaderboard() stores server data; renderLeaderboard uses server data when available
+   - `client/index.html`: Leaderboard title changed to "Players Online"
+14. **Health bar overflow fix (large screens)**:
+   - `client/css/main.css`: In min-width:1501px override, moved #market-score-box from top:20px to top:8px (within 34px bar-container) and added overflow:hidden to #bar-container
 
 ## Dependencies
 

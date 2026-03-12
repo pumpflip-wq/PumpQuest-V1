@@ -31,6 +31,7 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
             this.handlers[Types.Messages.KILL] = this.receiveKill;
             this.handlers[Types.Messages.HP] = this.receiveHitPoints;
             this.handlers[Types.Messages.BLINK] = this.receiveBlink;
+            this.handlers[Types.Messages.LEADERBOARD] = this.receiveLeaderboard;
         
             this.useBison = false;
             this.enable();
@@ -469,6 +470,21 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
     
         onItemBlink: function(callback) {
             this.blink_callback = callback;
+        },
+
+        onLeaderboardUpdate: function(callback) {
+            this.leaderboard_callback = callback;
+        },
+
+        receiveLeaderboard: function(data) {
+            var players = data[1];
+            if(this.leaderboard_callback) {
+                this.leaderboard_callback(players);
+            }
+        },
+
+        sendScore: function(score) {
+            this.sendMessage([Types.Messages.SCORE, score]);
         },
 
         sendHello: function(player) {

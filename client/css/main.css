@@ -1480,8 +1480,10 @@ footer, header, hgroup, menu, nav, section {
     .game .ribbon { width: 36px !important; right: 20px !important; top: 8px !important; }
     .game .ribbon .top { height: 12px !important; background-position: -762px -344px !important; }
     .game .ribbon .bottom { height: 44px !important; background-position: -762px -370px !important; }
-    /* Market score */
-    .game #market-score-box { font-size: 12px !important; top: 20px !important; }
+    /* Market score: keep within 34px bar-container */
+    .game #market-score-box { font-size: 12px !important; top: 8px !important; }
+    /* Clip anything that overflows the bar */
+    .game #bar-container { overflow: hidden !important; }
     /* Achievement notification: force scale=2 dimensions */
     .game #achievement-notification { width: 432px !important; bottom: 44px !important; margin-left: -216px !important; background-position: 0 -496px !important; }
     .game #achievement-notification.active { height: 68px !important; }
