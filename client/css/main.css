@@ -1350,7 +1350,7 @@ footer, header, hgroup, menu, nav, section {
     .game #fade { width: 960px !important; height: 448px !important; top: 10px !important; left: 10px !important; }
     .game #bubbles { width: 960px !important; height: 448px !important; margin-bottom: -448px !important; top: -448px !important; }
     /* Health bar */
-    .game #bar-container { height: 34px !important; top: -2px !important; background-size: 960px !important; background-repeat: no-repeat !important; overflow: hidden !important; }
+    .game #bar-container { width: 960px !important; max-width: 960px !important; height: 34px !important; top: -2px !important; background-size: 960px !important; background-repeat: no-repeat !important; overflow: hidden !important; margin-left: auto !important; margin-right: auto !important; }
     .game #healthbar { height: 26px !important; background-position: 0 -34px !important; width: 204px !important; top: 6px !important; background-size: 960px !important; }
     .game #hitpoints { height: 22px !important; top: 8px !important; left: 22px !important; }
     .game #armor, .game #weapon { width: 32px !important; height: 32px !important; background-size: 192px !important; background-position: -64px !important; }
