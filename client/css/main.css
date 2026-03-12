@@ -201,7 +201,7 @@ footer, header, hgroup, menu, nav, section {
     .play.disabled div {opacity:0;pointer-events:none;}
     .play img {display:none;}
     .play.loading img {display:block;position:absolute;top:54%;left:50%;}
-    #bar-container {background:url('../img/1/barsheet.png');image-rendering:-moz-crisp-edges;position:relative;width:100%;z-index:10;}
+    #bar-container {background:url('../img/1/barsheet.png');image-rendering:-moz-crisp-edges;position:relative;width:100%;z-index:10;background-repeat:no-repeat;overflow:hidden;}
     #healthbar {background:url('../img/1/barsheet.png');image-rendering:-moz-crisp-edges;position:absolute;}
         #hitpoints {background:#d83939;-moz-transition:.5s width ease;-webkit-transition:.5s width ease;-o-transition:.5s width ease;-ms-transition:.5s width ease;transition:.5s width ease;}
     #hitpoints.white {-moz-animation:flash 0.5s linear 1;-webkit-animation:flash 0.5s linear 1;-o-animation:flash 0.5s linear 1;-ms-animation:flash 0.5s linear 1;animation:flash 0.5s linear 1;}
@@ -1350,7 +1350,7 @@ footer, header, hgroup, menu, nav, section {
     .game #fade { width: 960px !important; height: 448px !important; top: 10px !important; left: 10px !important; }
     .game #bubbles { width: 960px !important; height: 448px !important; margin-bottom: -448px !important; top: -448px !important; }
     /* Health bar */
-    .game #bar-container { height: 34px !important; top: -2px !important; background-size: 960px !important; }
+    .game #bar-container { height: 34px !important; top: -2px !important; background-size: 960px !important; background-repeat: no-repeat !important; overflow: hidden !important; }
     .game #healthbar { height: 26px !important; background-position: 0 -34px !important; width: 204px !important; top: 6px !important; background-size: 960px !important; }
     .game #hitpoints { height: 22px !important; top: 8px !important; left: 22px !important; }
     .game #armor, .game #weapon { width: 32px !important; height: 32px !important; background-size: 192px !important; background-position: -64px !important; }
