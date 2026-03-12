@@ -230,7 +230,7 @@ WS.worlizeWebSocketConnection = Connection.extend({
             if(self.close_callback) {
                 self.close_callback();
             }
-            delete self._server.removeConnection(self.id);
+            self._server.removeConnection(self.id);
         });
     },
     
@@ -274,7 +274,7 @@ WS.miksagoWebSocketConnection = Connection.extend({
             if(self.close_callback) {
                 self.close_callback();
             }
-            delete self._server.removeConnection(self.id);
+            self._server.removeConnection(self.id);
         });
     },
     
