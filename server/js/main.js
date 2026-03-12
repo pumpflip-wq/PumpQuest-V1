@@ -1,6 +1,7 @@
 
 var fs = require('fs'),
-    Metrics = require('./metrics');
+    Metrics = require('./metrics'),
+    DB = require('./db');
 
 
 function main(config) {
@@ -35,6 +36,14 @@ function main(config) {
     };
     
     log.info("Starting Memecoin Universe game server...");
+
+    DB.init().then(function() {
+        if(DB.isEnabled()) {
+            log.info('PostgreSQL wallet session storage enabled.');
+        }
+    }).catch(function(err) {
+        log.error('Database initialization failed: ' + err.message);
+    });
     
     server.onConnect(function(connection) {
         var world, // the one in which the player will be spawned
