@@ -337,6 +337,11 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                     });
                 };
 
+                var currentParchment = $('#parchment').attr('class');
+                if(currentParchment !== 'createcharacter') {
+                    $('#parchment').removeClass().addClass('createcharacter');
+                }
+
                 setWalletUiReady(false);
                 app.clearWalletAuthProof();
                 app.walletAddress = '';
@@ -344,6 +349,9 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 app.setWalletNeedsNickname(false);
                 $('#nicknameinput').val('');
                 $('#nicknameinput').attr('placeholder', 'Choose your nickname');
+
+                $('#createcharacter .play').css('display', 'none');
+                $('#connect-wallet').css('display', 'block');
 
                 if(data.player && data.player.walletAddress) {
                     $('#connect-wallet').attr('title', 'Connect your wallet to load your saved nickname');
