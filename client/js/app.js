@@ -290,19 +290,24 @@ define(['jquery', 'storage'], function($, Storage) {
         toggleButton: function() {
             var wallet = this.getWalletAddress(),
                 nickname = $.trim($('#nicknameinput').val() || ''),
-                hasNicknameWhenRequired = !this.isWalletNicknameRequired() || nickname.length > 0,
+                hasNickname = nickname.length > 0,
                 $play = $('#createcharacter .play'),
                 $connectBtn = $('#connect-wallet');
 
-            var canPlay = wallet && wallet.length > 0 && hasNicknameWhenRequired;
+            var walletConnected = wallet && wallet.length > 0;
 
-            if(canPlay) {
-                $play.removeClass('disabled').css('display', 'block');
-                $connectBtn.css('display', 'none');
+            if(walletConnected) {
+                $connectBtn.hide();
+                $play.css('display', 'block');
                 $('#character').removeClass('disabled');
+                if(hasNickname) {
+                    $play.removeClass('disabled');
+                } else {
+                    $play.addClass('disabled');
+                }
             } else {
+                $connectBtn.show();
                 $play.addClass('disabled').css('display', 'none');
-                $connectBtn.css('display', 'block');
                 $('#character').addClass('disabled');
             }
         },

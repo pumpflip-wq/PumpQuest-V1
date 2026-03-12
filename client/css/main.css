@@ -208,21 +208,27 @@ footer, header, hgroup, menu, nav, section {
     #connect-wallet.loading .connect-wallet-spinner {display:inline-block;}
     #connect-wallet.loading .connect-wallet-text {opacity:0.7;}
 
-    #wallet-picker {display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.55);justify-content:center;align-items:center;}
+    #wallet-picker {display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(20,10,0,0.82);justify-content:center;align-items:center;backdrop-filter:blur(2px);}
     #wallet-picker.visible {display:flex;}
-    .wallet-picker-box {background:#f5e9c8;border:3px solid #7a5c1e;border-radius:6px;padding:24px 32px;text-align:center;font-family:'GraphicPixel',sans-serif;min-width:220px;}
-    .wallet-picker-title {color:#4a3000;font-size:16px;margin:0 0 16px 0;letter-spacing:1px;}
-    .wallet-option {cursor:pointer;background:#fff8e8;border:2px solid #c8a050;border-radius:4px;padding:10px 20px;margin:8px 0;font-size:14px;color:#3a2800;letter-spacing:1px;-webkit-transition:background 0.15s;transition:background 0.15s;}
-    .wallet-option:hover {background:#ffe8a0;}
-    .wallet-icon {margin-right:6px;}
-    .wallet-cancel {cursor:pointer;margin-top:14px;font-size:12px;color:#888;letter-spacing:1px;}
-    .wallet-cancel:hover {color:#444;}
+    .wallet-picker-box {background:linear-gradient(180deg,#2a1a00 0%,#160e00 100%);border:3px solid #c8900a;border-radius:8px;padding:26px 36px 18px 36px;text-align:center;font-family:'GraphicPixel',sans-serif;min-width:260px;box-shadow:0 0 0 1px #7a5000,0 8px 40px rgba(0,0,0,0.9),inset 0 1px 0 rgba(255,200,50,0.12);}
+    .wallet-picker-header {display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;}
+    .wallet-picker-deco {font-size:14px;opacity:0.7;}
+    .wallet-picker-title {color:#fce045;font-size:14px;margin:0;letter-spacing:2px;text-shadow:0 1px 4px rgba(0,0,0,0.8);}
+    .wallet-picker-divider {height:2px;background:linear-gradient(90deg,transparent,#c8900a 30%,#fce045 50%,#c8900a 70%,transparent);margin:14px 0 16px 0;border-radius:1px;}
+    .wallet-option {cursor:pointer;display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#3d2500 0%,#281600 100%);border:2px solid #7a5010;border-radius:6px;padding:12px 18px;margin:8px 0;font-size:13px;color:#e8c860;letter-spacing:1px;-webkit-transition:all 0.15s;transition:all 0.15s;box-shadow:0 3px 0 #1a0e00,inset 0 1px 0 rgba(255,200,50,0.08);}
+    .wallet-option:hover {background:linear-gradient(180deg,#503000 0%,#341e00 100%);border-color:#c8900a;color:#fce045;box-shadow:0 3px 0 #1a0e00,0 0 14px rgba(200,144,10,0.25),inset 0 1px 0 rgba(255,200,50,0.15);}
+    .wallet-option:active {transform:translateY(2px);box-shadow:0 1px 0 #1a0e00;}
+    .wallet-logo {display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex-shrink:0;border-radius:7px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.5);}
+    .wallet-name {font-size:13px;letter-spacing:2px;flex:1;text-align:left;}
+    .wallet-cancel {cursor:pointer;margin-top:16px;font-size:11px;color:#5a3a18;letter-spacing:2px;-webkit-transition:color 0.15s;transition:color 0.15s;padding:4px 8px;}
+    .wallet-cancel:hover {color:#c8900a;}
 
     #character div {-moz-transition:0.4s opacity linear;-webkit-transition:0.4s opacity linear;-o-transition:0.4s opacity linear;-ms-transition:0.4s opacity linear;transition:0.4s opacity linear;}
 
     .play div {position:absolute;top:0;left:0;opacity:1;-moz-transition:0.4s linear opacity, 0.2s ease transform;-webkit-transition:0.4s linear opacity, 0.2s ease transform;-o-transition:0.4s linear opacity, 0.2s ease transform;-ms-transition:0.4s linear opacity, 0.2s ease transform;transition:0.4s linear opacity, 0.2s ease transform}
     .play div:hover {transform:scale(1.1);}
-    .play.disabled div {opacity:0;pointer-events:none;}
+    .play.disabled div {opacity:0.35;pointer-events:none;cursor:default;filter:grayscale(60%);}
+    .play.disabled {cursor:not-allowed;}
     .play img {display:none;}
 
     .play .play-label {position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);z-index:2;color:#fce045;letter-spacing:1px;pointer-events:none;white-space:nowrap;font-size:22px;}
