@@ -12,7 +12,7 @@ define(['jquery', 'storage'], function($, Storage) {
             this.watchNameInputInterval = setInterval(this.toggleButton.bind(this), 100);
             this.$playButton = $('.play'),
             this.$playDiv = $('.play div');
-            this.walletAddress = this.storage.getPlayerWalletAddress();
+            this.walletAddress = "";
             this.walletNeedsNickname = false;
             this.walletAuthMessage = "";
             this.walletAuthSignature = "";
@@ -257,7 +257,7 @@ define(['jquery', 'storage'], function($, Storage) {
         },
 
         getWalletAddress: function() {
-            return this.walletAddress || this.storage.getPlayerWalletAddress() || "";
+            return this.walletAddress || "";
         },
 
 
