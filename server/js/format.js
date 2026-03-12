@@ -29,6 +29,21 @@ var _ = require('underscore'),
             
             message.shift();
             
+            if(type === Types.Messages.HELLO) {
+                if(message.length !== 3 && message.length !== 4 && message.length !== 7) {
+                    return false;
+                }
+                if(!_.isString(message[0]) || !_.isNumber(message[1]) || !_.isNumber(message[2])) {
+                    return false;
+                }
+                if(message.length === 4 && !_.isString(message[3])) {
+                    return false;
+                }
+                if(message.length === 7 && (!_.isString(message[3]) || !_.isString(message[4]) || !_.isString(message[5]) || !_.isString(message[6]))) {
+                    return false;
+                }
+                return true;
+            }
             if(format) {    
                 if(message.length !== format.length) {
                     return false;

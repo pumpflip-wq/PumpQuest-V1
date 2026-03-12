@@ -12,6 +12,10 @@ define(['jquery', 'storage'], function($, Storage) {
             this.watchNameInputInterval = setInterval(this.toggleButton.bind(this), 100);
             this.$playButton = $('.play'),
             this.$playDiv = $('.play div');
+            this.walletAddress = this.storage.getPlayerWalletAddress();
+            this.walletNeedsNickname = false;
+            this.walletAuthMessage = "";
+            this.walletAuthSignature = "";
         },
         
         setProject: function(project) {
@@ -174,10 +178,10 @@ define(['jquery', 'storage'], function($, Storage) {
                 //>>includeStart("devHost", pragmas.devHost);
                 if(config.local) {
                     log.debug("Starting game with local dev config.");
-                    this.game.setServerOptions(config.local.host, config.local.port, username);
+                    this.game.setServerOptions(config.local.host, config.local.port, username, this.getWalletAddress(), this.getWalletAuthMessage(), this.getWalletAuthSignature());
                 } else {
                     log.debug("Starting game with default dev config.");
-                    this.game.setServerOptions(config.dev.host, config.dev.port, username);
+                    this.game.setServerOptions(config.dev.host, config.dev.port, username, this.getWalletAddress(), this.getWalletAuthMessage(), this.getWalletAuthSignature());
                 }
                 optionsSet = true;
                 //>>includeEnd("devHost");
@@ -185,7 +189,7 @@ define(['jquery', 'storage'], function($, Storage) {
                 //>>includeStart("prodHost", pragmas.prodHost);
                 if(!optionsSet) {
                     log.debug("Starting game with build config.");
-                    this.game.setServerOptions(config.build.host, config.build.port, username);
+                    this.game.setServerOptions(config.build.host, config.build.port, username, this.getWalletAddress(), this.getWalletAuthMessage(), this.getWalletAuthSignature());
                 }
                 //>>includeEnd("prodHost");
 
@@ -244,11 +248,52 @@ define(['jquery', 'storage'], function($, Storage) {
             }, 500)
         },
 
+
+        setWalletAddress: function(walletAddress) {
+            this.walletAddress = walletAddress || "";
+            this.storage.setPlayerWalletAddress(this.walletAddress);
+            $('#walletaddress').val(this.walletAddress);
+            this.toggleButton();
+        },
+
+        getWalletAddress: function() {
+            return this.walletAddress || this.storage.getPlayerWalletAddress() || "";
+        },
+
+
+
+        setWalletAuthProof: function(message, signature) {
+            this.walletAuthMessage = message || "";
+            this.walletAuthSignature = signature || "";
+        },
+
+        clearWalletAuthProof: function() {
+            this.setWalletAuthProof("", "");
+        },
+
+        getWalletAuthMessage: function() {
+            return this.walletAuthMessage || "";
+        },
+
+        getWalletAuthSignature: function() {
+            return this.walletAuthSignature || "";
+        },
+
+        setWalletNeedsNickname: function(needsNickname) {
+            this.walletNeedsNickname = !!needsNickname;
+            this.toggleButton();
+        },
+
+        isWalletNicknameRequired: function() {
+            return !!this.walletNeedsNickname;
+        },
         toggleButton: function() {
-            var name = $('#parchment input').val(),
+            var wallet = this.getWalletAddress(),
+                nickname = $.trim($('#nicknameinput').val() || ''),
+                hasNicknameWhenRequired = !this.isWalletNicknameRequired() || nickname.length > 0,
                 $play = $('#createcharacter .play');
-    
-            if(name && name.length > 0) {
+
+            if(wallet && wallet.length > 0 && hasNicknameWhenRequired) {
                 $play.removeClass('disabled');
                 $('#character').removeClass('disabled');
             } else {

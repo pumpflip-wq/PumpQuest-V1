@@ -127,7 +127,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                     app.toggleAbout();
                 });
 
-            $('#nameinput').bind("keyup", function() {
+            $('#nicknameinput').bind("keyup", function() {
                 app.toggleButton();
             });
     
@@ -192,21 +192,162 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                return false;
             });
         
-            var data = app.storage.data;
+            var data = app.storage.data,
+                shortWallet = function(address) {
+                    if(!address || address.length < 10) {
+                        return '';
+                    }
+                    return address.substr(0, 4) + '...' + address.substr(address.length - 4);
+                },
+                setWalletUiReady = function(isReady) {
+                    if(isReady) {
+                        $('#createcharacter').addClass('wallet-ready');
+                    } else {
+                        $('#createcharacter').removeClass('wallet-ready');
+                    }
+                },
+                applyWalletContext = function(walletAddress) {
+                    var savedNickname = $.trim(app.storage.getWalletNickname(walletAddress) || ''),
+                        firstTimeWallet = savedNickname === '';
+
+                    app.setWalletNeedsNickname(firstTimeWallet);
+
+                    if(savedNickname) {
+                        $('#nicknameinput').val(savedNickname);
+                        $('#nicknameinput').attr('placeholder', 'Nickname loaded from your wallet');
+                    } else {
+                        $('#nicknameinput').val('');
+                        $('#nicknameinput').attr('placeholder', 'Choose your nickname (required first time)');
+                    }
+
+                    setWalletUiReady(true);
+                    app.toggleButton();
+                },
+                resolvePlayerName = function() {
+                    var nickname = $.trim($('#nicknameinput').val() || ''),
+                        walletAddress = app.getWalletAddress(),
+                        fallbackName = shortWallet(walletAddress),
+                        storageName = $.trim($('#playername').text() || '');
+
+                    if(!walletAddress) {
+                        alert('Please connect your wallet first.');
+                        return '';
+                    }
+
+                    if(app.isWalletNicknameRequired() && nickname === '') {
+                        alert('Please choose a nickname before your first play with this wallet.');
+                        return '';
+                    }
+
+                    if(nickname) {
+                        app.storage.setWalletNickname(walletAddress, nickname);
+                        app.setWalletNeedsNickname(false);
+                    }
+
+                    return nickname || app.storage.getWalletNickname(walletAddress) || fallbackName || storageName;
+                },
+                toBase64 = function(bytes) {
+                    var binary = '',
+                        i;
+                    for(i = 0; i < bytes.length; i += 1) {
+                        binary += String.fromCharCode(bytes[i]);
+                    }
+                    return btoa(binary);
+                },
+                requestWalletAuthProof = function(walletAddress) {
+                    var provider = window.solana,
+                        nonce = Math.random().toString(36).slice(2) + String(new Date().getTime()),
+                        authMessage = 'PumpQuest Login\nWallet: ' + walletAddress + '\nNonce: ' + nonce,
+                        messageBytes = new TextEncoder().encode(authMessage);
+
+                    if(!provider || !provider.signMessage) {
+                        return Promise.reject(new Error('Wallet message signing is not available in this wallet provider.'));
+                    }
+
+                    return provider.signMessage(messageBytes, 'utf8').then(function(result) {
+                        var signatureBytes = result.signature ? result.signature : result,
+                            signatureBase64 = toBase64(signatureBytes);
+
+                        app.setWalletAuthProof(authMessage, signatureBase64);
+                        return true;
+                    });
+                },
+                startWithWalletAuth = function(starting_callback) {
+                    var walletAddress = app.getWalletAddress(),
+                        name = resolvePlayerName();
+
+                    if(!name || !walletAddress) {
+                        return;
+                    }
+
+                    requestWalletAuthProof(walletAddress).then(function() {
+                        app.tryStartingGame(name, starting_callback);
+                    }).catch(function(err) {
+                        log.error(err);
+                        app.clearWalletAuthProof();
+                        alert('Wallet signature is required to play. Please sign the message and try again.');
+                    });
+                },
+                connectWallet = function() {
+                    var provider = window.solana,
+                        connectButton = $('#connect-wallet'),
+                        connectLabel = $('#connect-wallet .connect-label');
+
+                    if(connectButton.hasClass('connecting')) {
+                        return;
+                    }
+
+                    if(!provider || !provider.isPhantom) {
+                        alert('Phantom wallet is required. Please install Phantom and refresh.');
+                        return;
+                    }
+
+                    connectButton.addClass('connecting');
+                    connectLabel.text('CONNECTING...');
+
+                    provider.connect().then(function(response) {
+                        var walletAddress = response.publicKey.toString();
+                        app.setWalletAddress(walletAddress);
+                        app.clearWalletAuthProof();
+                        connectLabel.text('WALLET CONNECTED');
+                        $('#walletaddress').val(walletAddress);
+                        applyWalletContext(walletAddress);
+                        connectButton.removeClass('connecting');
+                    }).catch(function(err) {
+                        log.error(err);
+                        alert('Wallet connection was canceled or failed.');
+                        connectLabel.text('CONNECT WALLET');
+                        connectButton.removeClass('connecting');
+                    });
+                };
+
+                setWalletUiReady(false);
+                app.clearWalletAuthProof();
+                app.walletAddress = '';
+                $('#walletaddress').val('');
+                app.setWalletNeedsNickname(false);
+                $('#nicknameinput').val('');
+                $('#nicknameinput').attr('placeholder', 'Choose your nickname');
+
+                if(data.player && data.player.walletAddress) {
+                    $('#connect-wallet').attr('title', 'Connect your wallet to load your saved nickname');
+                }
+
                 if(data.hasAlreadyPlayed) {
                     if(data.player.name && data.player.name !== "") {
-                            $('#playername').html(data.player.name);
+                        $('#playername').html(data.player.name);
                         $('#playerimage').attr('src', data.player.image);
                     }
                 }
-                
+
+                $('#connect-wallet').click(function(event) {
+                    event.preventDefault();
+                    connectWallet();
+                });
+
                 $('.play div').click(function(event) {
-                var nameFromInput = $('#nameinput').attr('value'),
-                    nameFromStorage = $('#playername').html(),
-                    name = nameFromInput || nameFromStorage;
-                
-                app.tryStartingGame(name);
-            });
+                    startWithWalletAuth();
+                });
         
             document.addEventListener("touchstart", function() {},false);
             
@@ -305,7 +446,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
         
             app.initHealthBar();
         
-            $('#nameinput').attr('value', '');
+            $('#nicknameinput').attr('value', '');
                 $('#chatbox').attr('value', '');
                 
                 if(game.renderer.mobile || game.renderer.tablet) {
@@ -405,19 +546,14 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 }
             });
 
-            $('#nameinput').keypress(function(event) {
-                var $name = $('#nameinput'),
-                    name = $name.attr('value');
+            $('#nicknameinput').keypress(function(event) {
+                var $name = $('#nicknameinput');
 
                 if(event.keyCode === 13) {
-                    if(name !== '') {
-                        app.tryStartingGame(name, function() {
-                            $name.blur(); // exit keyboard on mobile
-                        });
-                        return false; // prevent form submit
-                    } else {
-                        return false; // prevent form submit
-                    }
+                    startWithWalletAuth(function() {
+                        $name.blur(); // exit keyboard on mobile
+                    });
+                    return false; // prevent form submit
                 }
             });
             
@@ -429,7 +565,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 var key = e.which,
                     $chat = $('#chatinput');
 
-                if($('#chatinput:focus').size() == 0 && $('#nameinput:focus').size() == 0) {
+                if($('#chatinput:focus').size() == 0 && $('#nicknameinput:focus').size() == 0) {
                     if(key === 13) { // Enter
                         if(game.ready) {
                             $chat.focus();

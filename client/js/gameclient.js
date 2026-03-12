@@ -491,7 +491,10 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
             this.sendMessage([Types.Messages.HELLO,
                               player.name,
                               Types.getKindFromString(player.getSpriteName()),
-                              Types.getKindFromString(player.getWeaponName())]);
+                              Types.getKindFromString(player.getWeaponName()),
+                              player.walletAddress || "",
+                              player.walletAuthMessage || "",
+                              player.walletAuthSignature || ""]);
         },
 
         sendMove: function(x, y) {

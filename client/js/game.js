@@ -611,10 +611,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
     
-        setServerOptions: function(host, port, username) {
+        setServerOptions: function(host, port, username, walletAddress, walletAuthMessage, walletAuthSignature) {
             this.host = host;
             this.port = port;
             this.username = username;
+            this.walletAddress = walletAddress || "";
+            this.walletAuthMessage = walletAuthMessage || "";
+            this.walletAuthSignature = walletAuthSignature || "";
         },
     
         loadAudio: function() {
@@ -743,6 +746,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 log.info("Starting client/server handshake");
                 
                 self.player.name = self.username;
+                self.player.walletAddress = self.walletAddress || "";
+                self.player.walletAuthMessage = self.walletAuthMessage || "";
+                self.player.walletAuthSignature = self.walletAuthSignature || "";
                 self.started = true;
             
                 self.sendHello(self.player);
@@ -2244,6 +2250,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.initRenderingGrid();
 
             this.player = new Warrior("player", this.username);
+            this.player.walletAddress = this.walletAddress || "";
+            this.player.walletAuthMessage = this.walletAuthMessage || "";
+            this.player.walletAuthSignature = this.walletAuthSignature || "";
             this.initPlayer();
         
             this.started = true;
