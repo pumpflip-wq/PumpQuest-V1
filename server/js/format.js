@@ -30,7 +30,7 @@ var _ = require('underscore'),
             message.shift();
             
             if(type === Types.Messages.HELLO) {
-                if(message.length !== 3 && message.length !== 4 && message.length !== 7) {
+                if(message.length !== 3 && message.length !== 4 && message.length !== 6) {
                     return false;
                 }
                 if(!_.isString(message[0]) || !_.isNumber(message[1]) || !_.isNumber(message[2])) {
@@ -39,7 +39,7 @@ var _ = require('underscore'),
                 if(message.length === 4 && !_.isString(message[3])) {
                     return false;
                 }
-                if(message.length === 7 && (!_.isString(message[3]) || !_.isString(message[4]) || !_.isString(message[5]) || !_.isString(message[6]))) {
+                if(message.length === 6 && (!_.isString(message[3]) || !_.isString(message[4]) || !_.isString(message[5]))) {
                     return false;
                 }
                 return true;

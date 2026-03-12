@@ -324,13 +324,12 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         return;
                     }
 
-                    requestWalletAuthProof(walletAddress).then(function() {
-                        app.tryStartingGame(name, starting_callback);
-                    }).catch(function(err) {
-                        log.error(err);
-                        app.clearWalletAuthProof();
-                        alert('Wallet signature is required to play. Please sign the message and try again.');
-                    });
+                    if(!app.getWalletAuthMessage() || !app.getWalletAuthSignature()) {
+                        alert('Wallet signature missing. Please reconnect your wallet.');
+                        return;
+                    }
+
+                    app.tryStartingGame(name, starting_callback);
                 },
                 connectWithProvider = function(type) {
                     var provider = null,
@@ -363,14 +362,18 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                         app.setWalletAddress(walletAddress);
                         app.clearWalletAuthProof();
                         $('#walletaddress').val(walletAddress);
+                        return requestWalletAuthProof(walletAddress);
+                    }).then(function() {
+                        var walletAddress = app.getWalletAddress();
                         fetchPlayerFromServer(walletAddress, function(serverName) {
                             applyWalletContext(walletAddress, serverName);
                             playBtn.removeClass('loading');
                         });
                     }).catch(function(err) {
                         log.error(err);
-                        alert('Wallet connection was canceled or failed.');
+                        alert('Wallet connection or signing was canceled. Please try again.');
                         playBtn.removeClass('loading');
+                        app.clearWalletAuthProof();
                     });
                 },
                 showWalletPicker = function() {
