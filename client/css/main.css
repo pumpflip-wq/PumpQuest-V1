@@ -1307,7 +1307,7 @@ footer, header, hgroup, menu, nav, section {
     .opera #death, .opera #about, .opera #credits, .opera #error, .opera #confirmation, .opera #loadcharacter { z-index: -30000; }
 #project-subtitle { font-size: 14px; margin: 8px 0; }
 .project-links a { margin-right: 10px; font-size: 12px; }
-#market-score-box { position:absolute; left:10px; top:30px; color:#fff; z-index:5; font-size:14px; }
+#market-score-box { position:absolute; left:10px; top:8px; color:#fff; z-index:5; font-size:14px; }
 #leaderboard { display:none; position:absolute; left:50%; top:50%; margin-left:-208px; margin-top:-180px; width:416px; z-index:1000; }
 #leaderboard.active { display:block !important; opacity:1; -moz-transition:0.5s opacity linear 0.5s; -webkit-transition:0.5s opacity linear 0.5s; -o-transition:0.5s opacity linear 0.5s; -ms-transition:0.5s opacity linear 0.5s; transition:0.5s opacity linear 0.5s; pointer-events:auto; }
 .intro #leaderboard { opacity:1; pointer-events:auto; }
@@ -1482,8 +1482,6 @@ footer, header, hgroup, menu, nav, section {
     .game .ribbon .bottom { height: 44px !important; background-position: -762px -370px !important; }
     /* Market score: keep within 34px bar-container */
     .game #market-score-box { font-size: 12px !important; top: 8px !important; }
-    /* Clip anything that overflows the bar */
-    .game #bar-container { overflow: hidden !important; }
     /* Achievement notification: force scale=2 dimensions */
     .game #achievement-notification { width: 432px !important; bottom: 44px !important; margin-left: -216px !important; background-position: 0 -496px !important; }
     .game #achievement-notification.active { height: 68px !important; }
