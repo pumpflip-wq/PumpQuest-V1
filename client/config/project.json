@@ -3,7 +3,7 @@
   "worldName": "PumpVerse",
   "tokenName": "PumpToken",
   "tokenSymbol": "PUMP",
-  "contractAddress": "COMING_SOON",
+  "contractAddress": "COMING_SOON_ON_PUMP_FUN",
   "website": "https://yourproject.com",
   "twitter": "https://x.com/yourproject",
   "telegram": "https://t.me/yourproject",
@@ -57,7 +57,10 @@
       "troll": { "name": "Troll Bot", "type": "enemy", "value": 2 }
     },
     "npcs": {
-      "guard": { "name": "Security Guard", "description": "Protects the Genesis Launch" },
+      "guard": {
+        "name": "Security Guard",
+        "description": "Protects the Genesis Launch"
+      },
       "villagegirl": { "name": "Luna", "description": "A crypto trader" },
       "villager": { "name": "Hodler", "description": "A long-term investor" },
       "scientist": { "name": "Dev", "description": "A blockchain developer" },
@@ -71,24 +74,60 @@
 
   "items": {
     "weapons": {
-      "gmhandle": { "name": "GM Blade", "description": "A sword wielded by founders" },
+      "gmhandle": {
+        "name": "GM Blade",
+        "description": "A sword wielded by founders"
+      },
       "dioptionhandle": { "name": "Dip Blade", "description": "Buys the dips" },
-      "lambohandle": { "name": "Lambo Blade", "description": "Dreams of Lambos" },
+      "lambohandle": {
+        "name": "Lambo Blade",
+        "description": "Dreams of Lambos"
+      },
       "moonshothandle": { "name": "Moon Blade", "description": "To the moon!" },
-      "diamondhandle": { "name": "Diamond Blade", "description": "Diamond hands weapon" },
-      "bluehandle": { "name": "Blue Blade", "description": "A reliable weapon" },
-      "bluehandle2": { "name": "Blue Saber", "description": "Enhanced blue blade" }
+      "diamondhandle": {
+        "name": "Diamond Blade",
+        "description": "Diamond hands weapon"
+      },
+      "bluehandle": {
+        "name": "Blue Blade",
+        "description": "A reliable weapon"
+      },
+      "bluehandle2": {
+        "name": "Blue Saber",
+        "description": "Enhanced blue blade"
+      }
     },
     "armor": {
-      "clotharmor": { "name": "Paper Hands Vest", "description": "Light protection" },
-      "leatherarmor": { "name": "Hodler's Coat", "description": "Medium protection" },
-      "mailarmor": { "name": "Blockchain Shield", "description": "Strong protection" },
-      "platearmor": { "name": "Diamond Armor", "description": "Heavy protection" },
-      "goldenarmor": { "name": "Golden Armor", "description": "Legendary protection" },
-      "redarmor": { "name": "Red Armor", "description": "Aggressive protection" }
+      "clotharmor": {
+        "name": "Paper Hands Vest",
+        "description": "Light protection"
+      },
+      "leatherarmor": {
+        "name": "Hodler's Coat",
+        "description": "Medium protection"
+      },
+      "mailarmor": {
+        "name": "Blockchain Shield",
+        "description": "Strong protection"
+      },
+      "platearmor": {
+        "name": "Diamond Armor",
+        "description": "Heavy protection"
+      },
+      "goldenarmor": {
+        "name": "Golden Armor",
+        "description": "Legendary protection"
+      },
+      "redarmor": {
+        "name": "Red Armor",
+        "description": "Aggressive protection"
+      }
     },
     "consumables": {
-      "energydrink": { "name": "Gas Boost", "description": "Restores health quickly" },
+      "energydrink": {
+        "name": "Gas Boost",
+        "description": "Restores health quickly"
+      },
       "pizza": { "name": "Pizza", "description": "Programmer's fuel" },
       "tendies": { "name": "Tendies", "description": "Victory snacks" },
       "chest": { "name": "Token Chest", "description": "Contains fragments" }
@@ -96,10 +135,26 @@
   },
 
   "zones": {
-    "zone1": { "name": "Genesis Launch", "description": "Where it all begins", "difficulty": "Beginner" },
-    "zone2": { "name": "Meme Jungle", "description": "Wild and unpredictable", "difficulty": "Intermediate" },
-    "zone3": { "name": "Rug Pull Cave", "description": "Dangerous and dark", "difficulty": "Advanced" },
-    "zone4": { "name": "Market Citadel", "description": "The final frontier", "difficulty": "Expert" }
+    "zone1": {
+      "name": "Genesis Launch",
+      "description": "Where it all begins",
+      "difficulty": "Beginner"
+    },
+    "zone2": {
+      "name": "Meme Jungle",
+      "description": "Wild and unpredictable",
+      "difficulty": "Intermediate"
+    },
+    "zone3": {
+      "name": "Rug Pull Cave",
+      "description": "Dangerous and dark",
+      "difficulty": "Advanced"
+    },
+    "zone4": {
+      "name": "Market Citadel",
+      "description": "The final frontier",
+      "difficulty": "Expert"
+    }
   },
 
   "scoring": {

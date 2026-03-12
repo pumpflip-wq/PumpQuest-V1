@@ -52,13 +52,25 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#token-telegram').attr('href', this.project.telegram);
             $('#token-twitter').attr('href', this.project.twitter);
             
-            // Token exchange links from config
-            $('#token-dexscreener').attr('href', this.project.social.dexscreener);
-            $('#token-pumpfun').attr('href', this.project.social.pumpfun);
-            $('#token-jupiter').attr('href', this.project.social.jupiter);
-            $('#link-dexscreener').attr('href', this.project.social.dexscreener);
-            $('#link-pumpfun').attr('href', this.project.social.pumpfun);
-            $('#link-jupiter').attr('href', this.project.social.jupiter);
+            // Token exchange links — built dynamically from contractAddress
+            var ca = this.project.contractAddress;
+            var isValidCA = ca && ca.indexOf('COMING_SOON') === -1 && ca.trim() !== '';
+            var dexscreenerUrl = isValidCA
+                ? 'https://dexscreener.com/solana/' + ca
+                : (this.project.social && this.project.social.dexscreener ? this.project.social.dexscreener : 'https://dexscreener.com');
+            var pumpfunUrl = isValidCA
+                ? 'https://pump.fun/' + ca
+                : (this.project.social && this.project.social.pumpfun ? this.project.social.pumpfun : 'https://pump.fun');
+            var jupiterUrl = isValidCA
+                ? 'https://jup.ag/swap/SOL-' + ca
+                : (this.project.social && this.project.social.jupiter ? this.project.social.jupiter : 'https://jup.ag');
+
+            $('#token-dexscreener').attr('href', dexscreenerUrl);
+            $('#token-pumpfun').attr('href', pumpfunUrl);
+            $('#token-jupiter').attr('href', jupiterUrl);
+            $('#link-dexscreener').attr('href', dexscreenerUrl);
+            $('#link-pumpfun').attr('href', pumpfunUrl);
+            $('#link-jupiter').attr('href', jupiterUrl);
             
             // Update logo images from config
             if(this.project.logos) {
