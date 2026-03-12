@@ -6,7 +6,9 @@ var cls = require("./lib/class"),
     Properties = require("./properties"),
     Formulas = require("./formulas"),
     check = require("./format").check,
-    Types = require("../../shared/js/gametypes");
+    Types = require("../../shared/js/gametypes"),
+    DB = require("./db"),
+    WalletAuth = require("./walletauth");
 
 module.exports = Player = Character.extend({
     init: function(connection, worldServer) {
@@ -45,12 +47,27 @@ module.exports = Player = Character.extend({
             self.resetTimeout();
             
             if(action === Types.Messages.HELLO) {
-                var name = Utils.sanitize(message[1]);
-                
-                // If name was cleared by the sanitizer, give a default name.
-                // Always ensure that the name is not longer than a maximum length.
-                // (also enforced by the maxlength attribute of the name input element).
-                self.name = (name === "") ? "lorem ipsum" : name.substr(0, 15);
+                var name = Utils.sanitize(message[1]),
+                    walletAddress = Utils.sanitize(message[4] || ""),
+                    walletAuthMessage = message[5] || "",
+                    walletAuthSignature = message[6] || "",
+                    walletLike = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(walletAddress),
+                    walletDisplayName = walletLike ? (walletAddress.substr(0, 4) + "..." + walletAddress.substr(walletAddress.length - 4)) : "",
+                    hasWalletAuth = walletLike && walletAuthMessage && walletAuthSignature;
+
+                if(walletLike && !hasWalletAuth) {
+                    self.connection.close("Wallet signature proof is required.");
+                    return;
+                }
+
+                if(hasWalletAuth && !WalletAuth.verifyWalletProof(walletAddress, walletAuthMessage, walletAuthSignature)) {
+                    self.connection.close("Wallet signature verification failed.");
+                    return;
+                }
+
+                // Optional nickname. If missing, use the wallet short form to identify the player.
+                self.name = (name === "") ? (walletDisplayName || "wallet-player") : name.substr(0, 15);
+                self.walletAddress = walletLike ? walletAddress : "";
                 
                 self.kind = Types.Entities.WARRIOR;
                 self.equipArmor(message[2]);
@@ -65,6 +82,12 @@ module.exports = Player = Character.extend({
                 self.send([Types.Messages.WELCOME, self.id, self.name, self.x, self.y, self.hitPoints]);
                 self.hasEnteredGame = true;
                 self.isDead = false;
+
+                if(self.walletAddress) {
+                    DB.recordWalletSession(self.walletAddress, self.name, self.server.id).catch(function(err) {
+                        log.error("Failed to persist wallet session: " + err.message);
+                    });
+                }
             }
             else if(action === Types.Messages.WHO) {
                 message.shift();

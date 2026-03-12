@@ -78,10 +78,16 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                              <div></div>
                          </div>
                          <form action="none" method="get" accept-charset="utf-8">
-                             <input type="text" id="nameinput" class="stroke" name="player-name" placeholder="Name your character" maxlength="15">
+                             <div id="connect-wallet" class="button connect-wallet-button">
+                                 <div></div>
+                                 <span class="connect-label stroke">CONNECT WALLET</span>
+                             </div>
+                             <input type="text" id="walletaddress" class="stroke wallet-gated" name="wallet-address" placeholder="Wallet address" readonly>
+                             <input type="text" id="nicknameinput" class="stroke wallet-gated" name="player-nickname" placeholder="Choose your nickname" maxlength="15">
                          </form>
-                         <div class="play button disabled">
+                         <div class="play button disabled wallet-gated">
                              <div></div>
+                             <span class="play-label stroke">PLAY</span>
                              <img src="img/common/spinner.gif" alt="">
                          </div>
                          <div class="ribbon clickable">

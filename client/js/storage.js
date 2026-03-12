@@ -11,6 +11,9 @@ define(function() {
                 if(!this.data.leaderboard) {
                     this.data.leaderboard = [];
                 }
+                if(!this.data.walletProfiles) {
+                    this.data.walletProfiles = {};
+                }
             } else {
                 this.resetData();
             }
@@ -21,6 +24,7 @@ define(function() {
                 hasAlreadyPlayed: false,
                 player: {
                     name: "",
+                    walletAddress: "",
                     weapon: "",
                     armor: "",
                     image: ""
@@ -35,6 +39,7 @@ define(function() {
                 },
                 marketScore: 0,
                 leaderboard: [],
+                walletProfiles: {},
                 fragmentsCollected: 0,
                 enemies: {
                     defeated: 0
@@ -75,6 +80,36 @@ define(function() {
             this.save();
         },
     
+
+        setPlayerWalletAddress: function(walletAddress) {
+            this.data.player.walletAddress = walletAddress || "";
+            this.save();
+        },
+
+        getPlayerWalletAddress: function() {
+            return (this.data.player && this.data.player.walletAddress) ? this.data.player.walletAddress : "";
+        },
+
+
+        setWalletNickname: function(walletAddress, nickname) {
+            if(!walletAddress) {
+                return;
+            }
+            if(!this.data.walletProfiles) {
+                this.data.walletProfiles = {};
+            }
+            this.data.walletProfiles[walletAddress] = {
+                nickname: nickname || ""
+            };
+            this.save();
+        },
+
+        getWalletNickname: function(walletAddress) {
+            if(!walletAddress || !this.data.walletProfiles || !this.data.walletProfiles[walletAddress]) {
+                return "";
+            }
+            return this.data.walletProfiles[walletAddress].nickname || "";
+        },
         setPlayerImage: function(img) {
             this.data.player.image = img;
             this.save();
