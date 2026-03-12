@@ -1340,7 +1340,9 @@ footer, header, hgroup, menu, nav, section {
     .opera #death, .opera #about, .opera #credits, .opera #error, .opera #confirmation, .opera #loadcharacter { z-index: -30000; }
 #project-subtitle { font-size: 14px; margin: 8px 0; }
 .project-links a { margin-right: 10px; font-size: 12px; }
-#market-score-box { position:absolute; left:10px; top:8px; color:#fff; z-index:5; font-size:14px; }
+#market-score-box { display:none; text-align:center; color:#fce045; font-family:'GraphicPixel',sans-serif; font-size:13px; letter-spacing:1px; padding:6px 16px; background:rgba(0,0,0,0.45); border:1px solid rgba(200,144,10,0.4); border-radius:4px; margin:6px auto 0 auto; width:fit-content; text-shadow:0 1px 3px rgba(0,0,0,0.8); }
+.game #market-score-box { display:block; }
+.market-score-label { opacity:0.75; margin-right:4px; }
 #leaderboard { display:none; position:absolute; left:50%; top:50%; margin-left:-208px; margin-top:-180px; width:416px; z-index:1000; }
 #leaderboard.active { display:block !important; opacity:1; -moz-transition:0.5s opacity linear 0.5s; -webkit-transition:0.5s opacity linear 0.5s; -o-transition:0.5s opacity linear 0.5s; -ms-transition:0.5s opacity linear 0.5s; transition:0.5s opacity linear 0.5s; pointer-events:auto; }
 .intro #leaderboard { opacity:1; pointer-events:auto; }
@@ -1513,8 +1515,8 @@ footer, header, hgroup, menu, nav, section {
     .game .ribbon { width: 36px !important; right: 20px !important; top: 8px !important; }
     .game .ribbon .top { height: 12px !important; background-position: -762px -344px !important; }
     .game .ribbon .bottom { height: 44px !important; background-position: -762px -370px !important; }
-    /* Market score: keep within 34px bar-container */
-    .game #market-score-box { font-size: 12px !important; top: 8px !important; }
+    /* Market score: standalone below game frame on small screens */
+    #market-score-box { font-size: 11px !important; }
     /* Achievement notification: force scale=2 dimensions */
     .game #achievement-notification { width: 432px !important; bottom: 44px !important; margin-left: -216px !important; background-position: 0 -496px !important; }
     .game #achievement-notification.active { height: 68px !important; }

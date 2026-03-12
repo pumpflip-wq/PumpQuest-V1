@@ -318,7 +318,6 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <div id="playercount" class="clickable">
                         <span class="count">0</span> <span>players</span>
                     </div>
-                    <div id="market-score-box">Market Score: <span id="market-score">0</span></div>
                     <div id="barbuttons">
                         <div id="chatbutton" class="barbutton clickable"></div>
                         <div id="achievementsbutton" class="barbutton clickable"></div>
@@ -340,6 +339,10 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     </div>
                 </div>
                     </div>
+                </div>
+                <div id="market-score-box">
+                    <span class="market-score-label">&#9733; Market Score:</span>
+                    <span id="market-score">0</span>
                 </div>
                 <footer>
                     <div id="footer-wrapper" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px; margin-bottom: 12px;">
@@ -429,23 +432,14 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                 </div>
                 <div class="wallet-picker-divider"></div>
                 <div class="wallet-option" id="pick-phantom">
-                    <span class="wallet-logo phantom-logo">
-                        <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="128" height="128" rx="26" fill="#551BF9"/>
-                            <path d="M110.584 64.992C110.584 89.764 90.394 109.992 65.668 109.992C41.884 109.992 22.364 91.692 21 67.908H65.668V56.908H21.108C23.284 33.636 43.084 19 65.668 19C90.394 19 110.584 40.22 110.584 64.992Z" fill="white"/>
-                            <ellipse cx="78.5" cy="58.5" rx="6.5" ry="6.5" fill="#551BF9"/>
-                            <ellipse cx="93.5" cy="58.5" rx="6.5" ry="6.5" fill="#551BF9"/>
-                        </svg>
+                    <span class="wallet-logo">
+                        <img src="img/phantom-icon.png" alt="Phantom" width="32" height="32" style="border-radius:7px;display:block;">
                     </span>
                     <span class="wallet-name">Phantom</span>
                 </div>
                 <div class="wallet-option" id="pick-solflare">
-                    <span class="wallet-logo solflare-logo">
-                        <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="128" height="128" rx="26" fill="#FC7227"/>
-                            <path d="M64 20L72.5 49.5L100 40L82 64L100 88L72.5 78.5L64 108L55.5 78.5L28 88L46 64L28 40L55.5 49.5L64 20Z" fill="white"/>
-                            <circle cx="64" cy="64" r="14" fill="#FC7227"/>
-                        </svg>
+                    <span class="wallet-logo">
+                        <img src="img/solflare-icon.png" alt="Solflare" width="32" height="32" style="border-radius:7px;display:block;">
                     </span>
                     <span class="wallet-name">Solflare</span>
                 </div>
