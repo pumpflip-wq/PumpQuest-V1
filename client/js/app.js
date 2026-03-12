@@ -291,13 +291,18 @@ define(['jquery', 'storage'], function($, Storage) {
             var wallet = this.getWalletAddress(),
                 nickname = $.trim($('#nicknameinput').val() || ''),
                 hasNicknameWhenRequired = !this.isWalletNicknameRequired() || nickname.length > 0,
-                $play = $('#createcharacter .play');
+                $play = $('#createcharacter .play'),
+                $connectBtn = $('#connect-wallet');
 
-            if(wallet && wallet.length > 0 && hasNicknameWhenRequired) {
-                $play.removeClass('disabled');
+            var canPlay = wallet && wallet.length > 0 && hasNicknameWhenRequired;
+
+            if(canPlay) {
+                $play.removeClass('disabled').css('display', 'block');
+                $connectBtn.css('display', 'none');
                 $('#character').removeClass('disabled');
             } else {
-                $play.addClass('disabled');
+                $play.addClass('disabled').css('display', 'none');
+                $connectBtn.css('display', 'block');
                 $('#character').addClass('disabled');
             }
         },
@@ -522,7 +527,13 @@ define(['jquery', 'storage'], function($, Storage) {
             } else {
                 if(currentState !== 'animate') {
                     if(currentState === 'about') {
-                        if(localStorage && localStorage.data) {
+                        var walletAddress = this.getWalletAddress();
+                        var walletHasCharacter = walletAddress &&
+                            this.storage.data.hasAlreadyPlayed &&
+                            this.storage.data.player &&
+                            this.storage.data.player.name &&
+                            this.storage.data.player.walletAddress === walletAddress;
+                        if(walletHasCharacter) {
                             this.animateParchment(currentState, 'loadcharacter');
                         } else {
                             this.animateParchment(currentState, 'createcharacter');

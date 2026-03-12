@@ -221,6 +221,22 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                     }
 
                     setWalletUiReady(true);
+
+                    var walletHasCharacter = !firstTimeWallet &&
+                        data.hasAlreadyPlayed &&
+                        data.player &&
+                        data.player.name &&
+                        data.player.walletAddress === walletAddress;
+
+                    if(walletHasCharacter) {
+                        $('#playername').html(data.player.name);
+                        $('#playerimage').attr('src', data.player.image || '');
+                        var currentState = $('#parchment').attr('class');
+                        if(currentState !== 'loadcharacter' && currentState !== 'animate') {
+                            app.animateParchment(currentState, 'loadcharacter');
+                        }
+                    }
+
                     app.toggleButton();
                 },
                 resolvePlayerName = function() {
@@ -331,13 +347,6 @@ define(['jquery', 'app', 'project'], function($, App, project) {
 
                 if(data.player && data.player.walletAddress) {
                     $('#connect-wallet').attr('title', 'Connect your wallet to load your saved nickname');
-                }
-
-                if(data.hasAlreadyPlayed) {
-                    if(data.player.name && data.player.name !== "") {
-                        $('#playername').html(data.player.name);
-                        $('#playerimage').attr('src', data.player.image);
-                    }
                 }
 
                 $('#connect-wallet').click(function(event) {

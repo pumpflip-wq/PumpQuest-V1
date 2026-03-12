@@ -205,8 +205,6 @@ footer, header, hgroup, menu, nav, section {
 #createcharacter.wallet-ready .wallet-gated {display:block;}
 
     #createcharacter .play {display:none;}
-    #createcharacter.wallet-ready .play {display:block;}
-    #createcharacter.wallet-ready #connect-wallet {display:none;}
     #createcharacter.wallet-ready form {margin-top:0;gap:6px;}
     #createcharacter.wallet-ready #walletaddress,
     #createcharacter.wallet-ready #nicknameinput {margin-top:6px !important;}
