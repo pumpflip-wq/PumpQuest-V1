@@ -3,17 +3,49 @@ var Pool = require('pg').Pool;
 var pool = null,
     initialized = false;
 
+function resolveDatabaseUrl() {
+    var raw = process.env.DATABASE_URL,
+        parsed;
+
+    if(!raw) {
+        return "";
+    }
+
+    if(Array.isArray(raw)) {
+        return (raw[0] || "").toString();
+    }
+
+    if(typeof raw !== 'string') {
+        return String(raw);
+    }
+
+    if(raw[0] === '[') {
+        try {
+            parsed = JSON.parse(raw);
+            if(Array.isArray(parsed) && parsed.length > 0) {
+                return String(parsed[0]);
+            }
+        } catch (e) {
+            // ignore and fallback to raw
+        }
+    }
+
+    return raw.trim();
+}
+
 function isEnabled() {
-    return !!process.env.DATABASE_URL;
+    return !!resolveDatabaseUrl();
 }
 
 function getPool() {
-    if(!isEnabled()) {
+    var databaseUrl = resolveDatabaseUrl();
+
+    if(!databaseUrl) {
         return null;
     }
     if(!pool) {
         pool = new Pool({
-            connectionString: process.env.DATABASE_URL,
+            connectionString: databaseUrl,
             ssl: process.env.PGSSL_DISABLE === 'true' ? false : { rejectUnauthorized: false }
         });
     }
