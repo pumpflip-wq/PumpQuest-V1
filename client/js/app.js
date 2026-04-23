@@ -41,19 +41,15 @@ define(['jquery', 'storage'], function($, Storage) {
             $('#footer-ca').text(this.project.contractAddress);
             
             // Set social links
-            $('#social-telegram').attr('href', this.project.telegram);
             $('#social-twitter').attr('href', this.project.twitter);
-            $('#footer-telegram').attr('href', this.project.telegram);
             $('#footer-twitter').attr('href', this.project.twitter);
             
             // About page links
-            $('#about-telegram').attr('href', this.project.telegram);
             $('#about-twitter').attr('href', this.project.twitter);
             
             // Token page (Credits)
             $('#token-name-credits').text(this.project.tokenName);
             $('#token-symbol-credits').text(this.project.tokenSymbol);
-            $('#token-telegram').attr('href', this.project.telegram);
             $('#token-twitter').attr('href', this.project.twitter);
             
             // Token exchange links — built dynamically from contractAddress
@@ -78,9 +74,6 @@ define(['jquery', 'storage'], function($, Storage) {
             
             // Update logo images from config
             if(this.project.logos) {
-                if(this.project.logos.telegram) {
-                    $('[id*="telegram"] img').attr('src', this.project.logos.telegram);
-                }
                 if(this.project.logos.twitter) {
                     $('[id*="twitter"] img').attr('src', this.project.logos.twitter);
                     $('#xshare img').attr('src', this.project.logos.twitter);

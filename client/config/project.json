@@ -6,7 +6,6 @@
   "contractAddress": "SOON_pump",
   "website": "https://yourproject.com",
   "twitter": "https://x.com/yourproject",
-  "telegram": "https://t.me/yourproject",
   "logo": "img/common/pumpquest-logo.png",
   "description": "Explore the PumpVerse, hunt legendary tokens, and become the ultimate Crypto Hunter.",
   "tagline": "Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter",
@@ -18,7 +17,6 @@
   },
 
   "social": {
-    "telegram": "https://t.me/yourproject",
     "twitter": "https://x.com/yourproject",
     "dexscreener": "https://dexscreener.com",
     "pumpfun": "https://pump.fun",
@@ -26,7 +24,6 @@
   },
 
   "logos": {
-    "telegram": "img/common/telegram-logo.png",
     "twitter": "img/common/x-logo.png",
     "dexscreener": "img/common/dexscreener-logo.png",
     "pumpfun": "img/common/pumpfun-logo.png",
@@ -214,8 +211,7 @@
 
   "sharing": {
     "scoreMessage": "I just scored {score} points hunting memecoins in PumpQuest! 🚀",
-    "twitterShareText": "Hunting legendary tokens in PumpQuest! 🚀 Join the PumpVerse",
-    "telegramShareText": "Hunting legendary tokens in PumpQuest! 🚀"
+    "twitterShareText": "Hunting legendary tokens in PumpQuest! 🚀 Join the PumpVerse"
   },
 
   "metadata": {

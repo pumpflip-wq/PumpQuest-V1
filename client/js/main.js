@@ -169,25 +169,10 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                return false;
             });
 
-            $('#tgshare').click(function() {
-                var text = encodeURIComponent('Check out PumpQuest - hunt legendary tokens in the PumpVerse! 🚀');
-                var url = 'https://t.me/share/url?url=https://pumpquest.com&text=' + text;
-               app.openPopup('telegram', url);
-               return false;
-            });
-
             $('.twitter').click(function() {
                 if($(this).attr('id') !== 'xshare') {
                     var url = $(this).attr('href');
                     app.openPopup('twitter', url);
-                }
-               return false;
-            });
-
-            $('.facebook').click(function() {
-                if($(this).attr('id') !== 'tgshare') {
-                    var url = $(this).attr('href');
-                    app.openPopup('facebook', url);
                 }
                return false;
             });
