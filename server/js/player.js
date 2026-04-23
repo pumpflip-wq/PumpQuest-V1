@@ -91,6 +91,16 @@ module.exports = Player = Character.extend({
                     DB.recordWalletSession(self.walletAddress, self.name, self.server.id).catch(function(err) {
                         log.error("Failed to persist wallet session: " + err.message);
                     });
+                    DB.getScoreByWallet(self.walletAddress).then(function(savedScore) {
+                        if(savedScore && (!self.score || savedScore > self.score)) {
+                            self.score = savedScore;
+                            if(self.server && self.server.broadcastLeaderboard) {
+                                self.server.broadcastLeaderboard();
+                            }
+                        }
+                    }).catch(function(err) {
+                        log.error("Failed to load wallet score: " + err.message);
+                    });
                 }
             }
             else if(action === Types.Messages.WHO) {
@@ -247,6 +257,11 @@ module.exports = Player = Character.extend({
                 var newScore = message[1];
                 if(typeof newScore === 'number' && newScore >= 0) {
                     self.score = newScore;
+                    if(self.walletAddress) {
+                        DB.upsertScore(self.walletAddress, self.name, newScore).catch(function(err) {
+                            log.error("Failed to persist score: " + err.message);
+                        });
+                    }
                     self.server.broadcastLeaderboard();
                 }
             }

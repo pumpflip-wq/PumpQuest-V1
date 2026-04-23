@@ -98,6 +98,7 @@ define(['jquery', 'storage'], function($, Storage) {
             
             this.updateMarketScore(this.storage.getMarketScore());
             this.renderLeaderboard();
+            this.fetchGlobalLeaderboard();
         },
 
         setGame: function(game) {
@@ -574,7 +575,20 @@ define(['jquery', 'storage'], function($, Storage) {
 
         toggleLeaderboard: function() {
             $('#leaderboard').toggleClass('active');
+            this.fetchGlobalLeaderboard();
             this.renderLeaderboard();
+        },
+
+        fetchGlobalLeaderboard: function() {
+            var self = this;
+            try {
+                $.getJSON('/api/leaderboard?limit=10', function(data) {
+                    if(data && data.players && data.players.length > 0) {
+                        self._serverLeaderboard = data.players;
+                        self.renderLeaderboard();
+                    }
+                });
+            } catch(e) {}
         },
 
         updateMarketScore: function(score) {

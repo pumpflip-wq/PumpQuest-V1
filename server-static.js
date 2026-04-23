@@ -23,6 +23,25 @@ app.set('trust proxy', 1);
 app.use(express.static(path.join(__dirname, 'client')));
 app.use('/shared', express.static(path.join(__dirname, 'shared')));
 
+// API: global leaderboard (top scores across all players)
+app.get('/api/leaderboard', async function(req, res) {
+    if(!DB.isEnabled()) {
+        return res.json({ players: [] });
+    }
+    try {
+        var limit = parseInt(req.query.limit, 10);
+        if(!limit || limit < 1) { limit = 10; }
+        var top = await DB.getTopScores(limit);
+        var players = (top || []).map(function(row) {
+            return { name: row.name, score: row.score };
+        });
+        res.json({ players: players });
+    } catch(err) {
+        console.error('API /api/leaderboard error:', err.message);
+        res.json({ players: [] });
+    }
+});
+
 // API: lookup saved player profile by wallet address
 app.get('/api/player', async function(req, res) {
     var wallet = (req.query.wallet || '').toString().trim();

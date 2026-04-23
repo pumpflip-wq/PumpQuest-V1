@@ -15,7 +15,8 @@ var cls = require("./lib/class"),
     Messages = require('./message'),
     Properties = require("./properties"),
     Utils = require("./utils"),
-    Types = require("../../shared/js/gametypes");
+    Types = require("../../shared/js/gametypes"),
+    DB = require("./db");
 
 // ======= GAME SERVER ========
 
@@ -456,18 +457,53 @@ module.exports = World = cls.Class.extend({
 
     broadcastLeaderboard: function() {
         var self = this;
-        var playerList = [];
-        this.forEachPlayer(function(player) {
-            if(player.hasEnteredGame && player.name) {
-                playerList.push({ name: player.name, score: player.score || 0 });
-            }
-        });
-        playerList = _.sortBy(playerList, function(p) { return -p.score; });
-        var msg = new Messages.Leaderboard(playerList);
-        // Send to all players (including newly joining ones whose queue already exists)
-        this.forEachPlayer(function(player) {
-            self.pushToPlayer(player, msg);
-        });
+
+        var buildLivePlayerList = function() {
+            var live = [];
+            self.forEachPlayer(function(player) {
+                if(player.hasEnteredGame && player.name) {
+                    live.push({ name: player.name, score: player.score || 0 });
+                }
+            });
+            return _.sortBy(live, function(p) { return -p.score; });
+        };
+
+        var sendList = function(list) {
+            var msg = new Messages.Leaderboard(list);
+            self.forEachPlayer(function(player) {
+                self.pushToPlayer(player, msg);
+            });
+        };
+
+        if(DB.isEnabled()) {
+            DB.getTopScores(10).then(function(top) {
+                if(top && top.length > 0) {
+                    // Merge live in-game scores so they always reflect the latest unsaved value
+                    var liveByWallet = {};
+                    self.forEachPlayer(function(player) {
+                        if(player.walletAddress && player.hasEnteredGame) {
+                            liveByWallet[player.walletAddress] = { name: player.name, score: player.score || 0 };
+                        }
+                    });
+                    var merged = top.map(function(row) {
+                        var live = row.wallet ? liveByWallet[row.wallet] : null;
+                        if(live && live.score > row.score) {
+                            return { name: live.name, score: live.score };
+                        }
+                        return { name: row.name, score: row.score };
+                    });
+                    merged = _.sortBy(merged, function(p) { return -p.score; });
+                    sendList(merged);
+                } else {
+                    sendList(buildLivePlayerList());
+                }
+            }).catch(function(err) {
+                log.error("Failed to load global leaderboard: " + err.message);
+                sendList(buildLivePlayerList());
+            });
+        } else {
+            sendList(buildLivePlayerList());
+        }
     },
     
     forEachMob: function(callback) {
