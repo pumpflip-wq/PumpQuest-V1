@@ -1,14 +1,14 @@
 {
-  "projectName": "PumpQuest",
-  "worldName": "PumpVerse",
+  "projectName": "PumpStory",
+  "worldName": "StoryVerse",
   "tokenName": "PumpToken",
   "tokenSymbol": "PUMP",
   "contractAddress": "SOON_pump",
   "website": "https://yourproject.com",
   "twitter": "https://x.com/yourproject",
   "logo": "img/common/pumpquest-logo.png",
-  "description": "Explore the PumpVerse, hunt legendary tokens, and become the ultimate Crypto Hunter.",
-  "tagline": "Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter",
+  "description": "Explore the StoryVerse, hunt legendary tokens, and become the ultimate Crypto Hunter.",
+  "tagline": "Explore the StoryVerse • Discover legendary tokens • Become the ultimate Crypto Hunter",
 
   "trading": {
     "dexscreener": "https://dexscreener.com",
@@ -32,9 +32,9 @@
 
   "gameSettings": {
     "playerTitle": "Crypto Hunter",
-    "gameTitle": "PumpQuest",
+    "gameTitle": "PumpStory",
     "worldDescription": "A vast digital universe where thousands of memecoins are born and forgotten every day. Some become legendary.",
-    "storyIntro": "Welcome to the PumpVerse. Hunt for legendary memecoins, defeat scam projects, and build your market score."
+    "storyIntro": "Welcome to the StoryVerse. Hunt for legendary memecoins, defeat scam projects, and build your market score."
   },
 
   "entities": {
@@ -175,7 +175,7 @@
     "tutorial": {
       "id": 1,
       "name": "First Steps",
-      "desc": "Enter the PumpVerse"
+      "desc": "Enter the StoryVerse"
     },
     "exploration": {
       "id": 2,
@@ -210,14 +210,14 @@
   },
 
   "sharing": {
-    "scoreMessage": "I just scored {score} points hunting memecoins in PumpQuest! 🚀",
-    "twitterShareText": "Hunting legendary tokens in PumpQuest! 🚀 Join the PumpVerse"
+    "scoreMessage": "I just scored {score} points hunting memecoins in PumpStory! 🚀",
+    "twitterShareText": "Hunting legendary tokens in PumpStory! 🚀 Join the StoryVerse"
   },
 
   "metadata": {
     "version": "1.0.0",
     "lastUpdated": "2026-03-10",
-    "description": "PumpQuest - A memecoin hunter adventure in the PumpVerse",
+    "description": "PumpStory - A memecoin hunter adventure in the StoryVerse",
     "keywords": "memecoin, crypto, game, blockchain, pump"
   }
 }

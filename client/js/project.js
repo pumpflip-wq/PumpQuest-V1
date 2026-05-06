@@ -7,7 +7,7 @@ define(['text!../config/project.json'], function(projectJson) {
         website: "https://yourproject.com",
         twitter: "https://x.com/yourproject",
         logo: "img/common/favicon.png",
-        description: "Explore the PumpVerse, hunt legendary tokens, and become the ultimate Crypto Hunter."
+        description: "Explore the StoryVerse, hunt legendary tokens, and become the ultimate Crypto Hunter."
     };
 
     try {

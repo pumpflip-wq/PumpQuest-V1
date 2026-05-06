@@ -11,7 +11,7 @@ define(['character'], function(Character) {
     
         "king": [
             "I'm the Whale King",
-            "I rule the PumpVerse",
+            "I rule the StoryVerse",
             "Much power",
             "I influence the markets",
             "Such control",
@@ -25,7 +25,7 @@ define(['character'], function(Character) {
     
         "villagegirl": [
             "WAGMI, Crypto Hunter!",
-            "How are you liking the PumpVerse?",
+            "How are you liking the StoryVerse?",
             "It's all running on a decentralized web page! Isn't it wild?",
             "It's made possible thanks to peer-to-peer connections.",
             "I'm just a digital entity trading memes and dreams.",
@@ -103,14 +103,14 @@ define(['character'], function(Character) {
     
         "priest": [
             "HODL, young Hunter.",
-            "PumpVerse wisdom is everything, so I'll share a few HODLing tips with you.",
-            "You are free to farm and explore the PumpVerse",
+            "StoryVerse wisdom is everything, so I'll share a few HODLing tips with you.",
+            "You are free to farm and explore the StoryVerse",
             "but beware of the many FUDsters and rug pullers that await you.",
             "You can find many dope weapons and armor by defeating enemies.",
             "The stronger the enemy, the better the loot you'll receive.",
             "You can also unlock achievements by exploring and grinding.",
             "Click on the moon icon to see a list of all the achievements.",
-            "Please stay a while and enjoy hunting legendary tokens in PumpQuest",
+            "Please stay a while and enjoy hunting legendary tokens in PumpStory",
             "To the moon, Hunter!"
         ],
         
@@ -122,20 +122,20 @@ define(['character'], function(Character) {
             "I feel you. It's easy to get FOMO.",
             "I actually farmed it myself, using my elite trading skills.",
             "But let me tell you something real...",
-            "There are tons of legendary tokens in the PumpVerse.",
+            "There are tons of legendary tokens in the StoryVerse.",
             "Some way more valuable than others.",
             "To find them, you gotta grind and explore.",
             "Get those fragments."
         ],
         
         "octocat": [
-            "Welcome to PumpQuest!",
+            "Welcome to PumpStory!",
             "Hunting for legendary tokens?",
-            "Keep grinding and exploring the PumpVerse to level up!"
+            "Keep grinding and exploring the StoryVerse to level up!"
         ],
         
         "coder": [
-            "Yo! You can play PumpQuest on any device with a browser!",
+            "Yo! You can play PumpStory on any device with a browser!",
             "That's the power of blockchain and web3!",
             "Keep hunting, Crypto Hunter!"
         ],

@@ -286,7 +286,7 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 requestWalletAuthProof = function(walletAddress) {
                     var provider = activeProvider,
                         nonce = Math.random().toString(36).slice(2) + String(new Date().getTime()),
-                        authMessage = 'PumpQuest Login\nWallet: ' + walletAddress + '\nNonce: ' + nonce,
+                        authMessage = 'PumpStory Login\nWallet: ' + walletAddress + '\nNonce: ' + nonce,
                         messageBytes = new TextEncoder().encode(authMessage);
 
                     if(!provider || !provider.signMessage) {

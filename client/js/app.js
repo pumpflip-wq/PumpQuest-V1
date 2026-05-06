@@ -28,7 +28,7 @@ define(['jquery', 'storage'], function($, Storage) {
             }
 
             $('#project-title').text(this.project.projectName);
-            $('#project-subtitle').text('Explore the PumpVerse • Discover legendary tokens • Become the ultimate Crypto Hunter');
+            $('#project-subtitle').text('Explore the StoryVerse • Discover legendary tokens • Become the ultimate Crypto Hunter');
             $('#about-project-name').text(this.project.projectName);
             $('#about-token-name').text(this.project.tokenName + ' (' + this.project.tokenSymbol + ')');
             $('#about-project-description').text(this.project.description);

@@ -78,7 +78,7 @@ function verifyWalletProof(walletAddress, authMessage, authSignatureBase64) {
         return false;
     }
 
-    if(authMessage.indexOf('PumpQuest Login') !== 0 || authMessage.indexOf('Wallet: ' + walletAddress) === -1) {
+    if(authMessage.indexOf('PumpStory Login') !== 0 || authMessage.indexOf('Wallet: ' + walletAddress) === -1) {
         return false;
     }
 
