@@ -61,4 +61,4 @@ run = ["bash", "-c", "node server/js/main.js & node server-static.js"]
 [userenv]
 
 [userenv.shared]
-DATABASE_URL = "postgresql://postgres:gjLjOlYCdXtSmGnhcLEtdbnBaqDJRJJk@shortline.proxy.rlwy.net:40618/railway"
+DATABASE_URL = "postgresql://postgres:yRwFosIbtWOivhJUGMffFDeaAfCnTZhv@zephyr.proxy.rlwy.net:10009/railway"

@@ -3,9 +3,9 @@
   "worldName": "StoryVerse",
   "tokenName": "PumpToken",
   "tokenSymbol": "PUMP",
-  "contractAddress": "SOON_pump",
+  "contractAddress": "77WPHjgLxDxuzDB8JnuBGVeVTq2pKJrEu89FxLiopump",
   "website": "https://yourproject.com",
-  "twitter": "https://x.com/yourproject",
+  "twitter": "https://x.com/PumpStory_fun",
   "logo": "img/common/pumpquest-logo.png",
   "description": "Explore the StoryVerse, hunt legendary tokens, and become the ultimate Crypto Hunter.",
   "tagline": "Explore the StoryVerse • Discover legendary tokens • Become the ultimate Crypto Hunter",
@@ -17,7 +17,7 @@
   },
 
   "social": {
-    "twitter": "https://x.com/yourproject",
+    "twitter": "https://x.com/PumpStory_fun",
     "dexscreener": "https://dexscreener.com",
     "pumpfun": "https://pump.fun",
     "jupiter": "https://jup.ag"
