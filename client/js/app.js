@@ -59,10 +59,10 @@ define(['jquery', 'storage'], function($, Storage) {
                 ? 'https://dexscreener.com/solana/' + ca
                 : (this.project.social && this.project.social.dexscreener ? this.project.social.dexscreener : 'https://dexscreener.com');
             var pumpfunUrl = isValidCA
-                ? 'https://pump.fun/' + ca
+                ? 'https://pump.fun/coin/' + ca
                 : (this.project.social && this.project.social.pumpfun ? this.project.social.pumpfun : 'https://pump.fun');
             var jupiterUrl = isValidCA
-                ? 'https://jup.ag/swap/SOL-' + ca
+                ? 'https://jup.ag/swap?sell=So11111111111111111111111111111111111111112&buy=' + ca
                 : (this.project.social && this.project.social.jupiter ? this.project.social.jupiter : 'https://jup.ag');
 
             $('#token-dexscreener').attr('href', dexscreenerUrl);
