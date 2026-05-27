@@ -130,6 +130,16 @@ define(['jquery', 'app', 'project'], function($, App, project) {
             $('#nicknameinput').bind("keyup", function() {
                 app.toggleButton();
             });
+
+            $('#nicknameinput').keypress(function(event) {
+                if(event.keyCode === 13) {
+                    var $name = $('#nicknameinput');
+                    startWithWalletAuth(function() {
+                        $name.blur();
+                    });
+                    return false;
+                }
+            });
     
             $('#previous').click(function() {
                 var $achievements = $('#achievements');
@@ -609,16 +619,6 @@ define(['jquery', 'app', 'project'], function($, App, project) {
                 }
             });
 
-            $('#nicknameinput').keypress(function(event) {
-                var $name = $('#nicknameinput');
-
-                if(event.keyCode === 13) {
-                    startWithWalletAuth(function() {
-                        $name.blur(); // exit keyboard on mobile
-                    });
-                    return false; // prevent form submit
-                }
-            });
             
             $('#mutebutton').click(function() {
                 game.audioManager.toggle();
