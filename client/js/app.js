@@ -54,7 +54,7 @@ define(['jquery', 'storage'], function($, Storage) {
             
             // Token exchange links — built dynamically from contractAddress
             var ca = this.project.contractAddress;
-            var isValidCA = ca && ca.indexOf('COMING_SOON') === -1 && ca.trim() !== '';
+            var isValidCA = ca && ca.toLowerCase().indexOf('coming') === -1 && ca.trim() !== '';
             var dexscreenerUrl = isValidCA
                 ? 'https://dexscreener.com/solana/' + ca
                 : (this.project.social && this.project.social.dexscreener ? this.project.social.dexscreener : 'https://dexscreener.com');
